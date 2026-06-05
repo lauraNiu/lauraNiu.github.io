@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luyao Niu | Peking University</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Playfair Display (Serif) & Inter (Sans-serif) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        pku: {
+                            50: '#fdf2f2',
+                            100: '#fde8e8',
+                            200: '#fbd5d5',
+                            300: '#f8b4b4',
+                            400: '#f98080',
+                            500: '#e02424',
+                            600: '#c81e1e',
+                            700: '#9b1c1c',
+                            800: '#7f1d1d', 
+                            900: '#800000', // Crimson PKU Red
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .typing-cursor::after {
+            content: '|';
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        /* Custom scrollbar for premium feel */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .dark ::-webkit-scrollbar-track {
+            background: rgba(15, 23, 42, 0.1);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #475569;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-sans transition-colors duration-300 antialiased selection:bg-pku-100 selection:text-pku-900 dark:selection:bg-pku-900/30 dark:selection:text-pku-100">
+
+    <!-- Floating Glassmorphic Navbar -->
+    <nav class="fixed top-4 left-4 right-4 md:left-8 md:right-8 lg:left-12 lg:right-12 z-50 bg-white/70 dark:bg-slate-900/70 backdrop-blur-md border border-slate-200/50 dark:border-slate-800/50 rounded-2xl shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-14">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#about" class="text-xl font-serif font-bold text-pku-900 dark:text-pku-300 tracking-wide flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-pku-900 dark:bg-pku-400 animate-pulse"></span>
+                        Luyao Niu
+                    </a>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="#about" class="nav-link text-sm font-medium hover:text-pku-900 dark:hover:text-pku-400 transition-colors">About</a>
+                    <a href="#research" class="nav-link text-sm font-medium hover:text-pku-900 dark:hover:text-pku-400 transition-colors">Research</a>
+                    <a href="#publications" class="nav-link text-sm font-medium hover:text-pku-900 dark:hover:text-pku-400 transition-colors">Publications</a>
+                    <a href="#experience" class="nav-link text-sm font-medium hover:text-pku-900 dark:hover:text-pku-400 transition-colors">Experience</a>
+                    <a href="#awards" class="nav-link text-sm font-medium hover:text-pku-900 dark:hover:text-pku-400 transition-colors">Awards</a>
+                </div>
+                <!-- Controls: Language & Theme -->
+                <div class="flex items-center space-x-3">
+                    <button onclick="toggleLanguage()" class="p-2 text-slate-500 hover:text-pku-900 dark:text-slate-400 dark:hover:text-pku-300 rounded-lg transition-colors cursor-pointer text-xs font-semibold uppercase tracking-wider border border-slate-200 dark:border-slate-800 px-2.5 py-1 bg-white/40 dark:bg-slate-800/40" title="Switch Language">
+                        <span id="lang-btn-text">中文</span>
+                    </button>
+                    <button id="theme-toggle" onclick="toggleTheme()" class="p-2 text-slate-500 hover:text-pku-900 dark:text-slate-400 dark:hover:text-pku-300 rounded-lg transition-colors cursor-pointer" title="Toggle Theme">
+                        <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
+                        <i data-lucide="sun" class="w-5 h-5 block dark:hidden"></i>
+                    </button>
+                    <!-- Mobile Menu Button -->
+                    <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-slate-500 dark:text-slate-400 hover:text-pku-900 dark:hover:text-pku-300 cursor-pointer">
+                        <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-4 pt-2 pb-4 space-y-2 border-t border-slate-100 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 rounded-b-2xl backdrop-blur-lg">
+            <a href="#about" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-pku-900 dark:hover:text-pku-300">About</a>
+            <a href="#research" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-pku-900 dark:hover:text-pku-300">Research</a>
+            <a href="#publications" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-pku-900 dark:hover:text-pku-300">Publications</a>
+            <a href="#experience" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-pku-900 dark:hover:text-pku-300">Experience</a>
+            <a href="#awards" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-pku-900 dark:hover:text-pku-300">Awards</a>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+            
+            <!-- Left Sidebar Profile (Fixed on Desktop) -->
+            <aside class="lg:col-span-4 lg:sticky lg:top-24 h-fit space-y-6">
+                <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 shadow-sm border border-slate-200/50 dark:border-slate-800/50 text-center lg:text-left transition-all hover:shadow-md relative overflow-hidden group">
+                    <!-- Crimson Accent Bar -->
+                    <div class="absolute top-0 left-0 right-0 h-2 bg-pku-900 dark:bg-pku-800"></div>
+                    
+                    <!-- Avatar Area -->
+                    <div class="relative w-40 h-40 mx-auto lg:mx-0 mb-6 mt-2 rounded-2xl overflow-hidden bg-gradient-to-tr from-pku-100 to-red-50 dark:from-slate-800 dark:to-pku-950 flex items-center justify-center border border-slate-200/60 dark:border-slate-800 group-hover:scale-[1.02] transition-transform duration-300">
+                        <!-- Highly sophisticated dynamic SVG placeholder as she doesn't have an image uploaded yet. It is fully customizable. -->
+                        <svg class="w-full h-full text-pku-900/20 dark:text-pku-500/20 absolute inset-0" fill="currentColor" viewBox="0 0 100 100">
+                            <defs>
+                                <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                                    <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" stroke-width="0.5"/>
+                                </pattern>
+                            </defs>
+                            <rect width="100%" height="100%" fill="url(#grid)" />
+                            <!-- Abstract smart city network nodes -->
+                            <circle cx="20" cy="30" r="2" fill="currentColor" />
+                            <circle cx="80" cy="20" r="3" fill="currentColor" />
+                            <circle cx="50" cy="50" r="2" fill="currentColor" />
+                            <circle cx="30" cy="70" r="3.5" fill="currentColor" />
+                            <circle cx="75" cy="75" r="2" fill="currentColor" />
+                            <line x1="20" y1="30" x2="50" y2="50" stroke="currentColor" stroke-width="0.5" stroke-dasharray="1 1" />
+                            <line x1="80" y1="20" x2="50" y2="50" stroke="currentColor" stroke-width="0.5" stroke-dasharray="1 1" />
+                            <line x1="30" y1="70" x2="50" y2="50" stroke="currentColor" stroke-width="0.5" stroke-dasharray="1 1" />
+                            <line x1="75" y1="75" x2="50" y2="50" stroke="currentColor" stroke-width="0.5" stroke-dasharray="1 1" />
+                        </svg>
+                        <div class="z-10 text-center select-none">
+                            <div class="text-4xl font-serif font-bold text-pku-900 dark:text-pku-400 tracking-wider">LN</div>
+                            <span class="text-[10px] uppercase font-semibold text-slate-500 tracking-widest mt-1 block">Smart City & AI</span>
+                        </div>
+                        
+                        <!-- Tip for user to replace image -->
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-3 text-center">
+                            <i data-lucide="camera" class="w-6 h-6 text-white mb-1"></i>
+                            <span class="text-xs text-white/90 font-medium">Replace with "avatar.jpg"</span>
+                        </div>
+                    </div>
+
+                    <h1 class="text-2xl font-serif font-bold tracking-tight text-slate-900 dark:text-white mb-1">
+                        Luyao Niu <span class="text-lg font-normal text-slate-500 font-sans block lg:inline lg:ml-1">牛璐瑶</span>
+                    </h1>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 font-medium mb-4 flex items-center justify-center lg:justify-start gap-1">
+                        <span>she/her</span> · <a href="mailto:luyao0160@stu.pku.edu.cn" class="hover:text-pku-900 dark:hover:text-pku-400 transition-colors">luyao0160@stu.pku.edu.cn</a>
+                    </p>
+
+                    <!-- Affiliations -->
+                    <div class="space-y-3 mb-6 border-t border-b border-slate-100 dark:border-slate-800 py-4 text-left">
+                        <div class="flex items-start gap-3">
+                            <div class="p-1 bg-pku-50 dark:bg-pku-950/40 text-pku-900 dark:text-pku-300 rounded-lg mt-0.5">
+                                <i data-lucide="graduation-cap" class="w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Affiliation</p>
+                                <p class="text-sm font-medium">Peking University (PKU)</p>
+                                <p class="text-xs text-slate-500">M.Sc. Student in Urban Planning</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="p-1 bg-blue-50 dark:bg-blue-950/40 text-blue-800 dark:text-blue-300 rounded-lg mt-0.5">
+                                <i data-lucide="briefcase" class="w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Research Collaboration</p>
+                                <p class="text-sm font-medium">Duke Kunshan University (DKU)</p>
+                                <p class="text-xs text-slate-500">Research Assistant, Data Science</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social / Academic Icons (Lucide/Simple Icons) -->
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-2.5">
+                        <a href="mailto:luyao0160@stu.pku.edu.cn" class="p-2 bg-slate-100 dark:bg-slate-800 hover:bg-pku-900 hover:text-white dark:hover:bg-pku-800 rounded-xl transition-all cursor-pointer" title="Email">
+                            <i data-lucide="mail" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://github.com/lauraNiu" target="_blank" rel="noopener noreferrer" class="p-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-900 hover:text-white dark:hover:bg-white dark:hover:text-black rounded-xl transition-all cursor-pointer" title="GitHub">
+                            <i data-lucide="github" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://scholar.google.com/" target="_blank" rel="noopener noreferrer" class="p-2 bg-slate-100 dark:bg-slate-800 hover:bg-blue-600 hover:text-white rounded-xl transition-all cursor-pointer" title="Google Scholar">
+                            <i data-lucide="book-open" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://arxiv.org/search/?query=Niu%2C+Luyao&searchtype=author" target="_blank" rel="noopener noreferrer" class="p-2 bg-slate-100 dark:bg-slate-800 hover:bg-amber-600 hover:text-white rounded-xl transition-all cursor-pointer" title="arXiv Profile">
+                            <span class="font-bold text-sm h-5 w-5 flex items-center justify-center leading-none tracking-tighter">aX</span>
+                        </a>
+                        <a href="https://luyao0160.owlstown.net/" target="_blank" rel="noopener noreferrer" class="p-2 bg-slate-100 dark:bg-slate-800 hover:bg-indigo-600 hover:text-white rounded-xl transition-all cursor-pointer" title="Legacy Website">
+                            <i data-lucide="globe" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Live Quick Updates -->
+                <div class="bg-white dark:bg-slate-900 rounded-3xl p-5 shadow-sm border border-slate-200/50 dark:border-slate-800/50">
+                    <h3 class="text-sm uppercase tracking-wider text-slate-400 font-bold mb-3 flex items-center gap-2">
+                        <i data-lucide="bell" class="w-4 h-4 text-pku-900 dark:text-pku-400"></i>
+                        Latest News
+                    </h3>
+                    <div class="space-y-4 max-h-[250px] overflow-y-auto pr-1">
+                        <div class="text-xs space-y-1 border-l-2 border-pku-900 dark:border-pku-700 pl-3">
+                            <span class="text-slate-400 font-mono">2025.12</span>
+                            <p class="font-medium text-slate-700 dark:text-slate-300">
+                                Paper <span class="font-semibold text-pku-900 dark:text-pku-400">AskNearby</span> accepted as <span class="italic">Oral Presentation</span> at ACM SIGSPATIAL GeoAI'25!
+                            </p>
+                        </div>
+                        <div class="text-xs space-y-1 border-l-2 border-slate-200 dark:border-slate-800 pl-3">
+                            <span class="text-slate-400 font-mono">2025.11</span>
+                            <p class="text-slate-600 dark:text-slate-400">
+                                Released preprints <span class="italic font-medium text-slate-700 dark:text-slate-300">Event-CausNet</span> and <span class="italic font-medium text-slate-700 dark:text-slate-300">ST-ProC</span> on arXiv. Comments welcome!
+                            </p>
+                        </div>
+                        <div class="text-xs space-y-1 border-l-2 border-slate-200 dark:border-slate-800 pl-3">
+                            <span class="text-slate-400 font-mono">2025.01</span>
+                            <p class="text-slate-600 dark:text-slate-400">
+                                Joined Data Science Department at <span class="font-medium text-slate-700 dark:text-slate-300">Duke Kunshan University</span> as Research Assistant.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Content Area (Scrollable) -->
+            <main class="lg:col-span-8 space-y-12">
+                
+                <!-- Section 1: About / Intro -->
+                <section id="about" class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200/50 dark:border-slate-800/50 transition-all hover:shadow-md">
+                    <h2 class="text-3xl font-serif font-bold text-slate-900 dark:text-white mb-4">
+                        About Me
+                    </h2>
+                    <div class="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed text-[15px]">
+                        <!-- Dynamic intro that changes dynamically depending on translation -->
+                        <p id="bio-p1">
+                            I am a Master's student in Urban Planning (Smart City & Big Data program) at <span class="font-semibold text-pku-900 dark:text-pku-400">Peking University</span>, and currently work as a Research Assistant in the Data Science Department at <span class="font-semibold text-slate-900 dark:text-slate-100">Duke Kunshan University</span>. I completed my Bachelor's degree at <span class="font-medium">Beijing Jiaotong University</span> (Major in Traffic Engineering; Minor in Finance) graduating as a Beijing Outstanding Graduate.
+                        </p>
+                        <p id="bio-p2">
+                            My research lies at the intersection of <strong class="text-slate-900 dark:text-slate-100">Urban Spatiotemporal Big Data</strong> and <strong class="text-slate-900 dark:text-slate-100">Artificial Intelligence (Geo-AI)</strong>. I am highly passionate about harnessing advanced methodologies—such as **Large Language Models (LLMs), Graph Neural Networks (GNNs), Causal Inference**, and **Mathematical Optimization**—to design accessible, sustainable, and reliable smart transport systems and cognitive neighborhoods.
+                        </p>
+                        
+                        <!-- Real-time Interactive Terminal Typing animation -->
+                        <div class="bg-slate-900 dark:bg-black rounded-xl p-4 font-mono text-xs text-emerald-400/90 shadow-inner flex items-center gap-2 mt-6">
+                            <span class="text-slate-500 shrink-0">research_interests ~ %</span>
+                            <span id="typing-element" class="typing-cursor font-medium"></span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 2: Research Pillars -->
+                <section id="research" class="space-y-6">
+                    <h2 class="text-2xl font-serif font-bold text-slate-900 dark:text-white flex items-center gap-2.5">
+                        <i data-lucide="cpu" class="text-pku-900 dark:text-pku-400"></i>
+                        Research Focus Areas
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- Card 1 -->
+                        <div class="bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200/50 dark:border-slate-800/50 hover:border-pku-900/30 dark:hover:border-pku-400/30 transition-all shadow-sm flex items-start gap-4 group">
+                            <div class="p-3 bg-red-50 dark:bg-pku-950/30 text-pku-900 dark:text-pku-300 rounded-xl group-hover:scale-105 transition-transform">
+                                <i data-lucide="navigation-2" class="w-6 h-6"></i>
+                            </div>
+                            <div class="space-y-1">
+                                <h3 class="font-semibold text-slate-950 dark:text-white" id="focus1-title">Smart Mobility & Autonomous Vehicles</h3>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 leading-normal" id="focus1-desc">Integrating Shared Autonomous Vehicles (SAVs) with traditional public transit, balancing system-wide travel efficiency with personalized user equilibrium routing.</p>
+                            </div>
+                        </div>
+                        <!-- Card 2 -->
+                        <div class="bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200/50 dark:border-slate-800/50 hover:border-pku-900/30 dark:hover:border-pku-400/30 transition-all shadow-sm flex items-start gap-4 group">
+                            <div class="p-3 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-800 dark:text-emerald-300 rounded-xl group-hover:scale-105 transition-transform">
+                                <i data-lucide="activity" class="w-6 h-6"></i>
+                            </div>
+                            <div class="space-y-1">
+                                <h3 class="font-semibold text-slate-950 dark:text-white" id="focus2-title">Spatiotemporal Big Data Mining</h3>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 leading-normal" id="focus2-desc">Developing Graph Neural Networks (GNNs), dual-stream BiLSTMs, and robust semi-supervised frameworks (such as ST-ProC) for traffic state prediction and trajectory classification.</p>
+                            </div>
+                        </div>
+                        <!-- Card 3 -->
+                        <div class="bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200/50 dark:border-slate-800/50 hover:border-pku-900/30 dark:hover:border-pku-400/30 transition-all shadow-sm flex items-start gap-4 group">
+                            <div class="p-3 bg-blue-50 dark:bg-blue-950/30 text-blue-700 dark:text-blue-300 rounded-xl group-hover:scale-105 transition-transform">
+                                <i data-lucide="message-square-code" class="w-6 h-6"></i>
+                            </div>
+                            <div class="space-y-1">
+                                <h3 class="font-semibold text-slate-950 dark:text-white" id="focus3-title">Large Language Models (Geo-AI)</h3>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 leading-normal" id="focus3-desc">Leveraging LLMs for structured causal text extraction and building RAG pipelines (such as AskNearby) that model spatial familiarity & cognitive maps.</p>
+                            </div>
+                        </div>
+                        <!-- Card 4 -->
+                        <div class="bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200/50 dark:border-slate-800/50 hover:border-pku-900/30 dark:hover:border-pku-400/30 transition-all shadow-sm flex items-start gap-4 group">
+                            <div class="p-3 bg-amber-50 dark:bg-amber-950/30 text-amber-800 dark:text-amber-300 rounded-xl group-hover:scale-105 transition-transform">
+                                <i data-lucide="shuffle" class="w-6 h-6"></i>
+                            </div>
+                            <div class="space-y-1">
+                                <h3 class="font-semibold text-slate-950 dark:text-white" id="focus4-title">Causal Inference & Policy Analysis</h3>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 leading-normal" id="focus4-desc">Applying quasi-experiments, Difference-in-Differences (DID), and Interrupted Time Series models on signaling data to quantify post-adoption EV shifts and spatial sentiment policy impacts.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 3: Publications -->
+                <section id="publications" class="space-y-6">
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                        <h2 class="text-2xl font-serif font-bold text-slate-900 dark:text-white flex items-center gap-2.5">
+                            <i data-lucide="library" class="text-pku-900 dark:text-pku-400"></i>
+                            Publications
+                        </h2>
+                        <!-- Category Filter Tabs -->
+                        <div class="flex flex-wrap gap-1 bg-slate-100 dark:bg-slate-800/80 p-1 rounded-xl w-fit">
+                            <button onclick="filterPubs('all')" id="tab-all" class="pub-tab px-3 py-1.5 rounded-lg text-xs font-semibold cursor-pointer bg-white dark:bg-slate-900 text-pku-900 dark:text-white shadow-sm transition-all">All</button>
+                            <button onclick="filterPubs('journal')" id="tab-journal" class="pub-tab px-3 py-1.5 rounded-lg text-xs font-semibold cursor-pointer text-slate-500 hover:text-slate-800 dark:hover:text-white transition-all">Journals</button>
+                            <button onclick="filterPubs('conference')" id="tab-conference" class="pub-tab px-3 py-1.5 rounded-lg text-xs font-semibold cursor-pointer text-slate-500 hover:text-slate-800 dark:hover:text-white transition-all">Conferences</button>
+                            <button onclick="filterPubs('preprint')" id="tab-preprint" class="pub-tab px-3 py-1.5 rounded-lg text-xs font-semibold cursor-pointer text-slate-500 hover:text-slate-800 dark:hover:text-white transition-all">Preprints & Under Review</button>
+                        </div>
+                    </div>
+
+                    <!-- Publications List Container -->
+                    <div class="space-y-4" id="publications-list">
+                        
+                        <!-- Pub 1: Journal (TR Part C) -->
+                        <div class="pub-item bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200/50 dark:border-slate-800/50 hover:shadow-md transition-all space-y-3" data-category="journal">
+                            <div class="flex items-start justify-between gap-4">
+                                <span class="px-2 py-1 bg-red-50 dark:bg-pku-950/50 text-pku-900 dark:text-pku-300 font-mono text-[10px] uppercase font-bold rounded-md tracking-wider border border-pku-100 dark:border-pku-900/30">Journal</span>
+                                <span class="text-xs font-mono text-slate-400">2024</span>
+                            </div>
+                            <h3 class="text-base font-semibold leading-snug text-slate-950 dark:text-white font-serif">Joint Design of Public Transit and Autonomous Vehicle Mobility Systems for Tourist Cities Considering Abnormal Trips</h3>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                                Shi, Z., Luo, S., <strong class="text-slate-900 dark:text-slate-100 font-semibold underline decoration-pku-900 dark:decoration-pku-400">Niu, L.</strong>, Shao, C.
+                            </p>
+                            <p class="text-xs text-slate-400 italic">
+                                Transportation Research Part C: Emerging Technologies
+                            </p>
+                            <!-- Expandable Abstract & Code / Citation Options -->
+                            <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-100 dark:border-slate-800/60">
+                                <button onclick="toggleAbstract('abs-trc')" class="flex items-center gap-1 text-[11px] font-semibold text-slate-500 hover:text-pku-900 dark:hover:text-pku-400 cursor-pointer transition-colors">
+                                    <i data-lucide="align-left" class="w-3.5 h-3.5"></i> Abstract
+                                </button>
+                                <a href="https://doi.org/10.1016/j.trc.2025.105179" target="_blank" rel="noopener" class="flex items-center gap-1 text-[11px] font-semibold text-slate-500 hover:text-pku-900 dark:hover:text-pku-400 transition-colors">
+                                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i> DOI
+                                </a>
+                                <button onclick="toggleBibtex('bib-trc')" class="flex items-center gap-1 text-[11px] font-semibold text-slate-500 hover:text-pku-900 dark:hover:text-pku-400 cursor-pointer transition-colors">
+                                    <i data-lucide="quote" class="w-3.5 h-3.5"></i> Cite
+                                </button>
+                            </div>
+                            <!-- Abstract Collapse Panel -->
+                            <div id="abs-trc" class="hidden text-xs text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-950 rounded-xl p-4 border border-slate-100 dark:border-slate-800 leading-relaxed transition-all">
+                                <strong>Key Contribution:</strong> Formulated an integrated Shared Autonomous Vehicles (SAV)-transit design problem accommodating heterogeneous demand types (normal trips with carpooling and private tour trips requiring privacy), balancing system efficiency and accessibility in tourist city contexts. Used continuum approximation and network queuing theory to derive flow equilibrium equations, minimizing total agency and user costs to find optimal SAV fleet size and FRT networks. Completed a 15-25% cost reduction.
+                            </div>
+                            <!-- Bibtex Copyable Box -->
+                            <div id="bib-trc" class="hidden text-xs font-mono text-slate-500 bg-slate-50 dark:bg-slate-950 rounded-xl p-4 border border-slate-100 dark:border-slate-800 leading-relaxed transition-all relative">
+                                <button onclick="copyToClipboard('bib-trc-code')" class="absolute top-2 right-2 p-1.5 bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-md border border-slate-200 dark:border-slate-800 cursor-pointer transition-all" title="Copy to Clipboard">
+                                    <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                                </button>
+                                <pre id="bib-trc-code" class="overflow-x-auto select-all pr-12">@article{shi2024joint,
+  title={Joint Design of Public Transit and Autonomous Vehicle Mobility Systems for Tourist Cities Considering Abnormal Trips},
+  author={Shi, Z. and Luo, S. and Niu, L. and Shao, C.},
+  journal={Transportation Research Part C: Emerging Technologies},
+  volume={171},
+  pages={105179},
+  year={2024},
+  publisher={Elsevier},
+  doi={10.1016/j.trc.2025.105179}
+}</pre>
+                            </div>
+                        </div>
+
+                        <!-- Pub 2: Conference (GeoAI '25) -->
+                        <div class="pub-item bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200/50 dark:border-slate-800/50 hover:shadow-md transition-all space-y-3" data-category="conference">
+                            <div class="flex items-start justify-between gap-4">
+                                <span class="px-2 py-1 bg-blue-50 dark:bg-blue-950/50 text-blue-700 dark:text-blue-300 font-mono text-[10px] uppercase font-bold rounded-md tracking-wider border border-blue-100 dark:border-blue-900/30">Conference Oral</span>
+                                <span class="text-xs font-mono text-slate-400">2025</span>
+                            </div>
+                            <h3 class="text-base font-semibold leading-snug text-slate-950 dark:text-white font-serif">AskNearby: An LLM-based Application for Neighborhood Information Retrieval and Personalized Cognitive-map Recommendations</h3>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                                <strong class="text-slate-900 dark:text-slate-100 font-semibold underline decoration-pku-900 dark:decoration-pku-400">Niu, L.</strong>, Deng, Z., Li, B., Huang, N., Liu, R., Zhang, W.
+                            </p>
+                            <p class="text-xs text-slate-400 italic">
+                                ACM SIGSPATIAL GeoAI '25, Oral Presentation
+                            </p>
+                            <!-- Expandable Abstract & Code / Citation Options -->
+                            <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-100 dark:border-slate-800/60">
+                                <button onclick="toggleAbstract('abs-geoai')" class="flex items-center gap-1 text-[11px] font-semibold text-slate-500 hover:text-pku-900 dark:hover:text-pku-400 cursor-pointer transition-colors">
+                                    <i data-lucide="align-left" class="w-3.5 h-3.5"></i> Abstract
+                                </button>
+                                <a href="https://arxiv.org/abs/2512.02502" target="_blank" rel="noopener" class="flex items-center gap-1 text-[11px] font-semibold text-slate-500 hover:text-pku-900 dark:hover:text-pku-400 transition-colors">
+                                    <i data-lucide="file-text" class="w-3.5 h-3.5"></i> arXiv
+                                </a>
+                                <button onclick="toggleBibtex('bib-geoai')" class="flex items-center gap-1 text-[11px] font-semibold text-slate-500 hover:text-pku-900 dark:hover:text-pku-400 cursor-pointer transition-colors">
+                                    <i data-lucide="quote" class="w-3.5 h-3.5"></i> Cite
+                                </button>
+                            </div>
+                            <!-- Abstract Collapse Panel -->
+                            <div id="abs-geoai" class="hidden text-xs text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-950 rounded-xl p-4 border border-slate-100 dark:border-slate-800 leading-relaxed transition-all">
+                                <strong>Key Contribution:</strong> Addressed the Local Life Information Accessibility gap in 15-minute cities. Developed AskNearby, integrating a three-layer RAG pipeline (graph-based, semantic-vector, and geographic retrieval) with a cognitive-map model encoding neighborhood familiarity and preferences. Showed major improvements in real-world deployment.
+                            </div>
+                            <!-- Bibtex Copyable Box -->
+                            <div id="bib-geoai" class="hidden text-xs font-mono text-slate-500 bg-slate-50 dark:bg-slate-950 rounded-xl p-4 border border-slate-100 dark:border-slate-800 leading-relaxed transition-all relative">
+                                <button onclick="copyToClipboard('bib-geoai-code')" class="absolute top-2 right-2 p-1.5 bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-md border border-slate-200 dark:border-slate-800 cursor-pointer transition-all" title="Copy to Clipboard">
+                                    <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                                </button>
+                                <pre id="bib-geoai-code" class="overflow-x-auto select-all pr-12">@inproceedings{niu2025asknearby,
+  title={AskNearby: An LLM-based Application for Neighborhood Information Retrieval and Personalized Cognitive-map Recommendations},
+  author={Niu, Luyao and Deng, Z. and Li, B. and Huang, N. and Liu, R. and Zhang, W.},
+  booktitle={ACM SIGSPATIAL GeoAI},
+  year={2025},
+  organization={ACM},
+  doi={10.48550/arXiv.2512.02502}
+}</pre>
+                            </div>
+                        </div>
+
+                        <!-- Pub 3: Preprint (Event-CausNet) -->
+                        <div class="pub-item bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200/50 dark:border-slate-800/50 hover:shadow-md transition-all space-y-3" data-category="preprint">
+                            <div class="flex items-start justify-between gap-4">
+                                <span class="px-2 py-1 bg-amber-50 dark:bg-amber-950/50 text-amber-800 dark:text-amber-300 font-mono text-[10px] uppercase font-bold rounded-md tracking-wider border border-amber-100 dark:border-amber-900/30">Under Review</span>
+                                <span class="text-xs font-mono text-slate-400">2025</span>
+                            </div>
+                            <h3 class="text-base font-semibold leading-snug text-slate-950 dark:text-white font-serif">Event-CausNet: Unlocking Causal Knowledge from Text with Large Language Models for Reliable Spatio-Temporal Forecasting</h3>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                                <strong class="text-slate-900 dark:text-slate-100 font-semibold underline decoration-pku-900 dark:decoration-pku-400">Niu, L.</strong>, Wang, Z., Guan, S., Sun, P.
+                            </p>
+                            <p class="text-xs text-slate-400 italic">
+                                Under Review at IEEE Intelligent Vehicles Symposium (IEEE IV 2026)
+                            </p>
+                            <!-- Expandable Abstract & Code / Citation Options -->
+                            <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-100 dark:border-slate-800/60">
+                                <button onclick="toggleAbstract('abs-causnet')" class="flex items-center gap-1 text-[11px] font-semibold text-slate-500 hover:text-pku-900 dark:hover:text-pku-400 cursor-pointer transition-colors">
+                                    <i data-lucide="align-left" class="w-3.5 h-3.5"></i> Abstract
+                                </button>
+                                <a href="https://arxiv.org/abs/2511.12769" target="_blank" rel="noopener" class="flex items-center gap-1 text-[11px] font-semibold text-slate-500 hover:text-pku-900 dark:hover:text-pku-400 transition-colors">
+                                    <i data-lucide="file-text" class="w-3.5 h-3.5"></i> arXiv
+                                </a>
+                                <button onclick="toggleBibtex('bib-causnet')" class="flex items-center gap-1 text-[11px] font-semibold text-slate-500 hover:text-pku-900 dark:hover:text-pku-400 cursor-pointer transition-colors">
+                                    <i data-lucide="quote" class="w-3.5 h-3.5"></i> Cite
+                                </button>
+                            </div>
+                            <!-- Abstract Collapse Panel -->
+                            <div id="abs-causnet" class="hidden text-xs text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-950 rounded-xl p-4 border border-slate-100 dark:border-slate-800 leading-relaxed transition-all">
+                                <strong>Key Contribution:</strong> Overcomes limits of spatio-temporal GNNs during non-recurring anomalies (accidents, work zones) by building a causal inference framework using LLMs to extract causal knowledge. Integrates a Causal Knowledge Base with GNN-LSTM via causal attention to adjust forecasts based on causal factors. Achieved 35.87% reduction in MAE.
+                            </div>
+                            <!-- Bibtex Copyable Box -->
+                            <div id="bib-causnet" class="hidden text-xs font-mono text-slate-500 bg-slate-50 dark:bg-slate-950 rounded-xl p-4 border border-slate-100 dark:border-slate-800 leading-relaxed transition-all relative">
+                                <button onclick="copyToClipboard('bib-causnet-code')" class="absolute top-2 right-2 p-1.5 bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-md border border-slate-200 dark:border-slate-800 cursor-pointer transition-all" title="Copy to Clipboard">
+                                    <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                                </button>
+                                <pre id="bib-causnet-code" class="overflow-x-auto select-all pr-12">@article{niu2025eventcausnet,
+  title={Event-CausNet: Unlocking Causal Knowledge from Text with Large Language Models for Reliable Spatio-Temporal Forecasting},
+  author={Niu, Luyao and Wang, Z. and Guan, S. and Sun, P.},
+  journal={arXiv preprint arXiv:2511.12769},
+  year={2025}
+}</pre>
+                            </div>
+                        </div>
+
+                        <!-- Pub 4: Conference (GLOBECOM '25) -->
+                        <div class="pub-item bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200/50 dark:border-slate-800/50 hover:shadow-md transition-all space-y-3" data-category="conference">
+                            <div class="flex items-start justify-between gap-4">
+                                <span class="px-2 py-1 bg-blue-50 dark:bg-blue-950/50 text-blue-700 dark:text-blue-300 font-mono text-[10px] uppercase font-bold rounded-md tracking-wider border border-blue-100 dark:border-blue-900/30">Conference Oral</span>
+                                <span class="text-xs font-mono text-slate-400">2025</span>
+                            </div>
+                            <h3 class="text-base font-semibold leading-snug text-slate-950 dark:text-white font-serif">MF-AttnBiLSTM: Traffic Flow Prediction via Hybrid Signal Decomposition and Dual-Stream Temporal Attention Learning</h3>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                                <strong class="text-slate-900 dark:text-slate-100 font-semibold underline decoration-pku-900 dark:decoration-pku-400">Niu, L.</strong>, Wang, Z., Liu, J., Boukerche, A., Sun, P.
+                            </p>
+                            <p class="text-xs text-slate-400 italic">
+                                IEEE GLOBECOM 2025, Oral Presentation
+                            </p>
+                            <!-- Expandable Abstract & Code / Citation Options -->
+                            <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-100 dark:border-slate-800/60">
+                                <button onclick="toggleAbstract('abs-globecom')" class="flex items-center gap-1 text-[11px] font-semibold text-slate-500 hover:text-pku-900 dark:hover:text-pku-400 cursor-pointer transition-colors">
+                                    <i data-lucide="align-left" class="w-3.5 h-3.5"></i> Abstract
+                                </button>
+                                <button onclick="toggleBibtex('bib-globecom')" class="flex items-center gap-1 text-[11px] font-semibold text-slate-500 hover:text-pku-900 dark:hover:text-pku-400 cursor-pointer transition-colors">
+                                    <i data-lucide="quote" class="w-3.5 h-3.5"></i> Cite
+                                </button>
+                            </div>
+                            <!-- Abstract Collapse Panel -->
+                            <div id="abs-globecom" class="hidden text-xs text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-950 rounded-xl p-4 border border-slate-100 dark:border-slate-800 leading-relaxed transition-all">
+                                <strong>Key Contribution:</strong> Disentangled trend, seasonal, and noise components in traffic data using discrete Fourier transforms and moving averages. Designed a dual-stream BiLSTM with multi-head self-attention to independently model temporal dynamics, achieving state-of-the-art performance on PeMS benchmark datasets.
+                            </div>
+                            <!-- Bibtex Copyable Box -->
+                            <div id="bib-globecom" class="hidden text-xs font-mono text-slate-500 bg-slate-50 dark:bg-slate-950 rounded-xl p-4 border border-slate-100 dark:border-slate-800 leading-relaxed transition-all relative">
+                                <button onclick="copyToClipboard('bib-globecom-code')" class="absolute top-2 right-2 p-1.5 bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-md border border-slate-200 dark:border-slate-800 cursor-pointer transition-all" title="Copy to Clipboard">
+                                    <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                                </button>
+                                <pre id="bib-globecom-code" class="overflow-x-auto select-all pr-12">@inproceedings{niu2025mf,
+  title={MF-AttnBiLSTM: Traffic Flow Prediction via Hybrid Signal Decomposition and Dual-Stream Temporal Attention Learning},
+  author={Niu, Luyao and Wang, Z. and Liu, J. and Boukerche, A. and Sun, P.},
+  booktitle={IEEE Global Communications Conference (GLOBECOM)},
+  year={2025},
+  organization={IEEE}
+}</pre>
+                            </div>
+                        </div>
+
+                        <!-- Pub 5: Preprint (ST-ProC) -->
+                        <div class="pub-item bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200/50 dark:border-slate-800/50 hover:shadow-md transition-all space-y-3" data-category="preprint">
+                            <div class="flex items-start justify-between gap-4">
+                                <span class="px-2 py-1 bg-amber-50 dark:bg-amber-950/50 text-amber-800 dark:text-amber-300 font-mono text-[10px] uppercase font-bold rounded-md tracking-wider border border-amber-100 dark:border-amber-900/30">Under Review</span>
+                                <span class="text-xs font-mono text-slate-400">2025</span>
+                            </div>
+                            <h3 class="text-base font-semibold leading-snug text-slate-950 dark:text-white font-serif">ST-ProC: A Graph-Prototypical Framework for Robust Semi-Supervised Travel Mode Identification</h3>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                                <strong class="text-slate-900 dark:text-slate-100 font-semibold underline decoration-pku-900 dark:decoration-pku-400">Niu, L.</strong>, Huang, N.
+                            </p>
+                            <p class="text-xs text-slate-400 italic">
+                                Under Review at The Web Conference (WWW '26)
+                            </p>
+                            <!-- Expandable Abstract & Code / Citation Options -->
+                            <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-100 dark:border-slate-800/60">
+                                <button onclick="toggleAbstract('abs-stproc')" class="flex items-center gap-1 text-[11px] font-semibold text-slate-500 hover:text-pku-900 dark:hover:text-pku-400 cursor-pointer transition-colors">
+                                    <i data-lucide="align-left" class="w-3.5 h-3.5"></i> Abstract
+                                </button>
+                                <a href="https://arxiv.org/abs/2511.13702" target="_blank" rel="noopener" class="flex items-center gap-1 text-[11px] font-semibold text-slate-500 hover:text-pku-900 dark:hover:text-pku-400 transition-colors">
+                                    <i data-lucide="file-text" class="w-3.5 h-3.5"></i> arXiv
+                                </a>
+                                <button onclick="toggleBibtex('bib-stproc')" class="flex items-center gap-1 text-[11px] font-semibold text-slate-500 hover:text-pku-900 dark:hover:text-pku-400 cursor-pointer transition-colors">
+                                    <i data-lucide="quote" class="w-3.5 h-3.5"></i> Cite
+                                </button>
+                            </div>
+                            <!-- Abstract Collapse Panel -->
+                            <div id="abs-stproc" class="hidden text-xs text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-950 rounded-xl p-4 border border-slate-100 dark:border-slate-800 leading-relaxed transition-all">
+                                <strong>Key Contribution:</strong> Tackled sparse labels (5% regime) in travel mode classification from GPS trajectories. Integrates graph regularization, prototypical anchoring, and margin-aware pseudo-labeling to reject label noise. Boosted performance by 21.5% on the GeoLife benchmark.
+                            </div>
+                            <!-- Bibtex Copyable Box -->
+                            <div id="bib-stproc" class="hidden text-xs font-mono text-slate-500 bg-slate-50 dark:bg-slate-950 rounded-xl p-4 border border-slate-100 dark:border-slate-800 leading-relaxed transition-all relative">
+                                <button onclick="copyToClipboard('bib-stproc-code')" class="absolute top-2 right-2 p-1.5 bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-md border border-slate-200 dark:border-slate-800 cursor-pointer transition-all" title="Copy to Clipboard">
+                                    <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                                </button>
+                                <pre id="bib-stproc-code" class="overflow-x-auto select-all pr-12">@article{niu2025stproc,
+  title={ST-ProC: A Graph-Prototypical Framework for Robust Semi-Supervised Travel Mode Identification},
+  author={Niu, Luyao and Huang, N.},
+  journal={arXiv preprint arXiv:2511.13702},
+  year={2025}
+}</pre>
+                            </div>
+                        </div>
+
+                        <!-- Pub 6: Journal / Preprint (Cross-lingual Spatial Identity) -->
+                        <div class="pub-item bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200/50 dark:border-slate-800/50 hover:shadow-md transition-all space-y-3" data-category="journal">
+                            <div class="flex items-start justify-between gap-4">
+                                <span class="px-2 py-1 bg-red-50 dark:bg-pku-950/50 text-pku-900 dark:text-pku-300 font-mono text-[10px] uppercase font-bold rounded-md tracking-wider border border-pku-100 dark:border-pku-900/30">Journal Review</span>
+                                <span class="text-xs font-mono text-slate-400">2025</span>
+                            </div>
+                            <h3 class="text-base font-semibold leading-snug text-slate-950 dark:text-white font-serif">A Cross-Lingual Framework driven by Large Language Models for Spatial Identity Sensing from Social Media</h3>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                                <strong class="text-slate-900 dark:text-slate-100 font-semibold underline decoration-pku-900 dark:decoration-pku-400">Niu, L.</strong>, Wang, Y., He, S., Zhang, W.
+                            </p>
+                            <p class="text-xs text-slate-400 italic">
+                                Under Review at Applied Geography (Presented orally at EUGEO 2025)
+                            </p>
+                            <!-- Expandable Abstract & Code / Citation Options -->
+                            <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-100 dark:border-slate-800/60">
+                                <button onclick="toggleAbstract('abs-spatial')" class="flex items-center gap-1 text-[11px] font-semibold text-slate-500 hover:text-pku-900 dark:hover:text-pku-400 cursor-pointer transition-colors">
+                                    <i data-lucide="align-left" class="w-3.5 h-3.5"></i> Abstract
+                                </button>
+                                <button onclick="toggleBibtex('bib-spatial')" class="flex items-center gap-1 text-[11px] font-semibold text-slate-500 hover:text-pku-900 dark:hover:text-pku-400 cursor-pointer transition-colors">
+                                    <i data-lucide="quote" class="w-3.5 h-3.5"></i> Cite
+                                </button>
+                            </div>
+                            <!-- Abstract Collapse Panel -->
+                            <div id="abs-spatial" class="hidden text-xs text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-950 rounded-xl p-4 border border-slate-100 dark:border-slate-800 leading-relaxed transition-all">
+                                <strong>Key Contribution:</strong> Developed a computational framework leveraging LLMs to extract and quantify spatial identity dimensions (satisfaction, imagery, belonging) from 5+ years of cross-platform social media data in the Shenzhen-Hong Kong corridor. Integrated with Interrupted Time Series modeling to causally evaluate regional integration policies.
+                            </div>
+                            <!-- Bibtex Copyable Box -->
+                            <div id="bib-spatial" class="hidden text-xs font-mono text-slate-500 bg-slate-50 dark:bg-slate-950 rounded-xl p-4 border border-slate-100 dark:border-slate-800 leading-relaxed transition-all relative">
+                                <button onclick="copyToClipboard('bib-spatial-code')" class="absolute top-2 right-2 p-1.5 bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-md border border-slate-200 dark:border-slate-800 cursor-pointer transition-all" title="Copy to Clipboard">
+                                    <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                                </button>
+                                <pre id="bib-spatial-code" class="overflow-x-auto select-all pr-12">@article{niu2025spatial,
+  title={A Cross-Lingual Framework driven by Large Language Models for Spatial Identity Sensing from Social Media},
+  author={Niu, Luyao and Wang, Y. and He, S. and Zhang, W.},
+  journal={Applied Geography (Under Review)},
+  year={2025}
+}</pre>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- View More toggle button -->
+                    <div class="text-center pt-2">
+                        <button onclick="toggleMorePubs()" id="view-more-pubs-btn" class="px-5 py-2.5 bg-white dark:bg-slate-900 text-sm font-semibold border border-slate-200/80 dark:border-slate-800 hover:border-pku-900 dark:hover:border-pku-400 hover:text-pku-900 dark:hover:text-pku-400 rounded-2xl shadow-sm transition-all cursor-pointer inline-flex items-center gap-2">
+                            <span>Show More Publications</span>
+                            <i data-lucide="chevron-down" id="view-more-icon" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+
+                    <!-- Extra Hidden Publications -->
+                    <div id="extra-publications" class="hidden space-y-4">
+                        
+                        <!-- Extra 1: TR Part D -->
+                        <div class="pub-item bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200/50 dark:border-slate-800/50 hover:shadow-md transition-all space-y-2" data-category="journal">
+                            <div class="flex items-start justify-between gap-4">
+                                <span class="px-2 py-1 bg-red-50 dark:bg-pku-950/50 text-pku-900 dark:text-pku-300 font-mono text-[10px] uppercase font-bold rounded-md tracking-wider border border-pku-100 dark:border-pku-900/30">Journal Review</span>
+                                <span class="text-xs font-mono text-slate-400">2025</span>
+                            </div>
+                            <h3 class="text-base font-semibold leading-snug text-slate-950 dark:text-white font-serif">Travel Behavior Shifts Following Electric Vehicle Adoption: Evidence from a Big Data-driven Quasi-experiment</h3>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                                Liu, C., <strong class="text-slate-900 dark:text-slate-100 font-semibold underline decoration-pku-900 dark:decoration-pku-400">Niu, L.</strong>, Wan, L., Zhang, W.
+                            </p>
+                            <p class="text-xs text-slate-400 italic">
+                                Under Review at Transportation Research Part D: Transport and Environment
+                            </p>
+                        </div>
+
+                        <!-- Extra 2: AESOP Proceedings (Meta-analysis) -->
+                        <div class="pub-item bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200/50 dark:border-slate-800/50 hover:shadow-md transition-all space-y-2" data-category="conference">
+                            <div class="flex items-start justify-between gap-4">
+                                <span class="px-2 py-1 bg-blue-50 dark:bg-blue-950/50 text-blue-700 dark:text-blue-300 font-mono text-[10px] uppercase font-bold rounded-md tracking-wider border border-blue-100 dark:border-blue-900/30">Conference Proceeding</span>
+                                <span class="text-xs font-mono text-slate-400">2025</span>
+                            </div>
+                            <h3 class="text-base font-semibold leading-snug text-slate-950 dark:text-white font-serif">Why Public Transport Policies Work or Not? A Meta-analysis Based on the Behaviour Change Wheel</h3>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                                <strong class="text-slate-900 dark:text-slate-100 font-semibold underline decoration-pku-900 dark:decoration-pku-400">Niu, L.</strong>, Gu, J., Liu, C., Zhang, W.
+                            </p>
+                            <p class="text-xs text-slate-400 italic">
+                                AESOP 2025 Proceedings, Oral Presentation (Full journal manuscript in prep. for Transport Reviews)
+                            </p>
+                        </div>
+
+                        <!-- Extra 3: GAMS User Eq / Sys Optimum (In Prep) -->
+                        <div class="pub-item bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200/50 dark:border-slate-800/50 hover:shadow-md transition-all space-y-2" data-category="preprint">
+                            <div class="flex items-start justify-between gap-4">
+                                <span class="px-2 py-1 bg-amber-50 dark:bg-amber-950/50 text-amber-800 dark:text-amber-300 font-mono text-[10px] uppercase font-bold rounded-md tracking-wider border border-amber-100 dark:border-amber-900/30">In Preparation</span>
+                                <span class="text-xs font-mono text-slate-400">2025</span>
+                            </div>
+                            <h3 class="text-base font-semibold leading-snug text-slate-950 dark:text-white font-serif">Traffic assignment Model balancing User Preference and system optimum</h3>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                                <strong class="text-slate-900 dark:text-slate-100 font-semibold underline decoration-pku-900 dark:decoration-pku-400">Niu, L.</strong>, Xing, X., Liu, Z., Yao, E.
+                            </p>
+                            <p class="text-xs text-slate-400 italic">
+                                In Preparation for submission to IEEE Transactions on Intelligent Transportation Systems
+                            </p>
+                        </div>
+
+                        <!-- Extra 4: PlanGPT -->
+                        <div class="pub-item bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200/50 dark:border-slate-800/50 hover:shadow-md transition-all space-y-2" data-category="preprint">
+                            <div class="flex items-start justify-between gap-4">
+                                <span class="px-2 py-1 bg-amber-50 dark:bg-amber-950/50 text-amber-800 dark:text-amber-300 font-mono text-[10px] uppercase font-bold rounded-md tracking-wider border border-amber-100 dark:border-amber-900/30">Preprint</span>
+                                <span class="text-xs font-mono text-slate-400">2024</span>
+                            </div>
+                            <h3 class="text-base font-semibold leading-snug text-slate-950 dark:text-white font-serif">PlanGPT: Enhancing urban planning with tailored language model and efficient retrieval</h3>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                                Zhu, H., Zhang, W., Huang, N., Li, B., <strong class="text-slate-900 dark:text-slate-100 font-semibold underline decoration-pku-900 dark:decoration-pku-400">Niu, L.</strong>, ..., Liu, X.
+                            </p>
+                            <p class="text-xs text-slate-400 italic">
+                                arXiv preprint arXiv:2402.19273
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 4: Experience Timeline -->
+                <section id="experience" class="space-y-6">
+                    <h2 class="text-2xl font-serif font-bold text-slate-900 dark:text-white flex items-center gap-2.5">
+                        <i data-lucide="history" class="text-pku-900 dark:text-pku-400"></i>
+                        Academic & Work Experience
+                    </h2>
+                    
+                    <div class="relative border-l-2 border-slate-200 dark:border-slate-800 pl-6 ml-4 space-y-8">
+                        <!-- Node 1 -->
+                        <div class="relative">
+                            <span class="absolute -left-[35px] top-1.5 flex items-center justify-center w-6 h-6 rounded-full bg-pku-900 text-white shadow">
+                                <i data-lucide="search" class="w-3 h-3"></i>
+                            </span>
+                            <div class="space-y-1">
+                                <div class="flex flex-wrap items-center justify-between gap-2">
+                                    <h3 class="font-bold text-slate-950 dark:text-white text-base">Research Assistant (Data Science)</h3>
+                                    <span class="text-xs font-mono text-slate-400 uppercase font-semibold">Jan. 2025 -- Present</span>
+                                </div>
+                                <p class="text-sm font-medium text-pku-900 dark:text-pku-400">Duke Kunshan University, Suzhou, China</p>
+                                <ul class="text-xs text-slate-500 dark:text-slate-400 list-disc list-inside space-y-1.5 mt-2 leading-relaxed">
+                                    <li id="exp1-l1">Led and executed research in spatiotemporal data mining, GNN development, and traffic flow forecasting.</li>
+                                    <li id="exp1-l2">Independently completed two major studies: one published in <span class="italic font-medium">IEEE GLOBECOM</span> and another submitted to <span class="italic font-medium">IEEE Intelligent Vehicles Symposium</span>.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Node 2 -->
+                        <div class="relative">
+                            <span class="absolute -left-[35px] top-1.5 flex items-center justify-center w-6 h-6 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 border border-slate-200 dark:border-slate-700">
+                                <i data-lucide="users" class="w-3 h-3"></i>
+                            </span>
+                            <div class="space-y-1">
+                                <div class="flex flex-wrap items-center justify-between gap-2">
+                                    <h3 class="font-bold text-slate-950 dark:text-white text-base">President, Student Union</h3>
+                                    <span class="text-xs font-mono text-slate-400 uppercase font-semibold">Jun. 2021 -- Jun. 2023</span>
+                                </div>
+                                <p class="text-sm font-medium text-slate-700 dark:text-slate-300">Beijing Jiaotong University, Beijing, China</p>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 leading-relaxed" id="exp2-desc">
+                                    Directed university-level student affairs, coordinated campus-wide large-scale events, and facilitated communications between student community and administration.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Node 3 -->
+                        <div class="relative">
+                            <span class="absolute -left-[35px] top-1.5 flex items-center justify-center w-6 h-6 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 border border-slate-200 dark:border-slate-700">
+                                <i data-lucide="heart" class="w-3 h-3"></i>
+                            </span>
+                            <div class="space-y-1">
+                                <div class="flex flex-wrap items-center justify-between gap-2">
+                                    <h3 class="font-bold text-slate-950 dark:text-white text-base">Volunteer, Beijing 2022 Winter Olympics</h3>
+                                    <span class="text-xs font-mono text-slate-400 uppercase font-semibold">Jan. 2022 -- Apr. 2022</span>
+                                </div>
+                                <p class="text-sm font-medium text-slate-700 dark:text-slate-300">National Indoor Stadium, Beijing, China</p>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 leading-relaxed" id="exp3-desc">
+                                    Supported personnel management and operations of the National Indoor Stadium during the Beijing 2022 Winter Olympic Games. Honored as <span class="font-semibold text-pku-900 dark:text-pku-400">Outstanding Volunteer</span>.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 5: Education & Awards Grid -->
+                <section id="education" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Left: Education -->
+                    <div class="space-y-4">
+                        <h2 class="text-2xl font-serif font-bold text-slate-900 dark:text-white flex items-center gap-2.5">
+                            <i data-lucide="graduation-cap" class="text-pku-900 dark:text-pku-400"></i>
+                            Education
+                        </h2>
+                        <div class="space-y-5 bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200/50 dark:border-slate-800/50 shadow-sm">
+                            <div class="space-y-1">
+                                <div class="flex items-center justify-between">
+                                    <h4 class="font-bold text-slate-950 dark:text-white text-sm">Peking University</h4>
+                                    <span class="text-[10px] font-mono font-semibold text-slate-400">2023 -- 2026</span>
+                                </div>
+                                <p class="text-xs text-pku-900 dark:text-pku-400 font-medium">M.Sc. in Urban Planning (Smart City & Big Data)</p>
+                                <p class="text-[11px] text-slate-400">GPA: 3.75 / 4.0</p>
+                            </div>
+                            <div class="space-y-1 border-t border-slate-100 dark:border-slate-800/60 pt-4">
+                                <div class="flex items-center justify-between">
+                                    <h4 class="font-bold text-slate-950 dark:text-white text-sm">Beijing Jiaotong University</h4>
+                                    <span class="text-[10px] font-mono font-semibold text-slate-400">2019 -- 2023</span>
+                                </div>
+                                <p class="text-xs text-slate-700 dark:text-slate-300 font-medium">B.Sc. Major in Traffic Engineering (Minor in Finance)</p>
+                                <p class="text-[11px] text-slate-400">GPA: 3.97 / 4.0 (Top 0.5%) · Beijing Outstanding Graduate</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Awards -->
+                    <div class="space-y-4" id="awards">
+                        <h2 class="text-2xl font-serif font-bold text-slate-900 dark:text-white flex items-center gap-2.5">
+                            <i data-lucide="award" class="text-pku-900 dark:text-pku-400"></i>
+                            Honors & Awards
+                        </h2>
+                        <div class="space-y-3 bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200/50 dark:border-slate-800/50 shadow-sm max-h-[220px] overflow-y-auto">
+                            <div class="flex items-start justify-between gap-4 border-b border-slate-100 dark:border-slate-800/50 pb-2">
+                                <span class="text-xs font-semibold text-slate-800 dark:text-slate-200" id="aw1">National Scholarship (Highest UG Honor)</span>
+                                <span class="text-[10px] font-mono text-slate-400 shrink-0">Dec 2020</span>
+                            </div>
+                            <div class="flex items-start justify-between gap-4 border-b border-slate-100 dark:border-slate-800/50 pb-2">
+                                <span class="text-xs font-semibold text-slate-800 dark:text-slate-200" id="aw2">Baosteel Outstanding Student Award</span>
+                                <span class="text-[10px] font-mono text-slate-400 shrink-0">Dec 2022</span>
+                            </div>
+                            <div class="flex items-start justify-between gap-4 border-b border-slate-100 dark:border-slate-800/50 pb-2">
+                                <span class="text-xs font-semibold text-slate-800 dark:text-slate-200" id="aw3">First Prize, China University Traffic Technology Competition</span>
+                                <span class="text-[10px] font-mono text-slate-400 shrink-0">Jul 2022</span>
+                            </div>
+                            <div class="flex items-start justify-between gap-4 border-b border-slate-100 dark:border-slate-800/50 pb-2">
+                                <span class="text-xs font-semibold text-slate-800 dark:text-slate-200" id="aw4">Second Prize, China MathorCup Optimization Competition</span>
+                                <span class="text-[10px] font-mono text-slate-400 shrink-0">Apr 2022</span>
+                            </div>
+                            <div class="flex items-start justify-between gap-4">
+                                <span class="text-xs font-semibold text-slate-800 dark:text-slate-200" id="aw5">Third Prize, Baidu ERNIE Cup AI Entrepreneurship Competition</span>
+                                <span class="text-[10px] font-mono text-slate-400 shrink-0">Sep 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- Sticky Citation Toast Notification -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 bg-slate-900 text-white px-4 py-3 rounded-xl shadow-lg flex items-center gap-2 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+        <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400"></i>
+        <span class="text-xs font-medium">Citation BibTeX copied to clipboard!</span>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-200 dark:border-slate-800 bg-white/40 dark:bg-slate-950/40 backdrop-blur-sm py-8 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center">
+            <p class="text-xs text-slate-500 dark:text-slate-400">
+                &copy; <span id="current-year"></span> Luyao Niu. All rights reserved. 
+            </p>
+            <p class="text-xs text-slate-400 dark:text-slate-500">
+                Designed & developed with ❤️ with Tailwind CSS & Lucide Icons.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Interactive JS Scripts -->
+    <script>
+        // Set Year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Theme Toggle Manager
+        function initTheme() {
+            if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        }
+        initTheme();
+
+        function toggleTheme() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Language Translation State Manager
+        let currentLang = 'en';
+        const translations = {
+            en: {
+                langBtn: '中文',
+                typingList: [
+                    'Smart Cities & Intelligent Mobility Systems',
+                    'Large Language Models for Spatial Intelligence (Geo-AI)',
+                    'Spatio-Temporal Data Mining & GNNs',
+                    'Causal Inference & Trajectory Analytics'
+                ],
+                bio1: 'I am a Master\'s student in Urban Planning (Smart City & Big Data program) at <span class="font-semibold text-pku-900 dark:text-pku-400">Peking University</span>, and currently work as a Research Assistant in the Data Science Department at <span class="font-semibold text-slate-900 dark:text-slate-100">Duke Kunshan University</span>. I completed my Bachelor\'s degree at <span class="font-medium">Beijing Jiaotong University</span> (Major in Traffic Engineering; Minor in Finance) graduating as a Beijing Outstanding Graduate.',
+                bio2: 'My research lies at the intersection of <strong class="text-slate-900 dark:text-slate-100">Urban Spatiotemporal Big Data</strong> and <strong class="text-slate-900 dark:text-slate-100">Artificial Intelligence (Geo-AI)</strong>. I am highly passionate about harnessing advanced methodologies—such as **Large Language Models (LLMs), Graph Neural Networks (GNNs), Causal Inference**, and **Mathematical Optimization**—to design accessible, sustainable, and reliable smart transport systems and cognitive neighborhoods.',
+                focus1Title: 'Smart Mobility & Autonomous Vehicles',
+                focus1Desc: 'Integrating Shared Autonomous Vehicles (SAVs) with traditional public transit, balancing system-wide travel efficiency with personalized user equilibrium routing.',
+                focus2Title: 'Spatiotemporal Big Data Mining',
+                focus2Desc: 'Developing Graph Neural Networks (GNNs), dual-stream BiLSTMs, and robust semi-supervised frameworks (such as ST-ProC) for traffic state prediction and trajectory classification.',
+                focus3Title: 'Large Language Models (Geo-AI)',
+                focus3Desc: 'Leveraging LLMs for structured causal text extraction and building RAG pipelines (such as AskNearby) that model spatial familiarity & cognitive maps.',
+                focus4Title: 'Causal Inference & Policy Analysis',
+                focus4Desc: 'Applying quasi-experiments, Difference-in-Differences (DID), and Interrupted Time Series models on signaling data to quantify post-adoption EV shifts and spatial sentiment policy impacts.',
+                exp1L1: 'Led and executed research in spatiotemporal data mining, GNN development, and traffic flow forecasting.',
+                exp1L2: 'Independently completed two major studies: one published in <span class="italic font-medium">IEEE GLOBECOM</span> and another submitted to <span class="italic font-medium">IEEE Intelligent Vehicles Symposium</span>.',
+                exp2Desc: 'Directed university-level student affairs, coordinated campus-wide large-scale events, and facilitated communications between student community and administration.',
+                exp3Desc: 'Supported personnel management and operations of the National Indoor Stadium during the Beijing 2022 Winter Olympic Games. Honored as <span class="font-semibold text-pku-900 dark:text-pku-400">Outstanding Volunteer</span>.',
+                aw1: 'National Scholarship (Highest UG Honor)',
+                aw2: 'Baosteel Outstanding Student Award',
+                aw3: 'First Prize, China University Traffic Technology Competition',
+                aw4: 'Second Prize, China MathorCup Optimization Competition',
+                aw5: 'Third Prize, Baidu ERNIE Cup AI Entrepreneurship Competition'
+            },
+            zh: {
+                langBtn: 'EN',
+                typingList: [
+                    '智慧城市与智慧出行系统设计',
+                    '基于大语言模型的空间智能 (Geo-AI)',
+                    '时空大数据挖掘与图神经网络 (GNNs)',
+                    '因果推断与轨迹大数据分析'
+                ],
+                bio1: '我是 <span class="font-semibold text-pku-900 dark:text-pku-400">北京大学</span> 城市规划（智慧城市与大数据）方向的硕士研究生，同时在 <span class="font-semibold text-slate-900 dark:text-slate-100">昆山杜克大学</span> 数据科学系担任研究助理。我本科毕业于 <span class="font-medium">北京交通大学</span> 交通运输工程专业（辅修金融学），并荣获北京市优秀毕业生称号。',
+                bio2: '我的主要研究方向为 <strong class="text-slate-900 dark:text-slate-100">城市时空大数据</strong> 与 <strong class="text-slate-900 dark:text-slate-100">人工智能 (Geo-AI)</strong> 的交叉领域。我致力于利用先进方法——包括 **大语言模型 (LLMs)、图神经网络 (GNNs)、因果推断** 以及 **数理优化算法**——来构建更便捷、可持续且可靠的智慧交通出行系统与认知社区。',
+                focus1Title: '智慧出行与自动驾驶车辆',
+                focus1Desc: '结合共享自动驾驶车辆（SAVs）与传统公共交通，平衡系统级出行效率与个性化用户均衡路由。',
+                focus2Title: '时空大数据挖掘',
+                focus2Desc: '开发图神经网络（GNNs）、双流自注意力 BiLSTM 以及鲁棒半监督框架（如 ST-ProC），用于交通状态预测和轨迹分类。',
+                focus3Title: '大语言模型 (Geo-AI)',
+                focus3Desc: '利用大语言模型抽取结构化因果文本，构建融合空间熟悉度与认知地图的 RAG 社区检索系统（如 AskNearby）。',
+                focus4Title: '因果推断与政策分析',
+                focus4Desc: '在手机信令等大数据上应用倾向得分匹配、DID 及中断时间序列（ITS）模型，量化新能源车采用后的行为反弹与区域政策的空间情感感知。',
+                exp1L1: '领导并独立执行时空数据挖掘、图神经网络模型开发及交通流预测研究。',
+                exp1L2: '独立完成了两项工作：一项发表于 <span class="italic font-medium">IEEE GLOBECOM</span>，另一项在 <span class="italic font-medium">IEEE Intelligent Vehicles Symposium</span> 审稿中。',
+                exp2Desc: '领导校级学生工作，策划并筹办了多场大型校园活动，并承担学生群体与学校管理部门之间的沟通桥梁。',
+                exp3Desc: '作为国家体育馆的核心志愿者，支持北京2022年冬奥会的人员及场馆运营，并获得 <span class="font-semibold text-pku-900 dark:text-pku-400">突出贡献优秀志愿者</span> 荣誉。',
+                aw1: '国家奖学金（本科生最高荣誉）',
+                aw2: '宝钢优秀学生奖（全国每年仅500名）',
+                aw3: '第一届全国大学交通科技大赛 一等奖',
+                aw4: '中国 MathorCup 高校数学建模挑战赛 二等奖',
+                aw5: '百度文心杯 AI 创业大赛 三等奖'
+            }
+        };
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'zh' : 'en';
+            
+            // Apply language updates
+            document.getElementById('lang-btn-text').textContent = translations[currentLang].langBtn;
+            document.getElementById('bio-p1').innerHTML = translations[currentLang].bio1;
+            document.getElementById('bio-p2').innerHTML = translations[currentLang].bio2;
+            
+            document.getElementById('focus1-title').textContent = translations[currentLang].focus1Title;
+            document.getElementById('focus1-desc').textContent = translations[currentLang].focus1Desc;
+            document.getElementById('focus2-title').textContent = translations[currentLang].focus2Title;
+            document.getElementById('focus2-desc').textContent = translations[currentLang].focus2Desc;
+            document.getElementById('focus3-title').textContent = translations[currentLang].focus3Title;
+            document.getElementById('focus3-desc').textContent = translations[currentLang].focus3Desc;
+            document.getElementById('focus4-title').textContent = translations[currentLang].focus4Title;
+            document.getElementById('focus4-desc').textContent = translations[currentLang].focus4Desc;
+            
+            document.getElementById('exp1-l1').innerHTML = translations[currentLang].exp1L1;
+            document.getElementById('exp1-l2').innerHTML = translations[currentLang].exp1L2;
+            document.getElementById('exp2-desc').innerHTML = translations[currentLang].exp2Desc;
+            document.getElementById('exp3-desc').innerHTML = translations[currentLang].exp3Desc;
+
+            document.getElementById('aw1').textContent = translations[currentLang].aw1;
+            document.getElementById('aw2').textContent = translations[currentLang].aw2;
+            document.getElementById('aw3').textContent = translations[currentLang].aw3;
+            document.getElementById('aw4').textContent = translations[currentLang].aw4;
+            document.getElementById('aw5').textContent = translations[currentLang].aw5;
+
+            // Restart typing animation with new language list
+            clearInterval(typingInterval);
+            initTypingAnimation();
+        }
+
+        // Real-time typing animation
+        let typingInterval;
+        function initTypingAnimation() {
+            const list = translations[currentLang].typingList;
+            const element = document.getElementById('typing-element');
+            let itemIdx = 0;
+            let charIdx = 0;
+            let isDeleting = false;
+            let currentText = '';
+
+            function type() {
+                const targetText = list[itemIdx];
+                if (isDeleting) {
+                    currentText = targetText.substring(0, charIdx - 1);
+                    charIdx--;
+                } else {
+                    currentText = targetText.substring(0, charIdx + 1);
+                    charIdx++;
+                }
+
+                element.textContent = currentText;
+
+                let typingSpeed = isDeleting ? 30 : 60;
+
+                if (!isDeleting && charIdx === targetText.length) {
+                    typingSpeed = 2500; // Pause at end of text
+                    isDeleting = true;
+                } else if (isDeleting && charIdx === 0) {
+                    isDeleting = false;
+                    itemIdx = (itemIdx + 1) % list.length;
+                    typingSpeed = 400; // Pause before starting new word
+                }
+
+                typingInterval = setTimeout(type, typingSpeed);
+            }
+            type();
+        }
+        initTypingAnimation();
+
+        // Publications Tab Filter
+        function filterPubs(category) {
+            // Update active state of tabs
+            const tabs = document.querySelectorAll('.pub-tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('bg-white', 'dark:bg-slate-900', 'text-pku-900', 'dark:text-white', 'shadow-sm');
+                tab.classList.add('text-slate-500');
+            });
+            const activeTab = document.getElementById(`tab-${category}`);
+            activeTab.classList.add('bg-white', 'dark:bg-slate-900', 'text-pku-900', 'dark:text-white', 'shadow-sm');
+            activeTab.classList.remove('text-slate-500');
+
+            // Show / Hide publications matching the category
+            const items = document.querySelectorAll('.pub-item');
+            items.forEach(item => {
+                if (category === 'all' || item.getAttribute('data-category') === category) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Toggle Expandable Abstract Drawer
+        function toggleAbstract(id) {
+            const el = document.getElementById(id);
+            if (el.classList.contains('hidden')) {
+                el.classList.remove('hidden');
+            } else {
+                el.classList.add('hidden');
+            }
+        }
+
+        // Toggle BibTeX Code Copy Block
+        function toggleBibtex(id) {
+            const el = document.getElementById(id);
+            if (el.classList.contains('hidden')) {
+                el.classList.remove('hidden');
+            } else {
+                el.classList.add('hidden');
+            }
+        }
+
+        // Copy Citation BibTeX to Clipboard
+        function copyToClipboard(id) {
+            const text = document.getElementById(id).textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                const toast = document.getElementById('toast');
+                toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+                toast.classList.add('translate-y-0', 'opacity-100');
+                
+                setTimeout(() => {
+                    toast.classList.remove('translate-y-0', 'opacity-100');
+                    toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+                }, 3000);
+            });
+        }
+
+        // Toggle More Publications Drawers
+        function toggleMorePubs() {
+            const el = document.getElementById('extra-publications');
+            const btn = document.getElementById('view-more-pubs-btn');
+            const icon = document.getElementById('view-more-icon');
+            
+            if (el.classList.contains('hidden')) {
+                el.classList.remove('hidden');
+                btn.querySelector('span').textContent = 'Show Less Publications';
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                el.classList.add('hidden');
+                btn.querySelector('span').textContent = 'Show More Publications';
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // Mobile Navbar Toggle Control
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.setAttribute('data-lucide', 'x');
+            } else {
+                menu.classList.add('hidden');
+                icon.setAttribute('data-lucide', 'menu');
+            }
+            lucide.createIcons();
+        }
+
+        // Initialize Lucide Icons on load
+        window.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>
