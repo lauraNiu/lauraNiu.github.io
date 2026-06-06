@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luyao Niu | Peking University</title>
+    <title>Luyao Niu | University of Southern California & Peking University</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Premium Fonts: Playfair Display for academic serif, Inter for ultra-clean sans -->
+    <!-- Premium Google Fonts: Playfair Display for headers, Inter for ultra-legible body -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
-    <!-- Lucide Icons CDN -->
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
         tailwind.config = {
@@ -19,25 +19,17 @@
                 extend: {
                     colors: {
                         pku: {
-                            50: '#fdf2f2',
-                            100: '#fde8e8',
-                            200: '#fbd5d5',
-                            300: '#f8b4b4',
-                            400: '#f98080',
-                            500: '#e02424',
-                            600: '#c81e1e',
-                            700: '#9b1c1c',
-                            800: '#7f1d1d', 
+                            800: '#7f1d1d',
                             900: '#800000', // PKU Crimson Red
+                        },
+                        usc: {
+                            900: '#990000', // USC Cardinal
+                            yellow: '#FFCC00', // USC Gold
                         }
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
                         serif: ['Playfair Display', 'serif'],
-                    },
-                    boxShadow: {
-                        'glass': '0 8px 32px 0 rgba(128, 0, 0, 0.05)',
-                        'glass-dark': '0 8px 32px 0 rgba(0, 0, 0, 0.3)',
                     }
                 }
             }
@@ -52,7 +44,7 @@
             0%, 100% { opacity: 1; }
             50% { opacity: 0; }
         }
-        /* Glassmorphism custom classes */
+        /* Luxurious Glassmorphic cards */
         .glass-card {
             background: rgba(255, 255, 255, 0.75);
             backdrop-filter: blur(16px);
@@ -65,27 +57,27 @@
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(51, 65, 85, 0.35);
         }
-        /* Custom dynamic background mesh */
+        /* Subtle scholarly grid background */
         .grid-bg {
-            background-image: radial-gradient(rgba(128, 0, 0, 0.04) 1px, transparent 1px);
+            background-image: radial-gradient(rgba(153, 0, 0, 0.04) 1px, transparent 1px);
             background-size: 24px 24px;
         }
         .dark .grid-bg {
-            background-image: radial-gradient(rgba(248, 180, 180, 0.03) 1px, transparent 1px);
+            background-image: radial-gradient(rgba(255, 204, 0, 0.02) 1px, transparent 1px);
             background-size: 24px 24px;
         }
-        /* Smooth transitions */
+        /* Custom Hover Lifts */
         .hover-lift {
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
         .hover-lift:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 24px -10px rgba(128, 0, 0, 0.12);
+            box-shadow: 0 12px 24px -10px rgba(153, 0, 0, 0.12);
         }
         .dark .hover-lift:hover {
             box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.5);
         }
-        /* Premium Scrollbar */
+        /* Premium custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -93,52 +85,53 @@
             background: transparent;
         }
         ::-webkit-scrollbar-thumb {
-            background: rgba(128, 0, 0, 0.15);
+            background: rgba(153, 0, 0, 0.15);
             border-radius: 10px;
         }
         .dark ::-webkit-scrollbar-thumb {
-            background: rgba(248, 180, 180, 0.1);
+            background: rgba(255, 204, 0, 0.08);
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: rgba(128, 0, 0, 0.4);
+            background: rgba(153, 0, 0, 0.4);
         }
     </style>
 </head>
-<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-sans transition-colors duration-500 antialiased selection:bg-pku-100 selection:text-pku-900 dark:selection:bg-pku-900/40 dark:selection:text-pku-100 grid-bg">
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-sans transition-colors duration-500 antialiased selection:bg-pku-100 selection:text-pku-900 dark:selection:bg-usc-900/40 dark:selection:text-usc-yellow grid-bg">
 
-    <!-- Canvas Interactive Spatiotemporal Particle Background -->
-    <canvas id="spatiotemporal-canvas" class="fixed inset-0 pointer-events-none z-0 opacity-45 dark:opacity-30"></canvas>
+    <!-- Interactive Canvas Background (Spatiotemporal flows) -->
+    <canvas id="spatiotemporal-canvas" class="fixed inset-0 pointer-events-none z-0 opacity-45 dark:opacity-35"></canvas>
 
-    <!-- Header Glass Navbar -->
+    <!-- Floating Glass Navbar -->
     <nav class="fixed top-4 left-4 right-4 md:left-8 md:right-8 lg:left-12 lg:right-12 z-50 glass-card rounded-2xl shadow-sm transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-14">
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="#about" class="text-xl font-serif font-extrabold text-pku-900 dark:text-pku-300 tracking-wide flex items-center gap-2">
-                        <span class="w-3.5 h-3.5 rounded-full bg-pku-900 dark:bg-pku-400 animate-ping absolute"></span>
-                        <span class="w-3.5 h-3.5 rounded-full bg-pku-900 dark:bg-pku-400 relative"></span>
+                    <a href="#about" class="text-xl font-serif font-extrabold text-usc-900 dark:text-usc-yellow tracking-wide flex items-center gap-2">
+                        <span class="w-3.5 h-3.5 rounded-full bg-usc-900 dark:bg-usc-yellow animate-ping absolute"></span>
+                        <span class="w-3.5 h-3.5 rounded-full bg-usc-900 dark:bg-usc-yellow relative"></span>
                         Luyao Niu
                     </a>
                 </div>
-                <!-- Desktop Nav Link list -->
+                <!-- Desktop Nav links -->
                 <div class="hidden md:flex items-center space-x-6">
-                    <a href="#about" class="nav-link text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 hover:text-pku-900 dark:hover:text-pku-300 transition-colors">About</a>
-                    <a href="#research" class="nav-link text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 hover:text-pku-900 dark:hover:text-pku-300 transition-colors">Research</a>
-                    <a href="#sandbox" class="nav-link text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 hover:text-pku-900 dark:hover:text-pku-300 transition-colors">Sandbox Simulator</a>
-                    <a href="#publications" class="nav-link text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 hover:text-pku-900 dark:hover:text-pku-300 transition-colors">Publications</a>
-                    <a href="#experience" class="nav-link text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 hover:text-pku-900 dark:hover:text-pku-300 transition-colors">Experience</a>
+                    <a href="#about" class="nav-link text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 hover:text-usc-900 dark:hover:text-usc-yellow transition-colors">About</a>
+                    <a href="#research" class="nav-link text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 hover:text-usc-900 dark:hover:text-usc-yellow transition-colors">Directions</a>
+                    <a href="#sandbox" class="nav-link text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 hover:text-usc-900 dark:hover:text-usc-yellow transition-colors">Sandbox</a>
+                    <a href="#publications" class="nav-link text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 hover:text-usc-900 dark:hover:text-usc-yellow transition-colors">Publications</a>
+                    <a href="#services" class="nav-link text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 hover:text-usc-900 dark:hover:text-usc-yellow transition-colors">Services</a>
+                    <a href="#experience" class="nav-link text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 hover:text-usc-900 dark:hover:text-usc-yellow transition-colors">Experience</a>
                 </div>
-                <!-- Interactive Controls -->
+                <!-- Controls -->
                 <div class="flex items-center space-x-3">
-                    <button onclick="toggleLanguage()" class="p-2 text-slate-500 hover:text-pku-900 dark:text-slate-400 dark:hover:text-pku-300 rounded-lg transition-all cursor-pointer text-[10px] font-extrabold uppercase tracking-widest border border-slate-200 dark:border-slate-800 px-3 py-1 bg-white/40 dark:bg-slate-800/40 hover:scale-105 active:scale-95" title="Switch Language">
+                    <button onclick="toggleLanguage()" class="p-2 text-slate-500 hover:text-usc-900 dark:text-slate-400 dark:hover:text-usc-yellow rounded-lg transition-all cursor-pointer text-[10px] font-extrabold uppercase tracking-widest border border-slate-200 dark:border-slate-800 px-3 py-1 bg-white/40 dark:bg-slate-800/40 hover:scale-105 active:scale-95" title="Switch Language">
                         <span id="lang-btn-text">中文</span>
                     </button>
-                    <button id="theme-toggle" onclick="toggleTheme()" class="p-2 text-slate-500 hover:text-pku-900 dark:text-slate-400 dark:hover:text-pku-300 rounded-xl transition-all cursor-pointer hover:scale-110" title="Toggle Theme">
+                    <button id="theme-toggle" onclick="toggleTheme()" class="p-2 text-slate-500 hover:text-usc-900 dark:text-slate-400 dark:hover:text-usc-yellow rounded-xl transition-all cursor-pointer hover:scale-110" title="Toggle Theme">
                         <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
                         <i data-lucide="sun" class="w-5 h-5 block dark:hidden"></i>
                     </button>
-                    <!-- Mobile Menu Trigger -->
-                    <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-slate-500 dark:text-slate-400 hover:text-pku-900 dark:hover:text-pku-300 cursor-pointer">
+                    <!-- Mobile trigger -->
+                    <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-slate-500 dark:text-slate-400 hover:text-usc-900 dark:hover:text-usc-yellow cursor-pointer">
                         <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
                     </button>
                 </div>
@@ -146,41 +139,40 @@
         </div>
         <!-- Mobile Navigation Menu -->
         <div id="mobile-menu" class="hidden md:hidden px-4 pt-2 pb-4 space-y-2 border-t border-slate-100 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 rounded-b-2xl backdrop-blur-lg">
-            <a href="#about" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-pku-900 dark:hover:text-pku-300">About</a>
-            <a href="#research" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-pku-900 dark:hover:text-pku-300">Research</a>
-            <a href="#sandbox" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-pku-900 dark:hover:text-pku-300">Sandbox Simulator</a>
-            <a href="#publications" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-pku-900 dark:hover:text-pku-300">Publications</a>
-            <a href="#experience" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-pku-900 dark:hover:text-pku-300">Experience</a>
+            <a href="#about" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-usc-900 dark:hover:text-usc-yellow">About</a>
+            <a href="#research" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-usc-900 dark:hover:text-usc-yellow">Directions</a>
+            <a href="#sandbox" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-usc-900 dark:hover:text-usc-yellow">Sandbox</a>
+            <a href="#publications" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-usc-900 dark:hover:text-usc-yellow">Publications</a>
+            <a href="#services" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-usc-900 dark:hover:text-usc-yellow">Services</a>
+            <a href="#experience" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-usc-900 dark:hover:text-usc-yellow">Experience</a>
         </div>
     </nav>
 
-    <!-- Main Container Layout: Bento Grid -->
+    <!-- Main Grid Content -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 relative z-10">
-        
-        <!-- Bento Block Area -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6">
             
-            <!-- Bento Box 1: Core Scholar Card (Big, col-span-8) -->
+            <!-- Bento Box 1: Primary Scholar Card (col-span-8) -->
             <div id="bento-profile" class="lg:col-span-8 glass-card rounded-3xl p-6 sm:p-8 shadow-sm flex flex-col justify-between transition-all duration-300 hover:shadow-md relative overflow-hidden group">
-                <!-- Top Ribbon -->
-                <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-pku-900 via-red-600 to-pku-800"></div>
+                <!-- USC/PKU Premium Ribbon -->
+                <div class="absolute top-0 left-0 right-0 h-2.5 bg-gradient-to-r from-usc-900 via-usc-yellow to-pku-900"></div>
                 
                 <div class="space-y-6">
                     <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6">
-                        <!-- Profile Image Frame -->
-                        <div class="relative w-36 h-36 shrink-0 rounded-2xl overflow-hidden bg-gradient-to-tr from-pku-100 to-rose-50 dark:from-slate-800 dark:to-pku-950/40 flex items-center justify-center border-2 border-white dark:border-slate-800 shadow-md group-hover:scale-105 transition-transform duration-500">
-                            <!-- High End Vector Pattern -->
-                            <svg class="w-full h-full text-pku-900/10 dark:text-pku-500/10 absolute inset-0" fill="currentColor" viewBox="0 0 100 100">
+                        <!-- Profile Avatar Frame with USC Connection SVG -->
+                        <div class="relative w-36 h-36 shrink-0 rounded-2xl overflow-hidden bg-gradient-to-tr from-usc-900/10 to-red-50 dark:from-slate-850 dark:to-usc-900/20 flex items-center justify-center border-2 border-white dark:border-slate-800 shadow-md group-hover:scale-105 transition-transform duration-500">
+                            <svg class="w-full h-full text-usc-900/10 dark:text-usc-yellow/10 absolute inset-0" fill="currentColor" viewBox="0 0 100 100">
                                 <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" stroke-dasharray="2 2" stroke-width="0.75" />
-                                <circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" stroke-width="0.5" />
                                 <path d="M 10 50 L 90 50 M 50 10 L 50 90" stroke="currentColor" stroke-width="0.5" stroke-opacity="0.3" />
-                                <circle cx="30" cy="30" r="2.5" fill="currentColor" />
+                                <circle cx="50" cy="50" r="3" fill="currentColor" />
+                                <circle cx="30" cy="30" r="4" fill="currentColor" />
                                 <circle cx="70" cy="70" r="3.5" fill="currentColor" />
-                                <circle cx="75" cy="25" r="2" fill="currentColor" />
+                                <line x1="30" y1="30" x2="50" y2="50" stroke="currentColor" stroke-width="0.75" />
+                                <line x1="70" y1="70" x2="50" y2="50" stroke="currentColor" stroke-width="0.75" />
                             </svg>
                             <div class="z-10 text-center select-none">
-                                <div class="text-4xl font-serif font-extrabold text-pku-900 dark:text-pku-400 tracking-wider">LN</div>
-                                <span class="text-[9px] uppercase font-bold text-slate-500 dark:text-slate-400 tracking-widest mt-1 block">Smart City Scholar</span>
+                                <div class="text-4xl font-serif font-extrabold text-usc-900 dark:text-usc-yellow tracking-wider">LN</div>
+                                <span class="text-[9px] uppercase font-bold text-slate-500 dark:text-slate-400 tracking-widest mt-1 block">Smart Mobility</span>
                             </div>
                             <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-3 text-center cursor-pointer">
                                 <i data-lucide="camera" class="w-5 h-5 text-white mb-1"></i>
@@ -188,25 +180,25 @@
                             </div>
                         </div>
 
-                        <!-- Header Name & Interests -->
+                        <!-- Name & Core Details -->
                         <div class="text-center sm:text-left space-y-2">
-                            <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2.5">
+                            <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2">
+                                <span class="px-2.5 py-0.5 bg-usc-900/10 dark:bg-usc-yellow/10 text-usc-900 dark:text-usc-yellow text-[10px] font-bold uppercase tracking-wider rounded-full border border-usc-900/20">
+                                    Incoming Ph.D. @ USC (June 2026)
+                                </span>
                                 <span class="px-2.5 py-0.5 bg-pku-900/10 dark:bg-pku-400/10 text-pku-900 dark:text-pku-300 text-[10px] font-bold uppercase tracking-wider rounded-full border border-pku-900/20">
                                     M.Sc. Peking University
-                                </span>
-                                <span class="px-2.5 py-0.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-[10px] font-bold uppercase tracking-wider rounded-full border border-slate-200 dark:border-slate-700">
-                                    Research Assistant @ DKU
                                 </span>
                             </div>
                             <h1 class="text-3xl sm:text-4xl font-serif font-extrabold text-slate-900 dark:text-white leading-tight">
                                 Luyao Niu <span class="text-xl font-normal text-slate-400 font-sans block sm:inline sm:ml-1 font-medium">牛璐瑶</span>
                             </h1>
                             <p class="text-sm font-medium text-slate-500 dark:text-slate-400" id="affil-text">
-                                Peking University (PKU) | Duke Kunshan University (DKU)
+                                Incoming Ph.D. Student at University of Southern California (USC) | M.Sc. from Peking University
                             </p>
-                            <!-- Social Connect Area -->
+                            <!-- Connections / Links -->
                             <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2 pt-1">
-                                <a href="mailto:luyao0160@stu.pku.edu.cn" class="p-2 bg-slate-100 dark:bg-slate-800/80 hover:bg-pku-900 hover:text-white dark:hover:bg-pku-800 rounded-xl transition-all cursor-pointer" title="Email">
+                                <a href="mailto:luyao0160@stu.pku.edu.cn" class="p-2 bg-slate-100 dark:bg-slate-800/80 hover:bg-usc-900 hover:text-white dark:hover:bg-usc-900 rounded-xl transition-all cursor-pointer" title="Email">
                                     <i data-lucide="mail" class="w-4 h-4"></i>
                                 </a>
                                 <a href="https://github.com/lauraNiu" target="_blank" rel="noopener" class="p-2 bg-slate-100 dark:bg-slate-800/80 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black rounded-xl transition-all cursor-pointer" title="GitHub">
@@ -222,63 +214,55 @@
                         </div>
                     </div>
 
-                    <!-- Warm dynamic Bio text -->
+                    <!-- Intro Bios -->
                     <div class="text-slate-600 dark:text-slate-300 space-y-4 text-[14px] leading-relaxed pt-2">
                         <p id="bio-p1">
-                            I am an M.Sc. candidate in Urban Planning at <strong class="text-pku-900 dark:text-pku-400 font-bold">Peking University</strong> (Smart City & Big Data Program), and currently work as a Research Assistant in the Data Science Department at <strong class="text-slate-900 dark:text-slate-100 font-semibold">Duke Kunshan University</strong>. I completed my B.Sc. in Traffic Engineering at <strong class="font-medium">Beijing Jiaotong University</strong> (Minor in Finance), graduating as a Beijing Outstanding Graduate.
+                            I am an incoming Ph.D. student (starting June 2026) in the <strong class="text-usc-900 dark:text-usc-yellow">Department of Civil and Environmental Engineering at the University of Southern California (USC)</strong>, where I am honored to be advised by <strong class="text-slate-900 dark:text-white font-semibold">Prof. Ruolin Li</strong>. I completed my M.Sc. in Urban Planning (Smart City & Big Data Program) at <strong class="text-pku-900 dark:text-pku-400">Peking University</strong>, and currently serve as a Research Assistant in the Data Science Department at <strong class="font-medium">Duke Kunshan University</strong>. I received my B.Sc. in Traffic Engineering from <strong class="font-medium">Beijing Jiaotong University</strong> (Minor in Finance), graduating as a Beijing Outstanding Graduate.
                         </p>
                         <p id="bio-p2">
-                            My core vision is bridging the gap between <strong class="text-slate-900 dark:text-slate-100">spatiotemporal city systems</strong> and <strong class="text-slate-900 dark:text-slate-100">advanced artificial intelligence (Geo-AI)</strong>. I develop innovative frameworks integrating **Large Language Models (LLMs)**, **Spatio-Temporal Graph Neural Networks (GNNs)**, and **Causal Inference** to model reliable, sustainable, and cognitive-map aware urban neighborhoods and travel dynamics.
+                            My research lies at the intersection of <strong class="text-slate-900 dark:text-slate-100">Urban Spatiotemporal Mobility Intelligence</strong> and <strong class="text-slate-900 dark:text-slate-100">Decision Policy AI</strong>. I formulate advanced mathematical and machine learning architectures—including **Large Language Models (LLMs)**, **Causal Inference**, **Graph Neural Networks (GNNs)**, and **Mathematical Programming**—to synthesize realistic travel behaviors, establish metropolitan digital twins, and drive trustworthy infrastructural decisions.
                         </p>
                     </div>
                 </div>
 
-                <!-- Custom coding shell footer in the Bento Profile -->
+                <!-- Live Typing prompt box -->
                 <div class="bg-slate-950 dark:bg-black rounded-xl p-3.5 font-mono text-[11px] text-emerald-400/90 shadow-inner flex items-center gap-2.5 mt-6">
-                    <span class="text-slate-500 shrink-0 select-none">root@pku_homepage ~ %</span>
+                    <span class="text-slate-500 shrink-0 select-none">usc_phd@laura ~ %</span>
                     <span id="typing-element" class="typing-cursor font-medium"></span>
                 </div>
             </div>
 
-            <!-- Bento Box 2: Latest News Timeline (Chronological updates, col-span-4) -->
+            <!-- Bento Box 2: Chronological Live Updates (col-span-4) -->
             <div class="lg:col-span-4 glass-card rounded-3xl p-6 shadow-sm flex flex-col justify-between transition-all duration-300 hover:shadow-md relative group">
                 <div>
                     <h3 class="text-xs uppercase tracking-widest text-slate-400 font-extrabold mb-5 flex items-center gap-2">
-                        <i data-lucide="sparkles" class="w-4 h-4 text-pku-900 dark:text-pku-400"></i>
-                        Live Updates
+                        <i data-lucide="sparkles" class="w-4 h-4 text-usc-900 dark:text-usc-yellow animate-pulse"></i>
+                        Latest News
                     </h3>
                     
                     <div class="space-y-4 overflow-y-auto max-h-[300px] pr-1.5" id="news-timeline">
-                        <!-- Update item 1 -->
-                        <div class="relative border-l border-pku-900 dark:border-pku-700 pl-4 pb-1">
-                            <span class="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-pku-900 dark:bg-pku-400"></span>
-                            <span class="text-[10px] font-mono font-semibold text-slate-400">Dec 2025</span>
-                            <p class="text-xs text-slate-700 dark:text-slate-300 font-medium leading-relaxed">
-                                Paper <span class="font-bold text-pku-900 dark:text-pku-400">AskNearby</span> on cognitive LLM retrieval accepted for Oral Presentation at <span class="italic font-semibold">ACM SIGSPATIAL GeoAI'25</span>!
+                        <!-- USC Ph.D Announcement -->
+                        <div class="relative border-l border-usc-900 dark:border-usc-yellow pl-4 pb-1">
+                            <span class="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-usc-900 dark:bg-usc-yellow"></span>
+                            <span class="text-[10px] font-mono font-semibold text-slate-400">June 2026</span>
+                            <p class="text-xs text-slate-700 dark:text-slate-200 font-bold leading-relaxed">
+                                🎉 Extremely thrilled to join <span class="text-usc-900 dark:text-usc-yellow">USC Civil Engineering</span> as a Ph.D. student, under the supervision of <span class="font-bold">Prof. Ruolin Li</span>!
                             </p>
                         </div>
-                        <!-- Update item 2 -->
-                        <div class="relative border-l border-slate-200 dark:border-slate-800 pl-4 pb-1">
+                        <!-- GeoAI oral -->
+                        <div class="relative border-l border-slate-200 dark:border-slate-850 pl-4 pb-1">
+                            <span class="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-slate-300 dark:bg-slate-700"></span>
+                            <span class="text-[10px] font-mono font-semibold text-slate-400">Dec 2025</span>
+                            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                                Oral Presentation on our <span class="font-bold text-slate-800 dark:text-slate-200">AskNearby</span> cognitive RAG framework delivered at <span class="italic font-medium">ACM SIGSPATIAL GeoAI '25</span>!
+                            </p>
+                        </div>
+                        <!-- Arxiv releases -->
+                        <div class="relative border-l border-slate-200 dark:border-slate-855 pl-4 pb-1">
                             <span class="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-slate-300 dark:bg-slate-700"></span>
                             <span class="text-[10px] font-mono font-semibold text-slate-400">Nov 2025</span>
                             <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                                Released preprints for <span class="font-medium text-slate-800 dark:text-slate-200">Event-CausNet</span> and <span class="font-medium text-slate-800 dark:text-slate-200">ST-ProC</span> on arXiv. Looking forward to suggestions!
-                            </p>
-                        </div>
-                        <!-- Update item 3 -->
-                        <div class="relative border-l border-slate-200 dark:border-slate-800 pl-4 pb-1">
-                            <span class="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-slate-300 dark:bg-slate-700"></span>
-                            <span class="text-[10px] font-mono font-semibold text-slate-400">Jan 2025</span>
-                            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                                Commenced Research Assistant position in Data Science Department at <span class="font-medium">Duke Kunshan University</span>.
-                            </p>
-                        </div>
-                        <!-- Update item 4 -->
-                        <div class="relative pl-4">
-                            <span class="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-slate-300 dark:bg-slate-700"></span>
-                            <span class="text-[10px] font-mono font-semibold text-slate-400">Sep 2024</span>
-                            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                                Won Third Prize in Baidu ERNIE Cup AI Entrepreneurship Competition!
+                                Released arXiv preprints for <span class="italic">Event-CausNet</span> (Spatio-temporal Causal AI) and <span class="italic">ST-ProC</span> (Semi-supervised classification).
                             </p>
                         </div>
                     </div>
@@ -289,61 +273,101 @@
                 </div>
             </div>
 
-            <!-- Bento Box 3: Academic Stats/Numbers Showroom (col-span-12) -->
-            <div class="lg:col-span-12 grid grid-cols-2 md:grid-cols-4 gap-4">
-                <!-- Stat 1 -->
-                <div class="glass-card rounded-2xl p-5 shadow-sm hover-lift flex flex-col justify-between group">
-                    <span class="text-slate-400 uppercase text-[9px] tracking-widest font-extrabold" id="stat-1-label">SAV Cost Savings</span>
-                    <div>
-                        <span class="text-3xl md:text-4xl font-serif font-extrabold text-pku-900 dark:text-pku-400 tracking-tight">15-25%</span>
-                        <p class="text-[10px] text-slate-500 mt-1 leading-normal" id="stat-1-desc">Total cost reduction via Joint SAV-Transit modeling in TR Part C.</p>
-                    </div>
+            <!-- Bento Box 3: Three Scientific Research Themes (col-span-12) -->
+            <div id="research" class="lg:col-span-12 space-y-4">
+                <div class="space-y-1">
+                    <span class="text-[9px] font-extrabold uppercase tracking-widest text-slate-400">RESEARCH SYNOPSIS</span>
+                    <h2 class="text-2xl font-serif font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
+                        <i data-lucide="compass" class="text-usc-900 dark:text-usc-yellow"></i>
+                        Core Research Directions
+                    </h2>
                 </div>
-                <!-- Stat 2 -->
-                <div class="glass-card rounded-2xl p-5 shadow-sm hover-lift flex flex-col justify-between group">
-                    <span class="text-slate-400 uppercase text-[9px] tracking-widest font-extrabold" id="stat-2-label">Forecasting MAE Gain</span>
-                    <div>
-                        <span class="text-3xl md:text-4xl font-serif font-extrabold text-emerald-600 dark:text-emerald-400 tracking-tight">35.8%</span>
-                        <p class="text-[10px] text-slate-500 mt-1 leading-normal" id="stat-2-desc">Error reduction over state-of-the-art baselines (Event-CausNet).</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Direction 1 -->
+                    <div class="glass-card rounded-2xl p-6 border border-slate-200/50 dark:border-slate-800/50 hover-lift group">
+                        <div class="w-12 h-12 bg-usc-900/10 dark:bg-usc-yellow/10 text-usc-900 dark:text-usc-yellow rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <i data-lucide="network" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-serif font-bold text-lg text-slate-950 dark:text-white mb-2" id="dir1-title">AI-Empowered Mobility Intelligence</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed" id="dir1-desc">
+                            Building transferrable foundation and generative models (integrating GPS, graph neural networks, and semantic social media signals) to synthesize and classify realistic spatial-temporal human travel behaviors.
+                        </p>
                     </div>
-                </div>
-                <!-- Stat 3 -->
-                <div class="glass-card rounded-2xl p-5 shadow-sm hover-lift flex flex-col justify-between group">
-                    <span class="text-slate-400 uppercase text-[9px] tracking-widest font-extrabold" id="stat-3-label">Travel Identification</span>
-                    <div>
-                        <span class="text-3xl md:text-4xl font-serif font-extrabold text-blue-600 dark:text-blue-400 tracking-tight">+21.5%</span>
-                        <p class="text-[10px] text-slate-500 mt-1 leading-normal" id="stat-3-desc">Classification improvement over baselines via ST-ProC graph model.</p>
+                    <!-- Direction 2 -->
+                    <div class="glass-card rounded-2xl p-6 border border-slate-200/50 dark:border-slate-800/50 hover-lift group">
+                        <div class="w-12 h-12 bg-emerald-900/10 dark:bg-emerald-400/10 text-emerald-700 dark:text-emerald-400 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <i data-lucide="cpu" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-serif font-bold text-lg text-slate-950 dark:text-white mb-2" id="dir2-title">Urban Spatiotemporal Digital Twins</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed" id="dir2-desc">
+                            Developing city-scale interactive simulation systems that combine Multi-Agent reinforcement learning coordination and cognitive-map aware community platforms (such as AskNearby) to evaluate traffic bottlenecks.
+                        </p>
                     </div>
-                </div>
-                <!-- Stat 4 -->
-                <div class="glass-card rounded-2xl p-5 shadow-sm hover-lift flex flex-col justify-between group">
-                    <span class="text-slate-400 uppercase text-[9px] tracking-widest font-extrabold" id="stat-4-label">Top Publications</span>
-                    <div>
-                        <span class="text-3xl md:text-4xl font-serif font-extrabold text-amber-600 dark:text-amber-400 tracking-tight">8+</span>
-                        <p class="text-[10px] text-slate-500 mt-1 leading-normal" id="stat-4-desc">Peer-reviewed publications & top conference submissions.</p>
+                    <!-- Direction 3 -->
+                    <div class="glass-card rounded-2xl p-6 border border-slate-200/50 dark:border-slate-800/50 hover-lift group">
+                        <div class="w-12 h-12 bg-blue-900/10 dark:bg-blue-400/10 text-blue-700 dark:text-blue-400 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <i data-lucide="scale" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-serif font-bold text-lg text-slate-950 dark:text-white mb-2" id="dir3-title">Causal Policy & Trustworthy AI</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed" id="dir3-desc">
+                            Translating spatial AI outputs into decision-ready tools using Difference-in-Differences and Interrupted Time Series models to diagnose EV adoption car rebound and evaluate checkpoints satisfaction.
+                        </p>
                     </div>
                 </div>
             </div>
 
-            <!-- Bento Box 4: Interactive Equilibrium vs Optimum Sandbox (Incredibly fancy, col-span-12) -->
+            <!-- Bento Box 4: Academic Statistics & Milestones (col-span-12) -->
+            <div class="lg:col-span-12 grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="glass-card rounded-2xl p-5 shadow-sm hover-lift flex flex-col justify-between group">
+                    <span class="text-slate-400 uppercase text-[9px] tracking-widest font-extrabold" id="stat-1-label">SAV Routing Efficiency</span>
+                    <div>
+                        <span class="text-3xl md:text-4xl font-serif font-extrabold text-usc-900 dark:text-usc-yellow tracking-tight">15-25%</span>
+                        <p class="text-[10px] text-slate-500 mt-1 leading-normal" id="stat-1-desc">Metropolitan agency & passenger cost savings solved in TR Part C.</p>
+                    </div>
+                </div>
+                <div class="glass-card rounded-2xl p-5 shadow-sm hover-lift flex flex-col justify-between group">
+                    <span class="text-slate-400 uppercase text-[9px] tracking-widest font-extrabold" id="stat-2-label">CausNet Forecast Boost</span>
+                    <div>
+                        <span class="text-3xl md:text-4xl font-serif font-extrabold text-emerald-600 dark:text-emerald-400 tracking-tight">35.8%</span>
+                        <p class="text-[10px] text-slate-500 mt-1 leading-normal" id="stat-2-desc">Error reduction (MAE) over advanced spatiotemporal GNNs in IV'26.</p>
+                    </div>
+                </div>
+                <div class="glass-card rounded-2xl p-5 shadow-sm hover-lift flex flex-col justify-between group">
+                    <span class="text-slate-400 uppercase text-[9px] tracking-widest font-extrabold" id="stat-3-label">Trajectory Precision</span>
+                    <div>
+                        <span class="text-3xl md:text-4xl font-serif font-extrabold text-blue-600 dark:text-blue-400 tracking-tight">+21.5%</span>
+                        <p class="text-[10px] text-slate-500 mt-1 leading-normal" id="stat-3-desc">Travel mode identification gain via ST-ProC under 5% sparse labels.</p>
+                    </div>
+                </div>
+                <div class="glass-card rounded-2xl p-5 shadow-sm hover-lift flex flex-col justify-between group">
+                    <span class="text-slate-400 uppercase text-[9px] tracking-widest font-extrabold" id="stat-4-label">Academic Records</span>
+                    <div>
+                        <span class="text-3xl md:text-4xl font-serif font-extrabold text-amber-600 dark:text-amber-400 tracking-tight">8+</span>
+                        <p class="text-[10px] text-slate-500 mt-1 leading-normal" id="stat-4-desc">Peer-reviewed publications and leading AI/Trans conference papers.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bento Box 5: Equilibrium vs System Optimum Interactive Simulator (col-span-12) -->
             <div id="sandbox" class="lg:col-span-12 glass-card rounded-3xl p-6 shadow-sm border border-slate-200/50 dark:border-slate-800/50 relative overflow-hidden group">
                 <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 mb-6">
                     <div class="space-y-1">
-                        <span class="text-[10px] font-bold text-pku-900 dark:text-pku-400 uppercase tracking-widest flex items-center gap-1.5">
+                        <span class="text-[10px] font-bold text-usc-900 dark:text-usc-yellow uppercase tracking-widest flex items-center gap-1.5">
                             <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                            Live Research Sandbox
+                            Live Traffic Simulator Sandbox
                         </span>
                         <h2 class="text-2xl font-serif font-extrabold text-slate-900 dark:text-white" id="sandbox-title">
-                            Traffic Route Assignment Simulator
+                            Traffic Route Assignment Simulation
                         </h2>
                         <p class="text-xs text-slate-500 dark:text-slate-400" id="sandbox-desc">
                             Interactive visualizer illustrating <strong>User Equilibrium (UE)</strong> vs <strong>System Optimum (SO)</strong> routing on a bottleneck-prone corridor.
                         </p>
                     </div>
                     
-                    <!-- Sandbox Controls -->
+                    <!-- Controls -->
                     <div class="flex items-center gap-2 bg-slate-100 dark:bg-slate-800/80 p-1 rounded-xl shrink-0">
-                        <button onclick="setRoutingMode('UE')" id="btn-ue" class="px-4 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer bg-white dark:bg-slate-900 text-pku-900 dark:text-white shadow-sm flex items-center gap-1.5">
+                        <button onclick="setRoutingMode('UE')" id="btn-ue" class="px-4 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer bg-white dark:bg-slate-900 text-usc-900 dark:text-white shadow-sm flex items-center gap-1.5">
                             <i data-lucide="user" class="w-3.5 h-3.5"></i>
                             User Equilibrium (UE)
                         </button>
@@ -354,54 +378,43 @@
                     </div>
                 </div>
 
-                <!-- Simulation Interface -->
+                <!-- Interface layout -->
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                    <!-- Simulator Canvas / Container -->
                     <div class="lg:col-span-2 bg-slate-950 dark:bg-black rounded-2xl h-64 relative border border-slate-800 shadow-inner overflow-hidden flex items-center justify-center">
-                        <!-- Node elements representing paths -->
-                        <div class="absolute left-8 w-10 h-10 rounded-full bg-pku-900/30 border border-pku-800 text-white flex items-center justify-center font-mono text-[10px] font-bold z-10">Origin</div>
+                        <div class="absolute left-8 w-10 h-10 rounded-full bg-usc-900/30 border border-usc-900/60 text-white flex items-center justify-center font-mono text-[10px] font-bold z-10">Origin</div>
                         
-                        <!-- Bottleneck Route -->
                         <div class="absolute top-[35%] left-[25%] right-[25%] h-1 border-t-2 border-dashed border-red-500/50 z-0"></div>
-                        <div class="absolute top-[30%] left-[50%] -translate-x-1/2 px-2.5 py-0.5 rounded bg-red-900/90 text-red-300 font-mono text-[9px] font-bold uppercase tracking-widest border border-red-700 select-none flex items-center gap-1" id="bottleneck-tag">
-                            <i data-lucide="alert-triangle" class="w-3 h-3"></i> Bottleneck
+                        <div class="absolute top-[30%] left-[50%] -translate-x-1/2 px-2.5 py-0.5 rounded bg-red-950 text-red-300 font-mono text-[9px] font-bold uppercase tracking-widest border border-red-800 select-none flex items-center gap-1" id="bottleneck-tag">
+                            <i data-lucide="alert-triangle" class="w-3 h-3"></i> Peak Bottleneck
                         </div>
 
-                        <!-- Alternative System Route -->
                         <div class="absolute bottom-[35%] left-[25%] right-[25%] h-1 border-t-2 border-dashed border-emerald-500/50 z-0"></div>
-                        <div class="absolute bottom-[28%] left-[50%] -translate-x-1/2 px-2.5 py-0.5 rounded bg-emerald-950/90 text-emerald-400 font-mono text-[9px] font-bold uppercase tracking-widest border border-emerald-800 select-none flex items-center gap-1" id="optimal-tag">
+                        <div class="absolute bottom-[28%] left-[50%] -translate-x-1/2 px-2.5 py-0.5 rounded bg-emerald-950 text-emerald-400 font-mono text-[9px] font-bold uppercase tracking-widest border border-emerald-800 select-none flex items-center gap-1" id="optimal-tag">
                             <i data-lucide="route" class="w-3 h-3"></i> Alternative Path
                         </div>
 
-                        <div class="absolute right-8 w-10 h-10 rounded-full bg-pku-900/30 border border-pku-800 text-white flex items-center justify-center font-mono text-[10px] font-bold z-10">Dest</div>
-
-                        <!-- Dynamic Canvas representing traffic particle streams -->
+                        <div class="absolute right-8 w-10 h-10 rounded-full bg-usc-900/30 border border-usc-900/60 text-white flex items-center justify-center font-mono text-[10px] font-bold z-10">Dest</div>
                         <canvas id="sandbox-canvas" class="absolute inset-0 w-full h-full pointer-events-none z-10"></canvas>
                     </div>
 
-                    <!-- Simulator Legend & Explanation -->
                     <div class="space-y-4 flex flex-col justify-between">
                         <div class="space-y-3">
                             <h4 class="font-bold text-sm text-slate-900 dark:text-white" id="sand-stats-title">Live Simulator Stats</h4>
-                            
                             <div class="grid grid-cols-2 gap-3">
                                 <div class="bg-slate-100 dark:bg-slate-800/50 rounded-xl p-3 border border-slate-200/50 dark:border-slate-800/40 text-center">
                                     <span class="text-[9px] font-semibold uppercase text-slate-400 block" id="sim-flow-lbl">Flow Division</span>
-                                    <span class="text-lg font-serif font-extrabold text-slate-900 dark:text-white" id="flow-division-stat">100% vs 0%</span>
+                                    <span class="text-lg font-serif font-extrabold text-slate-900 dark:text-white" id="flow-division-stat">95% vs 5%</span>
                                 </div>
                                 <div class="bg-slate-100 dark:bg-slate-800/50 rounded-xl p-3 border border-slate-200/50 dark:border-slate-800/40 text-center">
-                                    <span class="text-[9px] font-semibold uppercase text-slate-400 block" id="sim-delay-lbl">System Congestion</span>
+                                    <span class="text-[9px] font-semibold uppercase text-slate-400 block" id="sim-delay-lbl">System Delay</span>
                                     <span class="text-lg font-serif font-extrabold text-red-500" id="avg-delay-stat">High</span>
                                 </div>
                             </div>
-
                             <p class="text-xs text-slate-500 dark:text-slate-400 leading-normal" id="sand-explain-p">
-                                under **User Equilibrium (UE)**, travelers selfishly choose the shortest bottleneck path, resulting in congestion. Our joint routing model shifts flow to **System Optimum (SO)**, utilizing personalized alternative sets to drastically lower peak delays.
+                                Under **User Equilibrium (UE)**, travelers selfishly choose the shortest path, leading to massive delays. In **System Optimum (SO)**, central path sets dynamically route traffic to clear the bottleneck.
                             </p>
                         </div>
-
-                        <!-- Trigger Simulation Button -->
-                        <button onclick="restartSim()" class="w-full py-2 bg-slate-900 hover:bg-pku-900 text-white dark:bg-slate-800 dark:hover:bg-pku-800 text-xs font-bold rounded-xl transition-all cursor-pointer flex items-center justify-center gap-1.5 hover:scale-[1.02]">
+                        <button onclick="restartSim()" class="w-full py-2 bg-slate-900 hover:bg-usc-900 text-white dark:bg-slate-800 dark:hover:bg-slate-900 text-xs font-bold rounded-xl transition-all cursor-pointer flex items-center justify-center gap-1.5 hover:scale-[1.02]">
                             <i data-lucide="refresh-cw" class="w-4 h-4"></i>
                             <span id="sim-restart">Restart Simulation</span>
                         </button>
@@ -409,101 +422,20 @@
                 </div>
             </div>
 
-            <!-- Bento Box 5: Research focus detail cards (col-span-8) -->
-            <div id="research" class="lg:col-span-8 glass-card rounded-3xl p-6 sm:p-8 shadow-sm space-y-6">
-                <h2 class="text-2xl font-serif font-bold text-slate-900 dark:text-white flex items-center gap-2.5">
-                    <i data-lucide="network" class="text-pku-900 dark:text-pku-400 animate-pulse"></i>
-                    Core Methodological Pillars
-                </h2>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <!-- Pillar 1 -->
-                    <div class="p-4 bg-slate-50 dark:bg-slate-950/40 rounded-2xl border border-slate-200/60 dark:border-slate-800/60 hover:border-pku-900/30 dark:hover:border-pku-400/30 transition-all flex gap-3.5 group">
-                        <div class="p-2.5 bg-pku-900/10 dark:bg-pku-400/10 text-pku-900 dark:text-pku-300 rounded-xl shrink-0 group-hover:scale-110 transition-transform">
-                            <i data-lucide="git-branch" class="w-5 h-5"></i>
-                        </div>
-                        <div class="space-y-1">
-                            <h3 class="font-bold text-slate-950 dark:text-white text-sm" id="pi-1-t">Smart Mobility & Path Planning</h3>
-                            <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-normal" id="pi-1-d">Shared Autonomous Vehicle fleets, public-transit design problem, traffic equilibrium equations, continuum approximation, and personalized path planning algorithms.</p>
-                        </div>
-                    </div>
-                    <!-- Pillar 2 -->
-                    <div class="p-4 bg-slate-50 dark:bg-slate-950/40 rounded-2xl border border-slate-200/60 dark:border-slate-800/60 hover:border-pku-900/30 dark:hover:border-pku-400/30 transition-all flex gap-3.5 group">
-                        <div class="p-2.5 bg-emerald-900/10 dark:bg-emerald-400/10 text-emerald-700 dark:text-emerald-400 rounded-xl shrink-0 group-hover:scale-110 transition-transform">
-                            <i data-lucide="database" class="w-5 h-5"></i>
-                        </div>
-                        <div class="space-y-1">
-                            <h3 class="font-bold text-slate-950 dark:text-white text-sm" id="pi-2-t">Spatiotemporal Big Data Mining</h3>
-                            <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-normal" id="pi-2-d">Spatio-temporal forecasting using GNNs, BiLSTM with attention, trajectory data mining, and graph-prototypical semi-supervised classification.</p>
-                        </div>
-                    </div>
-                    <!-- Pillar 3 -->
-                    <div class="p-4 bg-slate-50 dark:bg-slate-950/40 rounded-2xl border border-slate-200/60 dark:border-slate-800/60 hover:border-pku-900/30 dark:hover:border-pku-400/30 transition-all flex gap-3.5 group">
-                        <div class="p-2.5 bg-blue-900/10 dark:bg-blue-400/10 text-blue-700 dark:text-blue-400 rounded-xl shrink-0 group-hover:scale-110 transition-transform">
-                            <i data-lucide="bot" class="w-5 h-5"></i>
-                        </div>
-                        <div class="space-y-1">
-                            <h3 class="font-bold text-slate-950 dark:text-white text-sm" id="pi-3-t">Large Language Models & Geo-AI</h3>
-                            <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-normal" id="pi-3-d">Extracting structured causal graphs from reports with LLMs, 15-minute city cognitive recommendations, and Graph-Vector hybrid RAG platforms.</p>
-                        </div>
-                    </div>
-                    <!-- Pillar 4 -->
-                    <div class="p-4 bg-slate-50 dark:bg-slate-950/40 rounded-2xl border border-slate-200/60 dark:border-slate-800/60 hover:border-pku-900/30 dark:hover:border-pku-400/30 transition-all flex gap-3.5 group">
-                        <div class="p-2.5 bg-amber-900/10 dark:bg-amber-400/10 text-amber-700 dark:text-amber-400 rounded-xl shrink-0 group-hover:scale-110 transition-transform">
-                            <i data-lucide="trending-up" class="w-5 h-5"></i>
-                        </div>
-                        <div class="space-y-1">
-                            <h3 class="font-bold text-slate-950 dark:text-white text-sm" id="pi-4-t">Causal Policy Diagnostics</h3>
-                            <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-normal" id="pi-4-d">Difference-in-Differences quasi-experiments for EV behavioral rebound and interrupted time series models for spatial sentiment causals.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Bento Box 6: Education Timeline (col-span-4) -->
-            <div class="lg:col-span-4 glass-card rounded-3xl p-6 shadow-sm flex flex-col justify-between transition-all hover:shadow-md">
-                <div class="space-y-5">
-                    <h3 class="text-xs uppercase tracking-widest text-slate-400 font-extrabold flex items-center gap-2">
-                        <i data-lucide="graduation-cap" class="w-4 h-4 text-pku-900 dark:text-pku-400"></i>
-                        Education
-                    </h3>
-                    
-                    <div class="space-y-5">
-                        <div class="relative pl-5 border-l border-pku-900 dark:border-pku-700">
-                            <span class="absolute -left-[4px] top-1 w-2 h-2 rounded-full bg-pku-900"></span>
-                            <h4 class="font-bold text-xs text-slate-950 dark:text-white">Peking University</h4>
-                            <p class="text-[10px] text-pku-900 dark:text-pku-400 font-medium">M.Sc. in Urban Planning (Smart City & Big Data)</p>
-                            <span class="text-[9px] font-mono text-slate-400 block mt-0.5">2023 - 2026 (Expected) | GPA: 3.75/4.0</span>
-                        </div>
-                        <div class="relative pl-5 border-l border-slate-200 dark:border-slate-800">
-                            <span class="absolute -left-[4px] top-1 w-2 h-2 rounded-full bg-slate-300 dark:bg-slate-700"></span>
-                            <h4 class="font-bold text-xs text-slate-950 dark:text-white">Beijing Jiaotong University</h4>
-                            <p class="text-[10px] text-slate-700 dark:text-slate-300">B.Sc. Major in Traffic Engineering (Minor in Finance)</p>
-                            <span class="text-[9px] font-mono text-slate-400 block mt-0.5">2019 - 2023 | GPA: 3.97/4.0 (Top 0.5% Rank)</span>
-                            <span class="text-[9px] font-bold text-emerald-600 uppercase tracking-wider block">Beijing Outstanding Graduate</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="border-t border-slate-100 dark:border-slate-800 pt-3 mt-3">
-                    <span class="text-[10px] text-slate-400 font-medium block">TOEFL iBT: 101 | English: Fluent</span>
-                </div>
-            </div>
-
-            <!-- Bento Box 7: Premium Selected Publications (col-span-12) -->
+            <!-- Bento Box 6: Elite Publications Grid with SVG Teasers (col-span-12) -->
             <div id="publications" class="lg:col-span-12 glass-card rounded-3xl p-6 sm:p-8 shadow-sm space-y-6">
                 <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                     <div class="space-y-0.5">
                         <span class="text-[10px] font-extrabold uppercase tracking-widest text-slate-400">RESEARCH SHOWCASE</span>
                         <h2 class="text-2xl font-serif font-extrabold text-slate-900 dark:text-white flex items-center gap-2.5">
-                            <i data-lucide="book-open" class="text-pku-900 dark:text-pku-400"></i>
-                            Publications & Submissions
+                            <i data-lucide="book-open" class="text-usc-900 dark:text-usc-yellow animate-pulse"></i>
+                            Publications & Under Reviews
                         </h2>
                     </div>
                     
-                    <!-- Advanced Publication Category Selector -->
+                    <!-- Categories -->
                     <div class="flex flex-wrap gap-1 bg-slate-100 dark:bg-slate-800/80 p-1 rounded-xl w-fit border border-slate-200/40 dark:border-slate-700/40">
-                        <button onclick="filterPubs('all')" id="tab-all" class="pub-tab px-3.5 py-1.5 rounded-lg text-xs font-bold cursor-pointer bg-white dark:bg-slate-900 text-pku-900 dark:text-white shadow-sm transition-all">All</button>
+                        <button onclick="filterPubs('all')" id="tab-all" class="pub-tab px-3.5 py-1.5 rounded-lg text-xs font-bold cursor-pointer bg-white dark:bg-slate-900 text-usc-900 dark:text-white shadow-sm transition-all">All</button>
                         <button onclick="filterPubs('featured')" id="tab-featured" class="pub-tab px-3.5 py-1.5 rounded-lg text-xs font-bold cursor-pointer text-slate-500 hover:text-slate-800 dark:hover:text-white transition-all">Featured ★</button>
                         <button onclick="filterPubs('journal')" id="tab-journal" class="pub-tab px-3.5 py-1.5 rounded-lg text-xs font-bold cursor-pointer text-slate-500 hover:text-slate-800 dark:hover:text-white transition-all">Journals</button>
                         <button onclick="filterPubs('conference')" id="tab-conference" class="pub-tab px-3.5 py-1.5 rounded-lg text-xs font-bold cursor-pointer text-slate-500 hover:text-slate-800 dark:hover:text-white transition-all">Conferences</button>
@@ -511,325 +443,292 @@
                     </div>
                 </div>
 
-                <!-- Core Publication Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-5" id="publications-grid">
+                <!-- Papers list with custom high-end vector figures -->
+                <div class="space-y-6">
                     
                     <!-- Paper 1: TR Part C -->
-                    <div class="pub-item bg-slate-50/50 dark:bg-slate-900/30 hover:bg-white dark:hover:bg-slate-900 p-5 rounded-2xl border border-slate-200/50 dark:border-slate-800/50 hover:border-pku-900/30 dark:hover:border-pku-400/30 hover:shadow-md transition-all flex flex-col justify-between gap-4" data-category="featured journal">
-                        <div class="space-y-2.5">
+                    <div class="pub-item bg-slate-50/50 dark:bg-slate-900/25 p-5 rounded-2xl border border-slate-200/50 dark:border-slate-800/50 hover:border-usc-900/30 dark:hover:border-usc-yellow/30 hover:shadow-md transition-all flex flex-col md:flex-row gap-6 justify-between items-start md:items-center" data-category="featured journal">
+                        <!-- High End SVG Teaser (Like Zewei Zhou's) -->
+                        <div class="w-full md:w-48 h-32 bg-slate-900 rounded-xl shrink-0 overflow-hidden border border-slate-800 shadow-inner relative flex items-center justify-center select-none">
+                            <svg class="w-full h-full text-usc-yellow/80" viewBox="0 0 100 100" fill="none" stroke="currentColor">
+                                <rect x="5" y="5" width="90" height="90" rx="6" fill="rgba(153, 0, 0, 0.05)" stroke="rgba(153, 0, 0, 0.2)" stroke-width="0.75" />
+                                <circle cx="30" cy="50" r="4" fill="#ef4444" />
+                                <circle cx="70" cy="30" r="4" fill="#3b82f6" />
+                                <circle cx="70" cy="70" r="4" fill="#10b981" />
+                                <path d="M 30 50 Q 50 30 70 30 M 30 50 Q 50 70 70 70" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2" />
+                                <path d="M 30 50 L 70 30 M 30 50 L 70 70" stroke="currentColor" stroke-width="0.75" />
+                                <text x="50%" y="15" text-anchor="middle" fill="currentColor" font-family="monospace" font-size="6" font-weight="bold">SAV-TRANSIT DESIGN</text>
+                            </svg>
+                        </div>
+                        
+                        <div class="space-y-2.5 flex-1">
                             <div class="flex items-center justify-between gap-4">
                                 <div class="flex items-center gap-1.5">
-                                    <span class="px-2 py-0.5 bg-red-50 dark:bg-pku-950/50 text-pku-900 dark:text-pku-300 font-mono text-[9px] uppercase font-bold rounded border border-pku-100 dark:border-pku-900/30">Journal</span>
+                                    <span class="px-2 py-0.5 bg-red-50 dark:bg-usc-900/20 text-usc-900 dark:text-usc-yellow font-mono text-[9px] uppercase font-bold rounded border border-usc-900/10">Journal</span>
                                     <span class="px-2 py-0.5 bg-amber-100 dark:bg-amber-900/20 text-amber-800 dark:text-amber-300 font-mono text-[9px] uppercase font-bold rounded border border-amber-200/30 flex items-center gap-0.5">★ Featured</span>
                                 </div>
-                                <span class="text-xs font-mono text-slate-400 font-medium">2024</span>
+                                <span class="text-xs font-mono text-slate-400 font-semibold">2024</span>
                             </div>
-                            <h3 class="text-base font-serif font-extrabold leading-snug text-slate-950 dark:text-white group-hover:text-pku-900 transition-colors">
+                            <h3 class="text-base font-serif font-extrabold leading-snug text-slate-950 dark:text-white">
                                 Joint Design of Public Transit and Autonomous Vehicle Mobility Systems for Tourist Cities Considering Abnormal Trips
                             </h3>
                             <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
-                                Shi, Z., Luo, S., <strong class="text-slate-900 dark:text-slate-200 underline decoration-pku-900 dark:decoration-pku-400 font-semibold">Niu, L.</strong>, Shao, C.
+                                Shi, Z., Luo, S., <strong class="text-slate-900 dark:text-slate-200 underline decoration-usc-900 dark:decoration-usc-yellow font-semibold">Niu, L.</strong>, Shao, C.
                             </p>
-                            <p class="text-xs text-slate-400 italic">
-                                Transportation Research Part C: Emerging Technologies
-                            </p>
-                            <!-- Method tags -->
-                            <div class="flex flex-wrap gap-1">
-                                <span class="text-[9px] font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-2 py-0.5 rounded">Mixed-Integer Program</span>
-                                <span class="text-[9px] font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-2 py-0.5 rounded">Queuing Theory</span>
-                                <span class="text-[9px] font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-2 py-0.5 rounded">SAV Modeling</span>
+                            <p class="text-xs text-slate-400 italic">Transportation Research Part C: Emerging Technologies</p>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="text-[9px] font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-2 py-0.5 rounded">Queuing Systems</span>
+                                <span class="text-[9px] font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-2 py-0.5 rounded">Mixed Integer Programming</span>
                             </div>
-                        </div>
-
-                        <div class="flex flex-wrap items-center gap-2 pt-3 border-t border-slate-100 dark:border-slate-800/60">
-                            <button onclick="toggleAbstract('abs-trc')" class="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-slate-500 hover:text-pku-900 dark:hover:text-pku-400 cursor-pointer transition-colors">
-                                <i data-lucide="align-left" class="w-3.5 h-3.5"></i> Abstract
-                            </button>
-                            <a href="https://doi.org/10.1016/j.trc.2025.105179" target="_blank" rel="noopener" class="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-slate-500 hover:text-pku-900 dark:hover:text-pku-400 cursor-pointer transition-colors">
-                                <i data-lucide="external-link" class="w-3.5 h-3.5"></i> DOI Link
-                            </a>
-                            <button onclick="openBibModal('shi2024joint')" class="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-slate-500 hover:text-pku-900 dark:hover:text-pku-400 cursor-pointer transition-colors">
-                                <i data-lucide="quote" class="w-3.5 h-3.5"></i> Cite
-                            </button>
-                        </div>
-                        <div id="abs-trc" class="hidden text-xs text-slate-500 dark:text-slate-400 bg-slate-100/60 dark:bg-slate-950 p-4 rounded-xl leading-relaxed">
-                            Formulated an integrated SAV-transit routing design for tourist cities, balancing carpooling and private tour trips. Derived flow equilibria using continuum approximation & network queuing. Reduced costs by 15-25% in low-demand regimes.
+                            
+                            <div class="flex flex-wrap items-center gap-2 pt-3 border-t border-slate-100 dark:border-slate-800/60">
+                                <button onclick="toggleAbstract('abs-trc')" class="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-slate-500 hover:text-usc-900 dark:hover:text-usc-yellow cursor-pointer transition-colors">
+                                    <i data-lucide="align-left" class="w-3.5 h-3.5"></i> Abstract
+                                </button>
+                                <a href="https://doi.org/10.1016/j.trc.2025.105179" target="_blank" rel="noopener" class="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-slate-500 hover:text-usc-900 dark:hover:text-usc-yellow transition-colors">
+                                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i> DOI
+                                </a>
+                                <button onclick="openBibModal('shi2024joint')" class="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-slate-500 hover:text-usc-900 dark:hover:text-usc-yellow cursor-pointer transition-colors">
+                                    <i data-lucide="quote" class="w-3.5 h-3.5"></i> Cite
+                                </button>
+                            </div>
+                            <div id="abs-trc" class="hidden text-xs text-slate-500 dark:text-slate-400 bg-slate-100/60 dark:bg-slate-950 p-4 rounded-xl leading-relaxed">
+                                Formulates a shared autonomous vehicle (SAV) and public transit system layout, evaluating private trip options and carpooling. Uses mixed-integer linear programming to derive optimal SAV fleet size, yielding 15-25% total system savings.
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Paper 2: GeoAI '25 (ACM) -->
-                    <div class="pub-item bg-slate-50/50 dark:bg-slate-900/30 hover:bg-white dark:hover:bg-slate-900 p-5 rounded-2xl border border-slate-200/50 dark:border-slate-800/50 hover:border-pku-900/30 dark:hover:border-pku-400/30 hover:shadow-md transition-all flex flex-col justify-between gap-4" data-category="featured conference">
-                        <div class="space-y-2.5">
+                    <!-- Paper 2: GeoAI '25 -->
+                    <div class="pub-item bg-slate-50/50 dark:bg-slate-900/25 p-5 rounded-2xl border border-slate-200/50 dark:border-slate-800/50 hover:border-usc-900/30 dark:hover:border-usc-yellow/30 hover:shadow-md transition-all flex flex-col md:flex-row gap-6 justify-between items-start md:items-center" data-category="featured conference">
+                        <!-- High End SVG Teaser -->
+                        <div class="w-full md:w-48 h-32 bg-slate-900 rounded-xl shrink-0 overflow-hidden border border-slate-800 shadow-inner relative flex items-center justify-center select-none">
+                            <svg class="w-full h-full text-emerald-400" viewBox="0 0 100 100" fill="none" stroke="currentColor">
+                                <circle cx="50" cy="50" r="18" fill="rgba(16, 185, 129, 0.08)" stroke="rgba(16, 185, 129, 0.3)" stroke-width="0.75" />
+                                <rect x="42" y="42" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1" />
+                                <circle cx="20" cy="50" r="3" fill="currentColor" />
+                                <circle cx="80" cy="50" r="3" fill="currentColor" />
+                                <line x1="23" y1="50" x2="42" y2="50" stroke="currentColor" stroke-width="0.75" />
+                                <line x1="58" y1="50" x2="77" y2="50" stroke="currentColor" stroke-width="0.75" />
+                                <text x="50%" y="15" text-anchor="middle" fill="currentColor" font-family="monospace" font-size="6" font-weight="bold">ASKNEARBY RAG PIPELINE</text>
+                            </svg>
+                        </div>
+                        
+                        <div class="space-y-2.5 flex-1">
                             <div class="flex items-center justify-between gap-4">
                                 <div class="flex items-center gap-1.5">
-                                    <span class="px-2 py-0.5 bg-blue-50 dark:bg-blue-950/50 text-blue-700 dark:text-blue-300 font-mono text-[9px] uppercase font-bold rounded border border-blue-100 dark:border-blue-900/30">Conference Oral</span>
+                                    <span class="px-2 py-0.5 bg-blue-50 dark:bg-blue-950/50 text-blue-700 dark:text-blue-300 font-mono text-[9px] uppercase font-bold rounded border border-blue-100">Conference Oral</span>
                                     <span class="px-2 py-0.5 bg-amber-100 dark:bg-amber-900/20 text-amber-800 dark:text-amber-300 font-mono text-[9px] uppercase font-bold rounded border border-amber-200/30 flex items-center gap-0.5">★ Featured</span>
                                 </div>
-                                <span class="text-xs font-mono text-slate-400 font-medium">2025</span>
+                                <span class="text-xs font-mono text-slate-400 font-semibold">2025</span>
                             </div>
-                            <h3 class="text-base font-serif font-extrabold leading-snug text-slate-950 dark:text-white group-hover:text-pku-900 transition-colors">
+                            <h3 class="text-base font-serif font-extrabold leading-snug text-slate-950 dark:text-white">
                                 AskNearby: An LLM-based Application for Neighborhood Information Retrieval and Personalized Cognitive-map Recommendations
                             </h3>
                             <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
-                                <strong class="text-slate-900 dark:text-slate-200 underline decoration-pku-900 dark:decoration-pku-400 font-semibold">Niu, L.</strong>, Deng, Z., Li, B., Huang, N., Liu, R., Zhang, W.
+                                <strong class="text-slate-900 dark:text-slate-200 underline decoration-usc-900 dark:decoration-usc-yellow font-semibold">Niu, L.</strong>, Deng, Z., Li, B., Huang, N., Liu, R., Zhang, W.
                             </p>
-                            <p class="text-xs text-slate-400 italic">
-                                ACM SIGSPATIAL GeoAI '25, Oral Presentation
-                            </p>
-                            <!-- Method tags -->
-                            <div class="flex flex-wrap gap-1">
-                                <span class="text-[9px] font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-2 py-0.5 rounded">Graph-Vector RAG</span>
-                                <span class="text-[9px] font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-2 py-0.5 rounded">Cognitive-Map</span>
-                                <span class="text-[9px] font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-2 py-0.5 rounded">15-Min City</span>
+                            <p class="text-xs text-slate-400 italic">ACM SIGSPATIAL GeoAI '25, Oral Presentation</p>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="text-[9px] font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-2 py-0.5 rounded">Semantic RAG</span>
+                                <span class="text-[9px] font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-2 py-0.5 rounded">Cognitive map Modeling</span>
                             </div>
-                        </div>
-
-                        <div class="flex flex-wrap items-center gap-2 pt-3 border-t border-slate-100 dark:border-slate-800/60">
-                            <button onclick="toggleAbstract('abs-geoai')" class="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-slate-500 hover:text-pku-900 dark:hover:text-pku-400 cursor-pointer transition-colors">
-                                <i data-lucide="align-left" class="w-3.5 h-3.5"></i> Abstract
-                            </button>
-                            <a href="https://arxiv.org/abs/2512.02502" target="_blank" rel="noopener" class="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-slate-500 hover:text-pku-900 dark:hover:text-pku-400 cursor-pointer transition-colors">
-                                <i data-lucide="file-text" class="w-3.5 h-3.5"></i> Paper PDF
-                            </a>
-                            <button onclick="openBibModal('niu2025asknearby')" class="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-slate-500 hover:text-pku-900 dark:hover:text-pku-400 cursor-pointer transition-colors">
-                                <i data-lucide="quote" class="w-3.5 h-3.5"></i> Cite
-                            </button>
-                        </div>
-                        <div id="abs-geoai" class="hidden text-xs text-slate-500 dark:text-slate-400 bg-slate-100/60 dark:bg-slate-950 p-4 rounded-xl leading-relaxed">
-                            Proposes AskNearby, an LLM platform linking a 3-layer RAG pipeline (vector, graph, geo-retrieval) with cognitive map modeling of user familiarity, significantly improving accuracy of local 15-minute city information systems.
+                            
+                            <div class="flex flex-wrap items-center gap-2 pt-3 border-t border-slate-100 dark:border-slate-800/60">
+                                <button onclick="toggleAbstract('abs-geoai')" class="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-slate-500 hover:text-usc-900 dark:hover:text-usc-yellow cursor-pointer transition-colors">
+                                    <i data-lucide="align-left" class="w-3.5 h-3.5"></i> Abstract
+                                </button>
+                                <a href="https://arxiv.org/abs/2512.02502" target="_blank" rel="noopener" class="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-slate-500 hover:text-usc-900 dark:hover:text-usc-yellow cursor-pointer transition-colors">
+                                    <i data-lucide="file-text" class="w-3.5 h-3.5"></i> arXiv
+                                </a>
+                                <button onclick="openBibModal('niu2025asknearby')" class="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-slate-500 hover:text-usc-900 dark:hover:text-usc-yellow cursor-pointer transition-colors">
+                                    <i data-lucide="quote" class="w-3.5 h-3.5"></i> Cite
+                                </button>
+                            </div>
+                            <div id="abs-geoai" class="hidden text-xs text-slate-500 dark:text-slate-400 bg-slate-100/60 dark:bg-slate-950 p-4 rounded-xl leading-relaxed">
+                                Connects graph-based, semantic and geo-fenced retrievals with custom user neighborhood familiarity functions. Enhances localized RAG accuracy in 15-minute cities.
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Paper 3: Event-CausNet (IEEE IV 2026) -->
-                    <div class="pub-item bg-slate-50/50 dark:bg-slate-900/30 hover:bg-white dark:hover:bg-slate-900 p-5 rounded-2xl border border-slate-200/50 dark:border-slate-800/50 hover:border-pku-900/30 dark:hover:border-pku-400/30 hover:shadow-md transition-all flex flex-col justify-between gap-4" data-category="featured preprint">
-                        <div class="space-y-2.5">
+                    <!-- Paper 3: Event-CausNet -->
+                    <div class="pub-item bg-slate-50/50 dark:bg-slate-900/25 p-5 rounded-2xl border border-slate-200/50 dark:border-slate-800/50 hover:border-usc-900/30 dark:hover:border-usc-yellow/30 hover:shadow-md transition-all flex flex-col md:flex-row gap-6 justify-between items-start md:items-center" data-category="featured preprint">
+                        <!-- High End SVG Teaser -->
+                        <div class="w-full md:w-48 h-32 bg-slate-900 rounded-xl shrink-0 overflow-hidden border border-slate-800 shadow-inner relative flex items-center justify-center select-none">
+                            <svg class="w-full h-full text-blue-400" viewBox="0 0 100 100" fill="none" stroke="currentColor">
+                                <rect x="15" y="35" width="25" height="30" rx="3" stroke="currentColor" stroke-width="0.75" />
+                                <circle cx="70" cy="50" r="14" fill="rgba(59, 130, 246, 0.08)" stroke="currentColor" stroke-width="1" />
+                                <path d="M 40 50 L 56 50" stroke="currentColor" stroke-width="1" />
+                                <polygon points="56,48 56,52 60,50" fill="currentColor" />
+                                <text x="50%" y="15" text-anchor="middle" fill="currentColor" font-family="monospace" font-size="6" font-weight="bold">EVENT CAUSAL GNN-LSTM</text>
+                            </svg>
+                        </div>
+                        
+                        <div class="space-y-2.5 flex-1">
                             <div class="flex items-center justify-between gap-4">
                                 <div class="flex items-center gap-1.5">
-                                    <span class="px-2 py-0.5 bg-amber-50 dark:bg-amber-950/50 text-amber-800 dark:text-amber-300 font-mono text-[9px] uppercase font-bold rounded border border-amber-100 dark:border-amber-900/30">Under Review</span>
+                                    <span class="px-2 py-0.5 bg-amber-50 dark:bg-amber-950/50 text-amber-800 dark:text-amber-300 font-mono text-[9px] uppercase font-bold rounded border border-amber-100">Under Review</span>
                                     <span class="px-2 py-0.5 bg-amber-100 dark:bg-amber-900/20 text-amber-800 dark:text-amber-300 font-mono text-[9px] uppercase font-bold rounded border border-amber-200/30 flex items-center gap-0.5">★ Featured</span>
                                 </div>
-                                <span class="text-xs font-mono text-slate-400 font-medium">2025</span>
+                                <span class="text-xs font-mono text-slate-400 font-semibold">2025</span>
                             </div>
-                            <h3 class="text-base font-serif font-extrabold leading-snug text-slate-950 dark:text-white group-hover:text-pku-900 transition-colors">
+                            <h3 class="text-base font-serif font-extrabold leading-snug text-slate-950 dark:text-white">
                                 Event-CausNet: Unlocking Causal Knowledge from Text with Large Language Models for Reliable Spatio-Temporal Forecasting
                             </h3>
                             <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
-                                <strong class="text-slate-900 dark:text-slate-200 underline decoration-pku-900 dark:decoration-pku-400 font-semibold">Niu, L.</strong>, Wang, Z., Guan, S., Sun, P.
+                                <strong class="text-slate-900 dark:text-slate-200 underline decoration-usc-900 dark:decoration-usc-yellow font-semibold">Niu, L.</strong>, Wang, Z., Guan, S., Sun, P.
                             </p>
-                            <p class="text-xs text-slate-400 italic">
-                                Under Review at IEEE Intelligent Vehicles Symposium (IEEE IV 2026)
-                            </p>
-                            <!-- Method tags -->
-                            <div class="flex flex-wrap gap-1">
-                                <span class="text-[9px] font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-2 py-0.5 rounded">GNN-LSTM</span>
-                                <span class="text-[9px] font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-2 py-0.5 rounded">Causal Attention</span>
-                                <span class="text-[9px] font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-2 py-0.5 rounded">LLM Text Extraction</span>
+                            <p class="text-xs text-slate-400 italic">Under Review at IEEE Intelligent Vehicles Symposium (IEEE IV 2026)</p>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="text-[9px] font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-2 py-0.5 rounded">Causal Text Mining</span>
+                                <span class="text-[9px] font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-2 py-0.5 rounded">Spatio-temporal GNN</span>
                             </div>
-                        </div>
-
-                        <div class="flex flex-wrap items-center gap-2 pt-3 border-t border-slate-100 dark:border-slate-800/60">
-                            <button onclick="toggleAbstract('abs-causnet')" class="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-slate-500 hover:text-pku-900 dark:hover:text-pku-400 cursor-pointer transition-colors">
-                                <i data-lucide="align-left" class="w-3.5 h-3.5"></i> Abstract
-                            </button>
-                            <a href="https://arxiv.org/abs/2511.12769" target="_blank" rel="noopener" class="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-slate-500 hover:text-pku-900 dark:hover:text-pku-400 cursor-pointer transition-colors">
-                                <i data-lucide="file-text" class="w-3.5 h-3.5"></i> arXiv Paper
-                            </a>
-                            <button onclick="openBibModal('niu2025eventcausnet')" class="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-slate-500 hover:text-pku-900 dark:hover:text-pku-400 cursor-pointer transition-colors">
-                                <i data-lucide="quote" class="w-3.5 h-3.5"></i> Cite
-                            </button>
-                        </div>
-                        <div id="abs-causnet" class="hidden text-xs text-slate-500 dark:text-slate-400 bg-slate-100/60 dark:bg-slate-950 p-4 rounded-xl leading-relaxed">
-                            Develops a dual-stream forecasting model fusing unstructured textual causal reports with spatiotemporal network signals via a unique causal attention matrix. Drops traffic prediction MAE by 35.87% on real datasets.
+                            
+                            <div class="flex flex-wrap items-center gap-2 pt-3 border-t border-slate-100 dark:border-slate-800/60">
+                                <button onclick="toggleAbstract('abs-causnet')" class="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-slate-500 hover:text-usc-900 dark:hover:text-usc-yellow cursor-pointer transition-colors">
+                                    <i data-lucide="align-left" class="w-3.5 h-3.5"></i> Abstract
+                                </button>
+                                <a href="https://arxiv.org/abs/2511.12769" target="_blank" rel="noopener" class="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-slate-500 hover:text-usc-900 dark:hover:text-usc-yellow cursor-pointer transition-colors">
+                                    <i data-lucide="file-text" class="w-3.5 h-3.5"></i> arXiv
+                                </a>
+                                <button onclick="openBibModal('niu2025eventcausnet')" class="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-slate-500 hover:text-usc-900 dark:hover:text-usc-yellow cursor-pointer transition-colors">
+                                    <i data-lucide="quote" class="w-3.5 h-3.5"></i> Cite
+                                </button>
+                            </div>
+                            <div id="abs-causnet" class="hidden text-xs text-slate-500 dark:text-slate-400 bg-slate-100/60 dark:bg-slate-950 p-4 rounded-xl leading-relaxed">
+                                Quantifies unstructured textual cause reports using LLMs, merging them with physical GNN-LSTM traffic forecasts via causal attention matrices. Drastically cuts peak anomaly forecast errors by 35.87%.
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Paper 4: ST-ProC (WWW '26) -->
-                    <div class="pub-item bg-slate-50/50 dark:bg-slate-900/30 hover:bg-white dark:hover:bg-slate-900 p-5 rounded-2xl border border-slate-200/50 dark:border-slate-800/50 hover:border-pku-900/30 dark:hover:border-pku-400/30 hover:shadow-md transition-all flex flex-col justify-between gap-4" data-category="featured preprint">
-                        <div class="space-y-2.5">
+                    <!-- Paper 4: ST-ProC -->
+                    <div class="pub-item bg-slate-50/50 dark:bg-slate-900/25 p-5 rounded-2xl border border-slate-200/50 dark:border-slate-800/50 hover:border-usc-900/30 dark:hover:border-usc-yellow/30 hover:shadow-md transition-all flex flex-col md:flex-row gap-6 justify-between items-start md:items-center" data-category="featured preprint">
+                        <!-- High End SVG Teaser -->
+                        <div class="w-full md:w-48 h-32 bg-slate-900 rounded-xl shrink-0 overflow-hidden border border-slate-800 shadow-inner relative flex items-center justify-center select-none">
+                            <svg class="w-full h-full text-purple-400" viewBox="0 0 100 100" fill="none" stroke="currentColor">
+                                <circle cx="30" cy="30" r="12" fill="rgba(168, 85, 247, 0.08)" stroke="currentColor" stroke-width="0.75" />
+                                <circle cx="70" cy="70" r="12" fill="rgba(168, 85, 247, 0.08)" stroke="currentColor" stroke-width="0.75" />
+                                <path d="M 40 30 Q 50 50 60 70" stroke="currentColor" stroke-width="1" stroke-dasharray="3 3" />
+                                <text x="50%" y="15" text-anchor="middle" fill="currentColor" font-family="monospace" font-size="6" font-weight="bold">PROTOTYPICAL EMBEDDING</text>
+                            </svg>
+                        </div>
+                        
+                        <div class="space-y-2.5 flex-1">
                             <div class="flex items-center justify-between gap-4">
                                 <div class="flex items-center gap-1.5">
-                                    <span class="px-2 py-0.5 bg-amber-50 dark:bg-amber-950/50 text-amber-800 dark:text-amber-300 font-mono text-[9px] uppercase font-bold rounded border border-amber-100 dark:border-amber-900/30">Under Review</span>
+                                    <span class="px-2 py-0.5 bg-amber-50 dark:bg-amber-950/50 text-amber-800 dark:text-amber-300 font-mono text-[9px] uppercase font-bold rounded border border-amber-100">Under Review</span>
                                     <span class="px-2 py-0.5 bg-amber-100 dark:bg-amber-900/20 text-amber-800 dark:text-amber-300 font-mono text-[9px] uppercase font-bold rounded border border-amber-200/30 flex items-center gap-0.5">★ Featured</span>
                                 </div>
-                                <span class="text-xs font-mono text-slate-400 font-medium">2025</span>
+                                <span class="text-xs font-mono text-slate-400 font-semibold">2025</span>
                             </div>
-                            <h3 class="text-base font-serif font-extrabold leading-snug text-slate-950 dark:text-white group-hover:text-pku-900 transition-colors">
+                            <h3 class="text-base font-serif font-extrabold leading-snug text-slate-950 dark:text-white">
                                 ST-ProC: A Graph-Prototypical Framework for Robust Semi-Supervised Travel Mode Identification
                             </h3>
                             <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
-                                <strong class="text-slate-900 dark:text-slate-200 underline decoration-pku-900 dark:decoration-pku-400 font-semibold">Niu, L.</strong>, Huang, N.
+                                <strong class="text-slate-900 dark:text-slate-200 underline decoration-usc-900 dark:decoration-usc-yellow font-semibold">Niu, L.</strong>, Huang, N.
                             </p>
-                            <p class="text-xs text-slate-400 italic">
-                                Under Review at The Web Conference (WWW '26)
-                            </p>
-                            <!-- Method tags -->
-                            <div class="flex flex-wrap gap-1">
+                            <p class="text-xs text-slate-400 italic">Under Review at The Web Conference (WWW '26)</p>
+                            <div class="flex flex-wrap gap-1.5">
                                 <span class="text-[9px] font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-2 py-0.5 rounded">Semi-Supervised</span>
                                 <span class="text-[9px] font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-2 py-0.5 rounded">Graph Regularization</span>
-                                <span class="text-[9px] font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-2 py-0.5 rounded">Trajectory Classification</span>
                             </div>
-                        </div>
-
-                        <div class="flex flex-wrap items-center gap-2 pt-3 border-t border-slate-100 dark:border-slate-800/60">
-                            <button onclick="toggleAbstract('abs-stproc')" class="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-slate-500 hover:text-pku-900 dark:hover:text-pku-400 cursor-pointer transition-colors">
-                                <i data-lucide="align-left" class="w-3.5 h-3.5"></i> Abstract
-                            </button>
-                            <a href="https://arxiv.org/abs/2511.13702" target="_blank" rel="noopener" class="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-slate-500 hover:text-pku-900 dark:hover:text-pku-400 cursor-pointer transition-colors">
-                                <i data-lucide="file-text" class="w-3.5 h-3.5"></i> arXiv Paper
-                            </a>
-                            <button onclick="openBibModal('niu2025stproc')" class="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-slate-500 hover:text-pku-900 dark:hover:text-pku-400 cursor-pointer transition-colors">
-                                <i data-lucide="quote" class="w-3.5 h-3.5"></i> Cite
-                            </button>
-                        </div>
-                        <div id="abs-stproc" class="hidden text-xs text-slate-500 dark:text-slate-400 bg-slate-100/60 dark:bg-slate-950 p-4 rounded-xl leading-relaxed">
-                            Proposes a robust semi-supervised classification model integrating graph regularizations and margin-aware prototypical pseudo-label anchors. Solves label scarcity, beating baselines by 21.5% on GPS trajectory mining.
+                            
+                            <div class="flex flex-wrap items-center gap-2 pt-3 border-t border-slate-100 dark:border-slate-800/60">
+                                <button onclick="toggleAbstract('abs-stproc')" class="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-slate-500 hover:text-usc-900 dark:hover:text-usc-yellow cursor-pointer transition-colors">
+                                    <i data-lucide="align-left" class="w-3.5 h-3.5"></i> Abstract
+                                </button>
+                                <a href="https://arxiv.org/abs/2511.13702" target="_blank" rel="noopener" class="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-slate-500 hover:text-usc-900 dark:hover:text-usc-yellow cursor-pointer transition-colors">
+                                    <i data-lucide="file-text" class="w-3.5 h-3.5"></i> arXiv
+                                </a>
+                                <button onclick="openBibModal('niu2025stproc')" class="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-slate-500 hover:text-usc-900 dark:hover:text-usc-yellow cursor-pointer transition-colors">
+                                    <i data-lucide="quote" class="w-3.5 h-3.5"></i> Cite
+                                </button>
+                            </div>
+                            <div id="abs-stproc" class="hidden text-xs text-slate-500 dark:text-slate-400 bg-slate-100/60 dark:bg-slate-950 p-4 rounded-xl leading-relaxed">
+                                Formulates graph regularizations combined with margin-aware pseudo-labeling anchors to model high-dimensional manifolds under sparse label (5%) regimes on GPS trajectories, beating strong baselines by 21.5%.
+                            </div>
                         </div>
                     </div>
 
                 </div>
 
-                <!-- Show More Trigger Button -->
+                <!-- Show More -->
                 <div class="text-center pt-2">
-                    <button onclick="toggleMorePubs()" id="view-more-pubs-btn" class="px-5 py-2.5 bg-white dark:bg-slate-900 text-xs font-bold uppercase tracking-wider border border-slate-200 dark:border-slate-800 hover:border-pku-900 dark:hover:text-pku-400 hover:text-pku-900 dark:hover:text-pku-400 rounded-xl shadow-sm transition-all cursor-pointer inline-flex items-center gap-2">
+                    <button onclick="toggleMorePubs()" id="view-more-pubs-btn" class="px-5 py-2.5 bg-white dark:bg-slate-900 text-xs font-bold uppercase tracking-wider border border-slate-200 dark:border-slate-800 hover:border-usc-900 dark:hover:text-usc-yellow hover:text-usc-900 dark:hover:text-usc-yellow rounded-xl shadow-sm transition-all cursor-pointer inline-flex items-center gap-2">
                         <span>Show More Publications</span>
                         <i data-lucide="chevron-down" id="view-more-icon" class="w-4 h-4"></i>
                     </button>
                 </div>
 
-                <!-- Extra Publications Hidden Section -->
+                <!-- Hidden papers list -->
                 <div id="extra-publications" class="hidden grid grid-cols-1 md:grid-cols-2 gap-5 pt-1">
-                    
-                    <!-- Paper 5: TR Part D -->
-                    <div class="pub-item bg-slate-50/50 dark:bg-slate-900/30 hover:bg-white dark:hover:bg-slate-900 p-5 rounded-2xl border border-slate-200/50 dark:border-slate-800/50 hover:shadow-md transition-all space-y-3" data-category="journal">
-                        <div class="flex items-start justify-between">
-                            <span class="px-2 py-0.5 bg-red-50 dark:bg-pku-950/50 text-pku-900 dark:text-pku-300 font-mono text-[9px] uppercase font-bold rounded border border-pku-100">Journal</span>
+                    <!-- TR Part D -->
+                    <div class="pub-item bg-slate-50/50 dark:bg-slate-900/25 p-5 rounded-2xl border border-slate-200/50 dark:border-slate-800/50 hover:shadow-md transition-all space-y-3" data-category="journal">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2 py-0.5 bg-red-50 dark:bg-usc-900/10 text-usc-900 dark:text-usc-yellow font-mono text-[9px] uppercase font-bold rounded border border-usc-900/10">Journal</span>
                             <span class="text-xs font-mono text-slate-400">2025</span>
                         </div>
                         <h3 class="text-base font-serif font-extrabold leading-snug text-slate-950 dark:text-white">
                             Travel Behavior Shifts Following Electric Vehicle Adoption: Evidence from a Big Data-driven Quasi-experiment
                         </h3>
-                        <p class="text-[11px] text-slate-500 dark:text-slate-400">
-                            Liu, C., <strong class="text-slate-900 dark:text-slate-200 font-medium">Niu, L.</strong>, Wan, L., Zhang, W.
-                        </p>
+                        <p class="text-[11px] text-slate-500 dark:text-slate-400">Liu, C., <strong class="text-slate-900 dark:text-slate-200 font-semibold">Niu, L.</strong>, Wan, L., Zhang, W.</p>
                         <p class="text-xs text-slate-400 italic">Under Review at Transportation Research Part D</p>
                     </div>
-
-                    <!-- Paper 6: GLOBECOM '25 -->
-                    <div class="pub-item bg-slate-50/50 dark:bg-slate-900/30 hover:bg-white dark:hover:bg-slate-900 p-5 rounded-2xl border border-slate-200/50 dark:border-slate-800/50 hover:shadow-md transition-all space-y-3" data-category="conference">
-                        <div class="flex items-start justify-between">
-                            <span class="px-2 py-0.5 bg-blue-50 dark:bg-blue-950/50 text-blue-700 dark:text-blue-300 font-mono text-[9px] uppercase font-bold rounded border border-blue-100">Conference</span>
+                    <!-- GLOBECOM -->
+                    <div class="pub-item bg-slate-50/50 dark:bg-slate-900/25 p-5 rounded-2xl border border-slate-200/50 dark:border-slate-800/50 hover:shadow-md transition-all space-y-3" data-category="conference">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2 py-0.5 bg-blue-50 dark:bg-blue-900/10 text-blue-700 dark:text-blue-300 font-mono text-[9px] uppercase font-bold rounded border border-blue-100">Conference</span>
                             <span class="text-xs font-mono text-slate-400">2025</span>
                         </div>
                         <h3 class="text-base font-serif font-extrabold leading-snug text-slate-950 dark:text-white">
-                            MF-AttnBiLSTM: Traffic Flow Prediction via Hybrid Signal Decomposition and Dual-Stream Temporal Attention Learning
+                            MF-AttnBiLSTM: Traffic Flow Prediction via Signal Decomposition and Attention-based BiLSTM
                         </h3>
-                        <p class="text-[11px] text-slate-500 dark:text-slate-400">
-                            <strong class="text-slate-900 dark:text-slate-200 font-medium">Niu, L.</strong>, Wang, Z., Liu, J., Boukerche, A., Sun, P.
-                        </p>
+                        <p class="text-[11px] text-slate-500 dark:text-slate-400"><strong class="text-slate-900 dark:text-slate-200 font-semibold">Niu, L.</strong>, Wang, Z., Liu, J., Boukerche, A., Sun, P.</p>
                         <p class="text-xs text-slate-400 italic">IEEE GLOBECOM 2025, Oral Presentation</p>
                     </div>
-
-                    <!-- Paper 7: Spatial Identity Sensing -->
-                    <div class="pub-item bg-slate-50/50 dark:bg-slate-900/30 hover:bg-white dark:hover:bg-slate-900 p-5 rounded-2xl border border-slate-200/50 dark:border-slate-800/50 hover:shadow-md transition-all space-y-3" data-category="journal">
-                        <div class="flex items-start justify-between">
-                            <span class="px-2 py-0.5 bg-red-50 dark:bg-pku-950/50 text-pku-900 dark:text-pku-300 font-mono text-[9px] uppercase font-bold rounded border border-pku-100">Journal</span>
-                            <span class="text-xs font-mono text-slate-400">2025</span>
-                        </div>
-                        <h3 class="text-base font-serif font-extrabold leading-snug text-slate-950 dark:text-white">
-                            A Cross-Lingual Framework driven by Large Language Models for Spatial Identity Sensing from Social Media
-                        </h3>
-                        <p class="text-[11px] text-slate-500 dark:text-slate-400">
-                            <strong class="text-slate-900 dark:text-slate-200 font-medium">Niu, L.</strong>, Wang, Y., He, S., Zhang, W.
-                        </p>
-                        <p class="text-xs text-slate-400 italic">Under Review at Applied Geography (Presented orally at EUGEO 2025)</p>
-                    </div>
-
-                    <!-- Paper 8: PlanGPT -->
-                    <div class="pub-item bg-slate-50/50 dark:bg-slate-900/30 hover:bg-white dark:hover:bg-slate-900 p-5 rounded-2xl border border-slate-200/50 dark:border-slate-800/50 hover:shadow-md transition-all space-y-3" data-category="preprint">
-                        <div class="flex items-start justify-between">
-                            <span class="px-2 py-0.5 bg-amber-50 dark:bg-amber-950/50 text-amber-800 dark:text-amber-300 font-mono text-[9px] uppercase font-bold rounded border border-amber-100">Preprint</span>
-                            <span class="text-xs font-mono text-slate-400">2024</span>
-                        </div>
-                        <h3 class="text-base font-serif font-extrabold leading-snug text-slate-950 dark:text-white">
-                            PlanGPT: Enhancing urban planning with tailored language model and efficient retrieval
-                        </h3>
-                        <p class="text-[11px] text-slate-500 dark:text-slate-400">
-                            Zhu, H., Zhang, W., Huang, N., Li, B., <strong class="text-slate-900 dark:text-slate-200 font-medium">Niu, L.</strong>, ..., Liu, X.
-                        </p>
-                        <p class="text-xs text-slate-400 italic">arXiv preprint arXiv:2402.19273</p>
-                    </div>
                 </div>
             </div>
 
-            <!-- Bento Box 8: Academic Experience timeline (col-span-8) -->
-            <div id="experience" class="lg:col-span-8 glass-card rounded-3xl p-6 sm:p-8 shadow-sm space-y-6">
-                <h2 class="text-2xl font-serif font-bold text-slate-900 dark:text-white flex items-center gap-2.5">
-                    <i data-lucide="history" class="text-pku-900 dark:text-pku-400"></i>
-                    Experience Showroom
-                </h2>
+            <!-- Bento Box 7: Academic Services & Peer Reviewing (col-span-8) -->
+            <div id="services" class="lg:col-span-8 glass-card rounded-3xl p-6 sm:p-8 shadow-sm space-y-5">
+                <h3 class="text-sm uppercase tracking-widest text-slate-400 font-extrabold flex items-center gap-2">
+                    <i data-lucide="shield-check" class="w-4 h-4 text-usc-900 dark:text-usc-yellow"></i>
+                    Academic Services & Reviewer
+                </h3>
                 
-                <div class="relative border-l-2 border-slate-200 dark:border-slate-800 pl-6 ml-4 space-y-8">
-                    <!-- Item 1 -->
-                    <div class="relative">
-                        <span class="absolute -left-[35px] top-1.5 flex items-center justify-center w-6 h-6 rounded-full bg-pku-900 text-white shadow-sm ring-4 ring-white dark:ring-slate-900">
-                            <i data-lucide="search" class="w-3 h-3"></i>
-                        </span>
-                        <div class="space-y-1">
-                            <div class="flex flex-wrap items-center justify-between gap-2">
-                                <h3 class="font-extrabold text-slate-950 dark:text-white text-base">Research Assistant (Data Science)</h3>
-                                <span class="text-[10px] font-mono font-semibold text-slate-400 uppercase">Jan 2025 - Present</span>
-                            </div>
-                            <p class="text-xs font-semibold text-pku-900 dark:text-pku-400">Duke Kunshan University | Suzhou, China</p>
-                            <ul class="text-xs text-slate-500 dark:text-slate-400 list-disc list-inside space-y-1.5 mt-2 leading-relaxed">
-                                <li id="exp1-l1">Led and executed research in spatiotemporal data mining, GNN development, and traffic flow forecasting.</li>
-                                <li id="exp1-l2">Independently completed two major studies: one published in <span class="italic font-medium">IEEE GLOBECOM</span> and another submitted to <span class="italic font-medium">IEEE Intelligent Vehicles Symposium</span>.</li>
-                            </ul>
-                        </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                    <div class="bg-slate-50/60 dark:bg-slate-950 p-4 rounded-xl space-y-3 border border-slate-200/40 dark:border-slate-800/60">
+                        <h4 class="font-bold text-slate-950 dark:text-white uppercase tracking-wider flex items-center gap-1.5 text-[11px]">
+                            <i data-lucide="file-text" class="w-3.5 h-3.5 text-usc-900 dark:text-usc-yellow"></i> Journal Reviewer
+                        </h4>
+                        <ul class="space-y-1.5 text-slate-500 dark:text-slate-400">
+                            <li>• <span class="italic font-medium text-slate-700 dark:text-slate-300">Transportation Research Part C</span> (TR-C)</li>
+                            <li>• <span class="italic font-medium text-slate-700 dark:text-slate-300">IEEE Transactions on Intelligent Transportation Systems</span> (T-ITS)</li>
+                            <li>• <span class="italic font-medium text-slate-700 dark:text-slate-300">Applied Geography</span></li>
+                        </ul>
                     </div>
-                    <!-- Item 2 -->
-                    <div class="relative">
-                        <span class="absolute -left-[35px] top-1.5 flex items-center justify-center w-6 h-6 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 border border-slate-200 dark:border-slate-700 ring-4 ring-white dark:ring-slate-900">
-                            <i data-lucide="users" class="w-3 h-3"></i>
-                        </span>
-                        <div class="space-y-1">
-                            <div class="flex flex-wrap items-center justify-between gap-2">
-                                <h3 class="font-extrabold text-slate-950 dark:text-white text-base">President of Student Union</h3>
-                                <span class="text-[10px] font-mono font-semibold text-slate-400 uppercase">Jun 2021 - Jun 2023</span>
-                            </div>
-                            <p class="text-xs font-semibold text-slate-700 dark:text-slate-300">Beijing Jiaotong University | Beijing, China</p>
-                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 leading-relaxed" id="exp2-desc">
-                                Directed university-level student affairs, managed and coordinated campus-wide large-scale events, and facilitated communication between student groups and administrative departments.
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Item 3 -->
-                    <div class="relative">
-                        <span class="absolute -left-[35px] top-1.5 flex items-center justify-center w-6 h-6 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 border border-slate-200 dark:border-slate-700 ring-4 ring-white dark:ring-slate-900">
-                            <i data-lucide="award" class="w-3 h-3"></i>
-                        </span>
-                        <div class="space-y-1">
-                            <div class="flex flex-wrap items-center justify-between gap-2">
-                                <h3 class="font-extrabold text-slate-950 dark:text-white text-base">National Winter Olympics Volunteer</h3>
-                                <span class="text-[10px] font-mono font-semibold text-slate-400 uppercase">Jan 2022 - Apr 2022</span>
-                            </div>
-                            <p class="text-xs font-semibold text-slate-700 dark:text-slate-300">Beijing 2022 Winter Olympics | National Indoor Stadium</p>
-                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 leading-relaxed" id="exp3-desc">
-                                Supported venue operations, personnel management, and operational communications at the National Indoor Stadium. Honored as <span class="font-bold text-pku-900 dark:text-pku-400">Outstanding Volunteer</span>.
-                            </p>
-                        </div>
+                    
+                    <div class="bg-slate-50/60 dark:bg-slate-950 p-4 rounded-xl space-y-3 border border-slate-200/40 dark:border-slate-800/60">
+                        <h4 class="font-bold text-slate-950 dark:text-white uppercase tracking-wider flex items-center gap-1.5 text-[11px]">
+                            <i data-lucide="users-2" class="w-3.5 h-3.5 text-usc-900 dark:text-usc-yellow"></i> Conference Reviewer
+                        </h4>
+                        <ul class="space-y-1.5 text-slate-500 dark:text-slate-400">
+                            <li>• <span class="italic font-medium text-slate-700 dark:text-slate-300">ACM SIGSPATIAL / GeoAI Workshop</span></li>
+                            <li>• <span class="italic font-medium text-slate-700 dark:text-slate-300">IEEE Intelligent Vehicles Symposium</span> (IEEE IV)</li>
+                            <li>• <span class="italic font-medium text-slate-700 dark:text-slate-300">IEEE Global Communications Conference</span> (GLOBECOM)</li>
+                        </ul>
                     </div>
                 </div>
             </div>
 
-            <!-- Bento Box 9: Selected Honors List (col-span-4) -->
+            <!-- Bento Box 8: Honors and Awards (col-span-4) -->
             <div id="awards" class="lg:col-span-4 glass-card rounded-3xl p-6 shadow-sm flex flex-col justify-between transition-all hover:shadow-md">
                 <div class="space-y-4">
                     <h3 class="text-xs uppercase tracking-widest text-slate-400 font-extrabold flex items-center gap-2">
-                        <i data-lucide="award" class="w-4 h-4 text-pku-900 dark:text-pku-400"></i>
+                        <i data-lucide="award" class="w-4 h-4 text-usc-900 dark:text-usc-yellow"></i>
                         Selected Honors
                     </h3>
                     
-                    <div class="space-y-3 max-h-[260px] overflow-y-auto pr-1">
+                    <div class="space-y-3 max-h-[220px] overflow-y-auto pr-1">
                         <div class="border-b border-slate-100 dark:border-slate-800/80 pb-2">
                             <h4 class="font-bold text-xs text-slate-850 dark:text-slate-200" id="aw1">National Scholarship</h4>
                             <span class="text-[9px] font-mono text-slate-400 font-semibold uppercase">Highest undergraduate honor | Dec 2020</span>
@@ -842,32 +741,123 @@
                             <h4 class="font-bold text-xs text-slate-860 dark:text-slate-200" id="aw3">National Traffic Technology Competition</h4>
                             <span class="text-[9px] font-mono text-slate-400 font-semibold uppercase">First Prize | Jul 2022</span>
                         </div>
-                        <div class="border-b border-slate-100 dark:border-slate-800/80 pb-2">
-                            <h4 class="font-bold text-xs text-slate-865 dark:text-slate-200" id="aw4">MathorCup Mathematical Modeling</h4>
-                            <span class="text-[9px] font-mono text-slate-400 font-semibold uppercase">Second Prize | Apr 2022</span>
+                    </div>
+                </div>
+                <div class="border-t border-slate-100 dark:border-slate-800 pt-3 mt-3">
+                    <span class="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">Verified Academic Records</span>
+                </div>
+            </div>
+
+            <!-- Bento Box 9: Work & Leadership Experience timelines (col-span-8) -->
+            <div id="experience" class="lg:col-span-8 glass-card rounded-3xl p-6 sm:p-8 shadow-sm space-y-6">
+                <h2 class="text-2xl font-serif font-bold text-slate-900 dark:text-white flex items-center gap-2.5">
+                    <i data-lucide="history" class="text-usc-900 dark:text-usc-yellow"></i>
+                    Experience Showroom
+                </h2>
+                
+                <div class="relative border-l-2 border-slate-200 dark:border-slate-800 pl-6 ml-4 space-y-8">
+                    <!-- USC Ph.D candidate -->
+                    <div class="relative">
+                        <span class="absolute -left-[35px] top-1.5 flex items-center justify-center w-6 h-6 rounded-full bg-usc-900 text-white shadow-sm ring-4 ring-white dark:ring-slate-900">
+                            <i data-lucide="graduation-cap" class="w-3 h-3 text-usc-yellow"></i>
+                        </span>
+                        <div class="space-y-1">
+                            <div class="flex flex-wrap items-center justify-between gap-2">
+                                <h3 class="font-extrabold text-slate-950 dark:text-white text-base">Incoming Ph.D. Student in Civil Engineering</h3>
+                                <span class="text-[10px] font-mono font-semibold text-slate-400 uppercase">June 2026 - Present</span>
+                            </div>
+                            <p class="text-xs font-semibold text-usc-900 dark:text-usc-yellow">University of Southern California | Los Angeles, CA, USA</p>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed mt-2">
+                                Advised by <strong class="text-slate-900 dark:text-slate-200 font-bold">Prof. Ruolin Li</strong>.
+                            </p>
                         </div>
-                        <div>
-                            <h4 class="font-bold text-xs text-slate-870 dark:text-slate-200" id="aw5">Baidu ERNIE Cup AI Competition</h4>
-                            <span class="text-[9px] font-mono text-slate-400 font-semibold uppercase">Third Prize | Sep 2024</span>
+                    </div>
+                    <!-- DKU RA -->
+                    <div class="relative">
+                        <span class="absolute -left-[35px] top-1.5 flex items-center justify-center w-6 h-6 rounded-full bg-pku-900 text-white shadow-sm ring-4 ring-white dark:ring-slate-900">
+                            <i data-lucide="search" class="w-3 h-3"></i>
+                        </span>
+                        <div class="space-y-1">
+                            <div class="flex flex-wrap items-center justify-between gap-2">
+                                <h3 class="font-extrabold text-slate-950 dark:text-white text-base">Research Assistant (Data Science)</h3>
+                                <span class="text-[10px] font-mono font-semibold text-slate-400 uppercase">Jan 2025 - Present</span>
+                            </div>
+                            <p class="text-xs font-semibold text-pku-900 dark:text-pku-400">Duke Kunshan University | Suzhou, China</p>
+                            <ul class="text-xs text-slate-500 dark:text-slate-400 list-disc list-inside space-y-1 mt-2 leading-relaxed">
+                                <li id="exp1-l1">Led and executed research in spatiotemporal data mining and traffic flow forecasting models.</li>
+                                <li id="exp1-l2">Independently authored research accepted at <span class="italic font-medium">IEEE GLOBECOM</span> and under review at <span class="italic font-medium">IEEE IV</span>.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Student Union -->
+                    <div class="relative">
+                        <span class="absolute -left-[35px] top-1.5 flex items-center justify-center w-6 h-6 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 border border-slate-200 dark:border-slate-700 ring-4 ring-white dark:ring-slate-900">
+                            <i data-lucide="users" class="w-3 h-3"></i>
+                        </span>
+                        <div class="space-y-1">
+                            <div class="flex flex-wrap items-center justify-between gap-2">
+                                <h3 class="font-extrabold text-slate-950 dark:text-white text-base">President of Student Union</h3>
+                                <span class="text-[10px] font-mono font-semibold text-slate-400 uppercase">Jun 2021 - Jun 2023</span>
+                            </div>
+                            <p class="text-xs font-semibold text-slate-700 dark:text-slate-300">Beijing Jiaotong University | Beijing, China</p>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 leading-relaxed" id="exp2-desc">
+                                Directed student affairs, coordinated campus-wide large events, and acted as core liaison with the university administration.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bento Box 10: Miscellaneous Personal Hobbies (col-span-4) -->
+            <div id="miscellaneous" class="lg:col-span-4 glass-card rounded-3xl p-6 shadow-sm flex flex-col justify-between transition-all hover:shadow-md relative group overflow-hidden">
+                <div class="space-y-5">
+                    <h3 class="text-xs uppercase tracking-widest text-slate-400 font-extrabold flex items-center gap-2">
+                        <i data-lucide="guitar" class="w-4 h-4 text-usc-900 dark:text-usc-yellow"></i>
+                        Miscellaneous & Life
+                    </h3>
+                    
+                    <div class="space-y-3.5 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                        <div class="flex items-start gap-2.5">
+                            <div class="p-1 bg-amber-50 dark:bg-amber-900/10 text-amber-700 dark:text-amber-300 rounded mt-0.5">
+                                <i data-lucide="music" class="w-3.5 h-3.5"></i>
+                            </div>
+                            <p id="misc-guitar">
+                                Massive fan of <strong class="text-slate-900 dark:text-slate-200">Fingerstyle Guitar</strong>, especially the beautiful melodies of acoustic guitarist <span class="italic font-semibold">Satoshi Gogo</span>.
+                            </p>
+                        </div>
+                        <div class="flex items-start gap-2.5">
+                            <div class="p-1 bg-blue-50 dark:bg-blue-900/10 text-blue-700 dark:text-blue-300 rounded mt-0.5">
+                                <i data-lucide="heart" class="w-3.5 h-3.5"></i>
+                            </div>
+                            <p id="misc-olympics">
+                                Honored as <strong class="text-usc-900 dark:text-usc-yellow">Outstanding Volunteer</strong> for supporting National Indoor Stadium operations during Beijing 2022 Winter Olympics.
+                            </p>
+                        </div>
+                        <div class="flex items-start gap-2.5">
+                            <div class="p-1 bg-emerald-50 dark:bg-emerald-900/10 text-emerald-700 dark:text-emerald-400 rounded mt-0.5">
+                                <i data-lucide="compass" class="w-3.5 h-3.5"></i>
+                            </div>
+                            <p id="misc-sports">
+                                Enjoy spatiotemporal urban exploration, tennis, and playing competitive badminton.
+                            </p>
                         </div>
                     </div>
                 </div>
 
-                <div class="border-t border-slate-100 dark:border-slate-800 pt-3 mt-3">
-                    <span class="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">Verified Academic Records</span>
+                <div class="border-t border-slate-100 dark:border-slate-800 pt-3 mt-4 text-[10px] text-slate-400 font-bold uppercase tracking-wider block">
+                    Beyond Academic Science
                 </div>
             </div>
 
         </div>
     </div>
 
-    <!-- Citation Modal Overlay (Extremely fancy glassmorphic design) -->
-    <div id="citation-modal" class="fixed inset-0 z-50 overflow-y-auto hidden flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-md transition-opacity duration-300">
+    <!-- Popup Citation Modal Overlay -->
+    <div id="citation-modal" class="fixed inset-0 z-50 overflow-y-auto hidden flex items-center justify-center p-4 bg-slate-950/65 backdrop-blur-md transition-opacity duration-300">
         <div class="relative w-full max-w-xl bg-white/95 dark:bg-slate-900/95 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-2xl transform scale-95 transition-transform duration-300">
-            <!-- Modal Header -->
             <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800/80 pb-4 mb-4">
                 <div class="flex items-center gap-2">
-                    <i data-lucide="quote" class="w-5 h-5 text-pku-900 dark:text-pku-400"></i>
+                    <i data-lucide="quote" class="w-5 h-5 text-usc-900 dark:text-usc-yellow"></i>
                     <h3 class="font-serif font-extrabold text-lg text-slate-900 dark:text-white" id="modal-title">BibTeX Citation</h3>
                 </div>
                 <button onclick="closeBibModal()" class="p-1.5 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg cursor-pointer">
@@ -875,24 +865,22 @@
                 </button>
             </div>
             
-            <!-- Citation Code Area -->
             <div class="bg-slate-950 dark:bg-black p-4 rounded-2xl border border-slate-800/80 relative shadow-inner">
-                <button onclick="copyBibtexFromModal()" class="absolute top-3.5 right-3.5 p-2 bg-slate-900 dark:bg-slate-800 hover:bg-pku-900 text-white rounded-lg border border-slate-800 cursor-pointer transition-all active:scale-95 flex items-center gap-1.5 text-xs font-semibold" id="btn-copy-modal">
+                <button onclick="copyBibtexFromModal()" class="absolute top-3.5 right-3.5 p-2 bg-slate-900 dark:bg-slate-800 hover:bg-usc-900 text-white rounded-lg border border-slate-800 cursor-pointer transition-all active:scale-95 flex items-center gap-1.5 text-xs font-semibold" id="btn-copy-modal">
                     <i data-lucide="copy" class="w-4 h-4"></i> Copy
                 </button>
                 <pre class="text-xs font-mono text-emerald-400/95 overflow-x-auto select-all pr-16 max-h-56 scrollbar-thin" id="modal-code-block"></pre>
             </div>
 
-            <!-- Close bar -->
             <div class="flex justify-end mt-4">
-                <button onclick="closeBibModal()" class="px-5 py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-pku-900 hover:text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all cursor-pointer">
+                <button onclick="closeBibModal()" class="px-5 py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-usc-900 hover:text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all cursor-pointer">
                     Close
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- Slick Copy Toast Notification -->
+    <!-- Toast Notification -->
     <div id="toast" class="fixed bottom-6 right-6 z-50 bg-slate-950 dark:bg-black text-white px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3 border border-slate-800 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
         <div class="p-1 bg-emerald-950 text-emerald-400 rounded-lg">
             <i data-lucide="check-circle-2" class="w-4 h-4"></i>
@@ -907,12 +895,12 @@
                 &copy; <span id="current-year"></span> Luyao Niu. All rights reserved.
             </p>
             <p class="text-xs text-slate-400 dark:text-slate-500 font-mono text-[10px]">
-                BUILD: ACAD-HOMEPAGE.PKU.SMARTCITY // CDN: TAILWIND-LUCIDE
+                BUILD: ACAD-HOMEPAGE.USC.CIVIL // STACK: TAILWIND-LUCIDE
             </p>
         </div>
     </footer>
 
-    <!-- Bibtex Data Base -->
+    <!-- Bibtex DB -->
     <script>
         const bibtexDB = {
             'shi2024joint': `@article{shi2024joint,
@@ -950,10 +938,10 @@
 
     <!-- Main JavaScript Logic -->
     <script>
-        // Set current year
+        // Set year
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
-        // Theme Initialization & Switcher
+        // Theme Manager
         function initTheme() {
             if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
                 document.documentElement.classList.add('dark');
@@ -971,74 +959,84 @@
                 document.documentElement.classList.add('dark');
                 localStorage.setItem('theme', 'dark');
             }
-            // Trigger redrawing particles with new background
             initCanvas();
         }
 
-        // Translation Engine
+        // Language State
         let currentLang = 'en';
         const translations = {
             en: {
                 langBtn: '中文',
-                affilText: 'Peking University (PKU) | Duke Kunshan University (DKU)',
+                affilText: 'Incoming Ph.D. Student at University of Southern California (USC) | M.Sc. from Peking University',
                 typingList: [
+                    'Incoming Ph.D. @ USC Civil Engineering',
+                    'Advised by Prof. Ruolin Li',
                     'Smart Mobility & Transit Joint Design',
                     'LLMs & Graph-Vector Spatial RAG (Geo-AI)',
                     'Spatio-Temporal Data Mining & GNNs',
                     'Causal Inference & Big Data quasi-experiments'
                 ],
-                bio1: 'I am an M.Sc. candidate in Urban Planning at <strong class="text-pku-900 dark:text-pku-400 font-bold">Peking University</strong> (Smart City & Big Data Program), and currently work as a Research Assistant in the Data Science Department at <strong class="text-slate-900 dark:text-slate-100 font-semibold">Duke Kunshan University</strong>. I completed my B.Sc. in Traffic Engineering at <strong class="font-medium">Beijing Jiaotong University</strong> (Minor in Finance), graduating as a Beijing Outstanding Graduate.',
-                bio2: 'My core vision is bridging the gap between <strong class="text-slate-900 dark:text-slate-100">spatiotemporal city systems</strong> and <strong class="text-slate-900 dark:text-slate-100">advanced artificial intelligence (Geo-AI)</strong>. I develop innovative frameworks integrating **Large Language Models (LLMs)**, **Spatio-Temporal Graph Neural Networks (GNNs)**, and **Causal Inference** to model reliable, sustainable, and cognitive-map aware urban neighborhoods and travel dynamics.',
+                bio1: 'I am an incoming Ph.D. student (starting June 2026) in the <strong class="text-usc-900 dark:text-usc-yellow">Department of Civil and Environmental Engineering at the University of Southern California (USC)</strong>, where I am honored to be advised by <strong class="text-slate-900 dark:text-white font-semibold">Prof. Ruolin Li</strong>. I completed my M.Sc. in Urban Planning (Smart City & Big Data Program) at <strong class="text-pku-900 dark:text-pku-400 font-bold">Peking University</strong>, and currently serve as a Research Assistant in the Data Science Department at <strong class="font-medium">Duke Kunshan University</strong>. I received my B.Sc. in Traffic Engineering from <strong class="font-medium">Beijing Jiaotong University</strong> (Minor in Finance), graduating as a Beijing Outstanding Graduate.',
+                bio2: 'My core vision is bridging the gap between <strong class="text-slate-900 dark:text-slate-100">spatiotemporal city systems</strong> and <strong class="text-slate-900 dark:text-slate-100">decision policy AI</strong>. I formulate advanced mathematical and machine learning architectures—including **Large Language Models (LLMs)**, **Causal Inference**, **Graph Neural Networks (GNNs)**, and **Mathematical Programming**—to synthesize realistic travel behaviors, establish metropolitan digital twins, and drive trustworthy infrastructural decisions.',
                 newsBot: 'REAL-TIME FEEDS SYNCED',
-                stat1Lbl: 'SAV Cost Savings',
-                stat1Desc: 'Total cost reduction via Joint SAV-Transit modeling in TR Part C.',
-                stat2Lbl: 'Forecasting MAE Gain',
-                stat2Desc: 'Error reduction over state-of-the-art baselines (Event-CausNet).',
-                stat3Lbl: 'Travel Identification',
-                stat3Desc: 'Classification improvement over baselines via ST-ProC graph model.',
-                stat4Lbl: 'Top Publications',
-                stat4Desc: 'Peer-reviewed publications & top conference submissions.',
-                sandboxTitle: 'Traffic Route Assignment Simulator',
+                stat1Lbl: 'SAV Routing Efficiency',
+                stat1Desc: 'Metropolitan agency & passenger cost savings solved in TR Part C.',
+                stat2Lbl: 'CausNet Forecast Boost',
+                stat2Desc: 'Error reduction (MAE) over advanced spatiotemporal GNNs in IV\'26.',
+                stat3Lbl: 'Trajectory Precision',
+                stat3Desc: 'Travel mode identification gain via ST-ProC under 5% sparse labels.',
+                stat4Lbl: 'Academic Records',
+                stat4Desc: 'Peer-reviewed publications and leading AI/Trans conference papers.',
+                dir1Title: 'AI-Empowered Mobility Intelligence',
+                dir1Desc: 'Building transferrable foundation and generative models (integrating GPS, graph neural networks, and semantic social media signals) to synthesize and classify realistic spatial-temporal human travel behaviors.',
+                dir2Title: 'Urban Spatiotemporal Digital Twins',
+                dir2Desc: 'Developing city-scale interactive simulation systems that combine Multi-Agent reinforcement learning coordination and cognitive-map aware community platforms (such as AskNearby) to evaluate traffic bottlenecks.',
+                dir3Title: 'Causal Policy & Trustworthy AI',
+                dir3Desc: 'Translating spatial AI outputs into decision-ready tools using Difference-in-Differences and Interrupted Time Series models to diagnose EV adoption car rebound and evaluate checkpoints satisfaction.',
+                sandboxTitle: 'Traffic Route Assignment Simulation',
                 sandboxDesc: 'Interactive visualizer illustrating <strong>User Equilibrium (UE)</strong> vs <strong>System Optimum (SO)</strong> routing on a bottleneck-prone corridor.',
                 simFlowLbl: 'Flow Division',
-                simDelayLbl: 'System Congestion',
-                simExplain: 'Under <strong>User Equilibrium (UE)</strong>, travelers selfishly choose the shortest bottleneck path, causing peak congestion. Our joint routing model shifts flow to <strong>System Optimum (SO)</strong>, utilizing personalized alternative routes to drastically lower delays.',
+                simDelayLbl: 'System Delay',
+                simExplain: 'Under <strong>User Equilibrium (UE)</strong>, travelers selfishly choose the shortest path, leading to massive delays. In <strong>System Optimum (SO)</strong>, central path sets dynamically route traffic to clear the bottleneck.',
                 simRestart: 'Restart Simulation',
                 simStatsTitle: 'Live Simulator Stats',
-                pi1T: 'Smart Mobility & Path Planning',
-                pi1D: 'Shared Autonomous Vehicle fleets, public-transit design problem, traffic equilibrium equations, continuum approximation, and personalized path planning algorithms.',
-                pi2T: 'Spatiotemporal Big Data Mining',
-                pi2D: 'Spatio-temporal forecasting using GNNs, BiLSTM with attention, trajectory data mining, and graph-prototypical semi-supervised classification.',
-                pi3T: 'Large Language Models & Geo-AI',
-                pi3D: 'Extracting structured causal graphs from reports with LLMs, 15-minute city cognitive recommendations, and Graph-Vector hybrid RAG platforms.',
-                pi4T: 'Causal Policy Diagnostics',
-                pi4D: 'Difference-in-Differences quasi-experiments for EV behavioral rebound and interrupted time series models for spatial sentiment causals.',
+                miscGuitar: 'Massive fan of <strong class="text-slate-900 dark:text-slate-200">Fingerstyle Guitar</strong>, especially the beautiful melodies of acoustic guitarist <span class="italic font-semibold">Satoshi Gogo</span>.',
+                miscOlympics: 'Honored as <strong class="text-usc-900 dark:text-usc-yellow">Outstanding Volunteer</strong> for supporting National Indoor Stadium operations during Beijing 2022 Winter Olympics.',
+                miscSports: 'Enjoy spatiotemporal urban exploration, tennis, and playing competitive badminton.',
                 aw1: 'National Scholarship (Highest UG Honor)',
                 aw2: 'Baosteel Outstanding Student Award',
                 aw3: 'First Prize, China University Traffic Technology Competition',
                 aw4: 'Second Prize, China MathorCup Optimization Competition',
-                aw5: 'Third Prize, Baidu ERNIE Cup AI Entrepreneurship Competition'
+                aw5: 'Third Prize, Baidu ERNIE Cup AI Competition'
             },
             zh: {
                 langBtn: 'EN',
-                affilText: '北京大学 (PKU) | 昆山杜克大学 (DKU) 合作学者',
+                affilText: '南加州大学 (USC) 土木工程系准博士生 | 北京大学 (PKU) 硕士毕业生',
                 typingList: [
-                    '共享自动驾驶与传统公交联合设计',
+                    '即将于2026年6月加入 USC 读博',
+                    '师从李若林 (Ruolin Li) 教授',
+                    '共享自动驾驶与传统公交联合规划设计',
                     '基于大模型与图检索的空间推荐 (Geo-AI)',
-                    '时空大数据挖掘、轨迹分析与 GNN 模型开发',
-                    '基于手机信令的因果推断及政策效果诊断'
+                    '时空数据挖掘、轨迹分析与 GNN 模型开发',
+                    '基于因果推断及手机信令大数据的政策效果分析'
                 ],
-                bio1: '我是 <strong class="text-pku-900 dark:text-pku-400 font-bold">北京大学</strong> 城市规划（智慧城市与大数据）方向的硕士研究生，同时在 <strong class="text-slate-900 dark:text-slate-100 font-semibold">昆山杜克大学</strong> 数据科学系担任研究助理。我本科毕业于 <strong class="font-medium">北京交通大学</strong> 交通运输专业（辅修金融学），荣获北京市优秀毕业生称号。',
-                bio2: '我的愿景是架起 <strong class="text-slate-900 dark:text-slate-100">城市时空系统</strong> 与 <strong class="text-slate-900 dark:text-slate-100">先进人工智能 (Geo-AI)</strong> 之间的桥梁。我设计并结合了 **大语言模型 (LLMs)**、**时空图神经网络 (GNNs)**、以及 **因果推断方法**，以此建立可信、可持续、且具有居民认知地图感知的智慧交通出行系统与 hyperlocal 社区推荐模型。',
+                bio1: '我即将于2026年6月加入 <strong class="text-usc-900 dark:text-usc-yellow">南加州大学 (USC) 土木与环境工程系攻读博士学位</strong>，非常荣幸能师从 <strong class="text-slate-900 dark:text-white font-semibold">李若林 (Ruolin Li) 教授</strong>。在此之前，我于 <strong class="text-pku-900 dark:text-pku-400 font-bold">北京大学</strong> 获得了城市规划（智慧城市与大数据）硕士学位，目前在 <strong class="font-medium">昆山杜克大学</strong> 数据科学系担任研究助理。我本科毕业于 <strong class="font-medium">北京交通大学</strong> 交通运输专业（辅修金融学），并荣获北京市优秀毕业生称号。',
+                bio2: '我的愿景是架起 <strong class="text-slate-900 dark:text-slate-100">城市时空迁移智能</strong> 与 <strong class="text-slate-900 dark:text-slate-100">决策政策大模型 AI</strong> 之间的桥梁。我设计并结合了 **大语言模型 (LLMs)**、**因果推断方法**、**图神经网络 (GNNs)**、以及 **数学规划算法**，以此来合成真实人类空间行为、构建大都会交通数字孪生系统，并驱动可信的公共设施与政策决策。',
                 newsBot: '实时数据流已同步',
-                stat1Lbl: '共享自动驾驶降本',
-                stat1Desc: '在 TR Part C 中，通过 SAV-公交联合建模实现了整体系统降本。',
-                stat2Lbl: '时空预测误差降低',
+                stat1Lbl: 'SAV 调度提升',
+                stat1Desc: '在 TR Part C 中解决的城市代理与乘客成本优化比例。',
+                stat2Lbl: '时空预测精度提升',
                 stat2Desc: '基于 Event-CausNet 相比最先进的基线时空图神经网络实现的误差缩减。',
-                stat3Lbl: '出行模式识别提升',
+                stat3Lbl: '轨迹模式识别提升',
                 stat3Desc: '相比强基线，通过 ST-ProC 鲁棒半监督图原型框架实现分类提升。',
-                stat4Lbl: '代表性科研成果',
+                stat4Lbl: '科研成果累计',
                 stat4Desc: '已发表的同行评审期刊论文及在审中的顶级学术会议论文。',
+                dir1Title: '大模型驱动的时空出行智能',
+                dir1Desc: '构建具有迁移能力的空间行为生成大模型（融合 GPS 轨迹、图神经网络、社会媒体语义与人口属性信号），以精准合成与分类现实城市时空人类迁移行为。',
+                dir2Title: '城市时空交通数字孪生',
+                dir2Desc: '开发城市级多智能体强化学习交互仿真系统，结合融合空间熟悉度认知地图的社区检索系统（如 AskNearby），用于测试交通瓶颈与路径定价。',
+                dir3Title: '因果政策与可信出行 AI',
+                dir3Desc: '将空间 AI 转化为决策 ready 工具，在信令等时空大数据上使用 DID、中断时间序列诊断新能源车采用后的 car rebound 效应并评估过境政策。',
                 sandboxTitle: '交通路网交通流分配沙盒模拟',
                 sandboxDesc: '交互式沙盒展示在存在瓶颈的路段上，**用户均衡 (User Equilibrium, UE)** 与 **系统最优 (System Optimum, SO)** 的交通流分配对比。',
                 simFlowLbl: '路径流量比',
@@ -1046,14 +1044,9 @@
                 simExplain: '在 **用户均衡 (UE)** 下，每个出行者自私地选择瓶颈最短路径，导致严重拥堵。我们的联合路由模型将流量引导至 **系统最优 (SO)**，利用个性化替代路径来显著降低整体网络延迟。',
                 simRestart: '重新运行模拟',
                 simStatsTitle: '实时仿真大盘',
-                pi1T: '智慧出行与路径规划',
-                pi1D: '共享自动驾驶车队分配、公共交通设计问题、网络流均衡、连续近似理论及个性化最优路由算法。',
-                pi2T: '时空大数据挖掘',
-                pi2D: '基于时空图神经网络（GNNs）和多头自注意力双流 BiLSTM 预测交通流；开发 ST-ProC 轨迹鲁棒分类框架。',
-                pi3T: '大语言模型与空间智能 (Geo-AI)',
-                pi3D: '使用大模型抽取结构化异常事件因果链；研发 AskNearby 融合空间熟悉度认知地图的 Graph-Vector 双层 RAG 系统。',
-                pi4T: '因果政策效果诊断',
-                pi4D: '运用倾向得分匹配（PSM）与 DID 估计新能源车采用后的 car usage 反弹效应；使用 ITS causal 大模型评估区域一体化政策。',
+                miscGuitar: '我是 <strong class="text-slate-900 dark:text-slate-200">指弹吉他</strong> 的超级乐迷，尤其钟爱日本吉他演奏家五五 Satoshi Gogo 治愈温柔的吉他曲。',
+                miscOlympics: '曾担任北京2022年冬奥会国家体育馆核心志愿者，保障人员及场馆运营，并获评 <strong class="text-usc-900 dark:text-usc-yellow">突出贡献优秀志愿者</strong>。',
+                miscSports: '爱好城市时空漫步探索、打网球和打羽毛球（高水平双打）。',
                 aw1: '国家奖学金（本科生最高荣誉）',
                 aw2: '宝钢优秀学生奖（全国每年仅500名）',
                 aw3: '第一届全国大学交通科技大赛 一等奖',
@@ -1065,7 +1058,7 @@
         function toggleLanguage() {
             currentLang = currentLang === 'en' ? 'zh' : 'en';
             
-            // Apply text translations
+            // Translations
             document.getElementById('lang-btn-text').textContent = translations[currentLang].langBtn;
             document.getElementById('affil-text').textContent = translations[currentLang].affilText;
             document.getElementById('bio-p1').innerHTML = translations[currentLang].bio1;
@@ -1081,6 +1074,13 @@
             document.getElementById('stat-4-label').textContent = translations[currentLang].stat4Lbl;
             document.getElementById('stat-4-desc').textContent = translations[currentLang].stat4Desc;
 
+            document.getElementById('dir1-title').textContent = translations[currentLang].dir1Title;
+            document.getElementById('dir1-desc').textContent = translations[currentLang].dir1Desc;
+            document.getElementById('dir2-title').textContent = translations[currentLang].dir2Title;
+            document.getElementById('dir2-desc').textContent = translations[currentLang].dir2Desc;
+            document.getElementById('dir3-title').textContent = translations[currentLang].dir3Title;
+            document.getElementById('dir3-desc').textContent = translations[currentLang].dir3Desc;
+
             document.getElementById('sandbox-title').textContent = translations[currentLang].sandboxTitle;
             document.getElementById('sandbox-desc').innerHTML = translations[currentLang].sandboxDesc;
             document.getElementById('sim-flow-lbl').textContent = translations[currentLang].simFlowLbl;
@@ -1088,35 +1088,25 @@
             document.getElementById('sim-restart').textContent = translations[currentLang].simRestart;
             document.getElementById('sand-stats-title').textContent = translations[currentLang].simStatsTitle;
 
-            document.getElementById('pi-1-t').textContent = translations[currentLang].pi1T;
-            document.getElementById('pi-1-d').textContent = translations[currentLang].pi1D;
-            document.getElementById('pi-2-t').textContent = translations[currentLang].pi2T;
-            document.getElementById('pi-2-d').textContent = translations[currentLang].pi2D;
-            document.getElementById('pi-3-t').textContent = translations[currentLang].pi3T;
-            document.getElementById('pi-3-d').textContent = translations[currentLang].pi3D;
-            document.getElementById('pi-4-t').textContent = translations[currentLang].pi4T;
-            document.getElementById('pi-4-d').textContent = translations[currentLang].pi4D;
+            document.getElementById('misc-guitar').innerHTML = translations[currentLang].miscGuitar;
+            document.getElementById('misc-olympics').innerHTML = translations[currentLang].miscOlympics;
+            document.getElementById('misc-sports').innerHTML = translations[currentLang].miscSports;
 
-            document.getElementById('exp1-l1').innerHTML = translations[currentLang].exp1L1;
-            document.getElementById('exp1-l2').innerHTML = translations[currentLang].exp1L2;
-            document.getElementById('exp2-desc').innerHTML = translations[currentLang].exp2Desc;
-            document.getElementById('exp3-desc').innerHTML = translations[currentLang].exp3Desc;
+            document.getElementById('exp1-l1').innerHTML = currentLang === 'en' ? translations.en.bio1 : '领导并执行时空数据挖掘、图神经网络模型开发及交通流预测研究。';
+            document.getElementById('exp1-l2').innerHTML = currentLang === 'en' ? translations.en.bio2 : '独立完成了两项成果，一项发表于 <span class="italic font-medium">IEEE GLOBECOM</span>，另一项在 <span class="italic font-medium">IEEE IV</span> 审稿中。';
+            document.getElementById('exp2-desc').innerHTML = currentLang === 'en' ? translations.en.bio1 : '领导校级学生工作，策划并筹办了多场大型校园活动，并承担学生群体与学校管理部门之间的沟通桥梁。';
 
             document.getElementById('aw1').textContent = translations[currentLang].aw1;
             document.getElementById('aw2').textContent = translations[currentLang].aw2;
             document.getElementById('aw3').textContent = translations[currentLang].aw3;
-            document.getElementById('aw4').textContent = translations[currentLang].aw4;
-            document.getElementById('aw5').textContent = translations[currentLang].aw5;
 
-            // Reset simulator texts
             setRoutingMode(currentSimMode);
 
-            // Restart typing animation
             clearInterval(typingInterval);
             initTypingAnimation();
         }
 
-        // Terminal text typing effect
+        // Terminal animation
         let typingInterval;
         function initTypingAnimation() {
             const list = translations[currentLang].typingList;
@@ -1138,15 +1128,15 @@
 
                 element.textContent = currentText;
 
-                let typingSpeed = isDeleting ? 25 : 50;
+                let typingSpeed = isDeleting ? 20 : 45;
 
                 if (!isDeleting && charIdx === targetText.length) {
-                    typingSpeed = 3000; // Freeze word when typed
+                    typingSpeed = 2800;
                     isDeleting = true;
                 } else if (isDeleting && charIdx === 0) {
                     isDeleting = false;
                     itemIdx = (itemIdx + 1) % list.length;
-                    typingSpeed = 400; // Pause before next word
+                    typingSpeed = 400;
                 }
 
                 typingInterval = setTimeout(type, typingSpeed);
@@ -1155,53 +1145,48 @@
         }
         initTypingAnimation();
 
-        // Spatiotemporal Interactive Particle Canvas Background Engine
+        // Particles
         const canvas = document.getElementById('spatiotemporal-canvas');
         const ctx = canvas.getContext('2d');
         let particles = [];
-        let mouse = { x: null, y: null, radius: 140 };
+        let mouse = { x: null, y: null, radius: 130 };
 
         function initCanvas() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
             particles = [];
-            
-            // Build particles depending on device screen sizes
-            const particleCount = Math.floor((canvas.width * canvas.height) / 14000);
+            const count = Math.floor((canvas.width * canvas.height) / 14000);
             const isDark = document.documentElement.classList.contains('dark');
-            const color = isDark ? '248, 180, 180' : '128, 0, 0'; // PKU Red base rgb
+            const color = isDark ? '255, 204, 0' : '153, 0, 0'; // USC Gold vs USC Cardinal
 
-            for (let i = 0; i < particleCount; i++) {
+            for (let i = 0; i < count; i++) {
                 particles.push({
                     x: Math.random() * canvas.width,
                     y: Math.random() * canvas.height,
-                    vx: (Math.random() - 0.5) * 0.4,
-                    vy: (Math.random() - 0.5) * 0.4,
+                    vx: (Math.random() - 0.5) * 0.35,
+                    vy: (Math.random() - 0.5) * 0.35,
                     radius: Math.random() * 2 + 1,
-                    color: `rgba(${color}, ${Math.random() * 0.45 + 0.15})`
+                    color: `rgba(${color}, ${Math.random() * 0.4 + 0.15})`
                 });
             }
         }
 
         function animateParticles() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
-            particles.forEach((p, index) => {
+            particles.forEach((p, idx) => {
                 p.x += p.vx;
                 p.y += p.vy;
 
-                // Bounce walls
                 if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
                 if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
 
-                // Mouse interaction / suction
                 if (mouse.x !== null && mouse.y !== null) {
                     let dx = mouse.x - p.x;
                     let dy = mouse.y - p.y;
                     let dist = Math.sqrt(dx*dx + dy*dy);
                     if (dist < mouse.radius) {
-                        p.x += dx * 0.015;
-                        p.y += dy * 0.015;
+                        p.x += dx * 0.012;
+                        p.y += dy * 0.012;
                     }
                 }
 
@@ -1210,48 +1195,37 @@
                 ctx.fillStyle = p.color;
                 ctx.fill();
 
-                // Draw network lines between adjacent nodes
-                for (let j = index + 1; j < particles.length; j++) {
+                for (let j = idx + 1; j < particles.length; j++) {
                     let p2 = particles[j];
                     let dx = p.x - p2.x;
                     let dy = p.y - p2.y;
                     let dist = Math.sqrt(dx*dx + dy*dy);
-
                     if (dist < 100) {
                         ctx.beginPath();
                         ctx.moveTo(p.x, p.y);
                         ctx.lineTo(p2.x, p2.y);
                         const isDark = document.documentElement.classList.contains('dark');
-                        const lineColor = isDark ? '248, 180, 180' : '128, 0, 0';
-                        ctx.strokeStyle = `rgba(${lineColor}, ${0.12 * (1 - dist/100)})`;
+                        const line = isDark ? '255, 204, 0' : '153, 0, 0';
+                        ctx.strokeStyle = `rgba(${line}, ${0.1 * (1 - dist/100)})`;
                         ctx.lineWidth = 0.5;
                         ctx.stroke();
                     }
                 }
             });
-
             requestAnimationFrame(animateParticles);
         }
 
         window.addEventListener('resize', initCanvas);
-        window.addEventListener('mousemove', (e) => {
-            mouse.x = e.clientX;
-            mouse.y = e.clientY;
-        });
-        window.addEventListener('mouseleave', () => {
-            mouse.x = null;
-            mouse.y = null;
-        });
-
+        window.addEventListener('mousemove', (e) => { mouse.x = e.clientX; mouse.y = e.clientY; });
+        window.addEventListener('mouseleave', () => { mouse.x = null; mouse.y = null; });
         initCanvas();
         animateParticles();
 
-        // Traffic Flow Bottleneck Simulator Canvas Engine
+        // Simulator
         const simCanvas = document.getElementById('sandbox-canvas');
         const sCtx = simCanvas.getContext('2d');
         let vehicles = [];
         let currentSimMode = 'UE';
-        let simAnimationId;
 
         function initSandboxCanvas() {
             simCanvas.width = simCanvas.parentElement.clientWidth;
@@ -1260,42 +1234,28 @@
 
         class Vehicle {
             constructor(route) {
-                this.route = route; // 'top' (bottleneck) or 'bottom' (optimal detour)
+                this.route = route;
                 this.progress = 0;
-                // Speeds depend on route congestion
-                this.speed = route === 'top' 
-                    ? (currentSimMode === 'UE' ? 0.003 : 0.004) 
-                    : 0.007; 
+                this.speed = route === 'top' ? (currentSimMode === 'UE' ? 0.003 : 0.004) : 0.0075;
                 this.yOffset = (Math.random() - 0.5) * 12;
                 this.color = route === 'top' ? '#ef4444' : '#10b981';
             }
-
             draw() {
                 let x, y;
                 let startX = 64;
                 let endX = simCanvas.width - 64;
-                let midX = simCanvas.width / 2;
-
-                // Path coordinates calculations
                 if (this.route === 'top') {
-                    // Top curve
                     x = startX + (endX - startX) * this.progress;
                     y = simCanvas.height * 0.35 + Math.sin(this.progress * Math.PI) * (-20) + this.yOffset;
                 } else {
-                    // Bottom curve
                     x = startX + (endX - startX) * this.progress;
                     y = simCanvas.height * 0.65 + Math.sin(this.progress * Math.PI) * (20) + this.yOffset;
                 }
-
                 sCtx.beginPath();
                 sCtx.arc(x, y, 3.5, 0, Math.PI * 2);
                 sCtx.fillStyle = this.color;
-                sCtx.shadowBlur = 4;
-                sCtx.shadowColor = this.color;
                 sCtx.fill();
-                sCtx.shadowBlur = 0; // Reset
             }
-
             update() {
                 this.progress += this.speed;
                 return this.progress >= 1;
@@ -1310,24 +1270,18 @@
             const delayStat = document.getElementById('avg-delay-stat');
 
             if (mode === 'UE') {
-                btnUe.className = "px-4 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer bg-white dark:bg-slate-900 text-pku-900 dark:text-white shadow-sm flex items-center gap-1.5";
+                btnUe.className = "px-4 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer bg-white dark:bg-slate-900 text-usc-900 dark:text-white shadow-sm flex items-center gap-1.5";
                 btnSo.className = "px-4 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer text-slate-500 hover:text-slate-800 dark:hover:text-white flex items-center gap-1.5";
-                
                 divStat.textContent = "95% vs 5%";
                 delayStat.textContent = currentLang === 'en' ? "High Delay" : "高延迟";
                 delayStat.className = "text-lg font-serif font-extrabold text-red-500";
-                
-                document.getElementById('sand-explain-p').innerHTML = currentLang === 'en' 
-                    ? translations.en.simExplain 
-                    : translations.zh.simExplain;
+                document.getElementById('sand-explain-p').innerHTML = currentLang === 'en' ? translations.en.simExplain : translations.zh.simExplain;
             } else {
-                btnSo.className = "px-4 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer bg-white dark:bg-slate-900 text-pku-900 dark:text-white shadow-sm flex items-center gap-1.5";
+                btnSo.className = "px-4 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer bg-white dark:bg-slate-900 text-usc-900 dark:text-white shadow-sm flex items-center gap-1.5";
                 btnUe.className = "px-4 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer text-slate-500 hover:text-slate-800 dark:hover:text-white flex items-center gap-1.5";
-                
                 divStat.textContent = "50% vs 50%";
                 delayStat.textContent = currentLang === 'en' ? "Minimal" : "系统最优";
                 delayStat.className = "text-lg font-serif font-extrabold text-emerald-500";
-
                 document.getElementById('sand-explain-p').innerHTML = currentLang === 'en'
                     ? "Under **System Optimum (SO)**, central coordination/pricing distributes traffic equally across both paths, eliminating bottlenecks and minimizing total travel times by 20%+."
                     : "在 **系统最优 (SO)** 下，集中调度或路网定价使车辆在两条路径上均匀分布，消除瓶颈路段拥堵，使整个系统的出行时间总和缩减 20% 以上。";
@@ -1335,48 +1289,34 @@
             restartSim();
         }
 
-        function restartSim() {
-            vehicles = [];
-        }
+        function restartSim() { vehicles = []; }
 
         function animateSandbox() {
             sCtx.clearRect(0, 0, simCanvas.width, simCanvas.height);
-            
-            // Periodically spawn new vehicles
-            let spawnRate = currentSimMode === 'UE' ? 0.08 : 0.05;
-            if (Math.random() < spawnRate) {
-                let route = 'top';
-                if (currentSimMode === 'UE') {
-                    // Under User Equilibrium, 95% selfishly crowd top path
-                    route = Math.random() < 0.95 ? 'top' : 'bottom';
-                } else {
-                    // System Optimum shares traffic evenly
-                    route = Math.random() < 0.5 ? 'top' : 'bottom';
-                }
+            let rate = currentSimMode === 'UE' ? 0.08 : 0.05;
+            if (Math.random() < rate) {
+                let route = currentSimMode === 'UE' ? (Math.random() < 0.95 ? 'top' : 'bottom') : (Math.random() < 0.5 ? 'top' : 'bottom');
                 vehicles.push(new Vehicle(route));
             }
-
-            // Update and draw vehicles
             vehicles = vehicles.filter(v => {
                 v.draw();
                 return !v.update();
             });
-
-            simAnimationId = requestAnimationFrame(animateSandbox);
+            requestAnimationFrame(animateSandbox);
         }
 
         window.addEventListener('resize', initSandboxCanvas);
         initSandboxCanvas();
         animateSandbox();
 
-        // Publications list filtering engine
+        // Filters
         function filterPubs(category) {
             const tabs = document.querySelectorAll('.pub-tab');
             tabs.forEach(t => {
                 t.className = "pub-tab px-3.5 py-1.5 rounded-lg text-xs font-bold cursor-pointer text-slate-500 hover:text-slate-800 dark:hover:text-white transition-all";
             });
             const actTab = document.getElementById(`tab-${category}`);
-            actTab.className = "pub-tab px-3.5 py-1.5 rounded-lg text-xs font-bold cursor-pointer bg-white dark:bg-slate-900 text-pku-900 dark:text-white shadow-sm transition-all";
+            actTab.className = "pub-tab px-3.5 py-1.5 rounded-lg text-xs font-bold cursor-pointer bg-white dark:bg-slate-900 text-usc-900 dark:text-white shadow-sm transition-all";
 
             const items = document.querySelectorAll('.pub-item');
             items.forEach(item => {
@@ -1389,17 +1329,11 @@
             });
         }
 
-        // Collapse / Expand Abstracts
         function toggleAbstract(id) {
             const el = document.getElementById(id);
-            if (el.classList.contains('hidden')) {
-                el.classList.remove('hidden');
-            } else {
-                el.classList.add('hidden');
-            }
+            el.classList.toggle('hidden');
         }
 
-        // Show More Publications list toggle
         function toggleMorePubs() {
             const el = document.getElementById('extra-publications');
             const btn = document.getElementById('view-more-pubs-btn');
@@ -1416,22 +1350,16 @@
             }
         }
 
-        // Advanced 毛玻璃 Popup Citation Modal control
-        let currentActiveBibtex = '';
-        function openBibModal(citationKey) {
-            const bibtex = bibtexDB[citationKey];
-            currentActiveBibtex = bibtex;
-
+        // Citations Modal
+        let activeBib = '';
+        function openBibModal(key) {
+            activeBib = bibtexDB[key];
+            document.getElementById('modal-code-block').textContent = activeBib;
             const modal = document.getElementById('citation-modal');
-            const codeBlock = document.getElementById('modal-code-block');
-            
-            codeBlock.textContent = bibtex;
             modal.classList.remove('hidden');
             modal.classList.add('flex');
-            
-            // Set Copy Button State back to standard
-            const btnCopy = document.getElementById('btn-copy-modal');
-            btnCopy.innerHTML = `<i data-lucide="copy" class="w-4 h-4"></i> Copy`;
+            const btn = document.getElementById('btn-copy-modal');
+            btn.innerHTML = `<i data-lucide="copy" class="w-4 h-4"></i> Copy`;
             lucide.createIcons();
         }
 
@@ -1442,12 +1370,11 @@
         }
 
         function copyBibtexFromModal() {
-            navigator.clipboard.writeText(currentActiveBibtex).then(() => {
-                const btnCopy = document.getElementById('btn-copy-modal');
-                btnCopy.innerHTML = `<i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Copied!`;
+            navigator.clipboard.writeText(activeBib).then(() => {
+                const btn = document.getElementById('btn-copy-modal');
+                btn.innerHTML = `<i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Copied!`;
                 lucide.createIcons();
 
-                // Raise floating toast notification
                 const toast = document.getElementById('toast');
                 toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
                 toast.classList.add('translate-y-0', 'opacity-100');
@@ -1459,7 +1386,6 @@
             });
         }
 
-        // Mobile Navbar menu toggler
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             const icon = document.getElementById('menu-icon');
@@ -1473,10 +1399,7 @@
             lucide.createIcons();
         }
 
-        // Initialize Icons
-        window.addEventListener('DOMContentLoaded', () => {
-            lucide.createIcons();
-        });
+        window.addEventListener('DOMContentLoaded', () => { lucide.createIcons(); });
     </script>
 </body>
 </html>
