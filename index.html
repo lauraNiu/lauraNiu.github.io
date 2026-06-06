@@ -1417,7 +1417,7 @@
         // Dynamic fetch of Scholar stats from our Google Scholar python crawler backend branch
         async function fetchGoogleScholarStats() {
             try {
-                const response = await fetch('https://raw.githubusercontent.com/lauraNiu/acad-homepage.github.io/google-scholar-stats/gs_data.json');
+                const response = await fetch('https://raw.githubusercontent.com/lauraNiu/lauraNiu.github.io/google-scholar-stats/gs_data.json');
                 if (response.ok) {
                     const data = await response.json();
                     if (data && data.citedby) {
