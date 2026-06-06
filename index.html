@@ -962,6 +962,9 @@
             initCanvas();
         }
 
+        // Global Academic Stats State (linked with backend crawler branch)
+        let scholarData = null;
+
         // Language State
         let currentLang = 'en';
         const translations = {
@@ -1072,7 +1075,19 @@
             document.getElementById('stat-3-label').textContent = translations[currentLang].stat3Lbl;
             document.getElementById('stat-3-desc').textContent = translations[currentLang].stat3Desc;
             document.getElementById('stat-4-label').textContent = translations[currentLang].stat4Lbl;
-            document.getElementById('stat-4-desc').textContent = translations[currentLang].stat4Desc;
+            if (scholarData && scholarData.citedby) {
+                const valSpan = document.getElementById('stat-4-label').parentElement.querySelector('.text-3xl');
+                if (valSpan) valSpan.textContent = scholarData.citedby;
+                const descP = document.getElementById('stat-4-desc');
+                if (descP) {
+                    const formattedDate = new Date(scholarData.updated).toLocaleDateString(currentLang === 'en' ? 'en-US' : 'zh-CN');
+                    descP.textContent = currentLang === 'en' 
+                        ? `Real-time citations synced dynamically (Updated: ${formattedDate})` 
+                        : `大模型爬虫实时同步 Google Scholar 引用量 (更新于: ${formattedDate})`;
+                }
+            } else {
+                document.getElementById('stat-4-desc').textContent = translations[currentLang].stat4Desc;
+            }
 
             document.getElementById('dir1-title').textContent = translations[currentLang].dir1Title;
             document.getElementById('dir1-desc').textContent = translations[currentLang].dir1Desc;
@@ -1399,7 +1414,40 @@
             lucide.createIcons();
         }
 
-        window.addEventListener('DOMContentLoaded', () => { lucide.createIcons(); });
+        // Dynamic fetch of Scholar stats from our Google Scholar python crawler backend branch
+        async function fetchGoogleScholarStats() {
+            try {
+                const response = await fetch('https://raw.githubusercontent.com/lauraNiu/acad-homepage.github.io/google-scholar-stats/gs_data.json');
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data && data.citedby) {
+                        scholarData = data;
+                        // Dynamically update the 4th stat box with real citation count
+                        const statBox = document.getElementById('stat-4-label');
+                        if (statBox) {
+                            const valSpan = statBox.parentElement.querySelector('.text-3xl') || statBox.nextElementSibling.querySelector('span');
+                            if (valSpan) {
+                                valSpan.textContent = scholarData.citedby;
+                            }
+                            const descP = document.getElementById('stat-4-desc');
+                            if (descP) {
+                                const formattedDate = new Date(scholarData.updated).toLocaleDateString(currentLang === 'en' ? 'en-US' : 'zh-CN');
+                                descP.textContent = currentLang === 'en' 
+                                    ? `Real-time citations synced dynamically (Updated: ${formattedDate})` 
+                                    : `大模型爬虫实时同步 Google Scholar 引用量 (更新于: ${formattedDate})`;
+                            }
+                        }
+                    }
+                }
+            } catch (e) {
+                console.warn("Unable to fetch scholar data from crawler branch yet:", e);
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => { 
+            lucide.createIcons(); 
+            fetchGoogleScholarStats();
+        });
     </script>
 </body>
 </html>
