@@ -21,3 +21,48 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
 
 <!-- end custom head snippets -->
+
+<!-- Theme + language: set ASAP to avoid flash, then wire up toggles -->
+<script>
+  (function () {
+    var root = document.documentElement;
+    var theme = localStorage.getItem('theme');
+    if (!theme) {
+      theme = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+    }
+    root.setAttribute('data-theme', theme);
+    root.setAttribute('data-lang', localStorage.getItem('lang') || 'en');
+  })();
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var root = document.documentElement;
+
+    var themeBtn = document.getElementById('theme-toggle');
+    function syncTheme() {
+      themeBtn.textContent = root.getAttribute('data-theme') === 'dark' ? '☀️' : '🌙';
+    }
+    if (themeBtn) {
+      syncTheme();
+      themeBtn.addEventListener('click', function () {
+        var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        syncTheme();
+      });
+    }
+
+    var langBtn = document.getElementById('lang-toggle');
+    function syncLang() {
+      langBtn.textContent = root.getAttribute('data-lang') === 'zh' ? 'EN' : '中文';
+    }
+    if (langBtn) {
+      syncLang();
+      langBtn.addEventListener('click', function () {
+        var next = root.getAttribute('data-lang') === 'zh' ? 'en' : 'zh';
+        root.setAttribute('data-lang', next);
+        localStorage.setItem('lang', next);
+        syncLang();
+      });
+    }
+  });
+</script>

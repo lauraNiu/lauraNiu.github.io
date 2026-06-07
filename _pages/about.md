@@ -17,42 +17,129 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. Suspendisse condimentum, libero vel tempus mattis, risus risus vulputate libero, elementum fermentum mi neque vel nisl. Maecenas facilisis maximus dignissim. Curabitur mattis vulputate dui, tincidunt varius libero luctus eu. Mauris mauris nulla, scelerisque eget massa id, tincidunt congue felis. Sed convallis tempor ipsum rhoncus viverra. Pellentesque nulla orci, accumsan volutpat fringilla vitae, maximus sit amet tortor. Aliquam ultricies odio ut volutpat scelerisque. Donec nisl nisl, porttitor vitae pharetra quis, fringilla sed mi. Fusce pretium dolor ut aliquam consequat. Cras volutpat, tellus accumsan mattis molestie, nisl lacus tempus massa, nec malesuada tortor leo vel quam. Aliquam vel ex consectetur, vehicula leo nec, efficitur eros. Donec convallis non urna quis feugiat.
+<span lang="en" markdown="1">
+Hi there 👋 I'm **Laura Niu**.
+</span>
+<span lang="zh" markdown="1">
+你好 👋 我是**牛同学**。 <!-- TODO: 你的中文名 -->
+</span>
 
-My research interest includes neural machine translation and computer vision. I have published more than 100 papers at the top international AI conferences with total <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'>google scholar citations <strong><span id='total_cit'>260000+</span></strong></a> (You can also use google scholar badge <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>).
+<span lang="en" markdown="1">
+TODO: A short bio — who you are, where you study/work, and what drives your research. Keep it to 3–5 sentences and write in the first person.
+</span>
+<span lang="zh" markdown="1">
+TODO：一段简短的自我介绍——你是谁、就读/任职于哪里、你的研究兴趣是什么。建议 3–5 句话，用第一人称。
+</span>
+
+<span lang="en" markdown="1">
+My research interests include TODO and TODO. <!-- TODO: list your real interests -->
+</span>
+<span lang="zh" markdown="1">
+我的研究兴趣包括 TODO 与 TODO。 <!-- TODO: 填写真实研究方向 -->
+</span>
+
+<span lang="en" markdown="1">
+You can find my work on <a href='{{ site.author.googlescholar }}'>Google Scholar</a> <a href='{{ site.author.googlescholar }}'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>.
+</span>
+<span lang="zh" markdown="1">
+更多成果见我的 <a href='{{ site.author.googlescholar }}'>Google Scholar</a> <a href='{{ site.author.googlescholar }}'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>。
+</span>
 
 
-# 🔥 News
-- *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+# <span lang="en">🔥 News</span><span lang="zh">🔥 最新动态</span> {#news}
+<div lang="en" markdown="1">
+- *2026.06*: &nbsp;🎉 TODO: a recent piece of news (paper accepted, award, talk, new role…).
+- *2026.01*: &nbsp;🎉 TODO: another news item.
+</div>
+<div lang="zh" markdown="1">
+- *2026.06*：&nbsp;🎉 TODO：一条近期动态（论文录用、获奖、报告、新职位……）。
+- *2026.01*：&nbsp;🎉 TODO：另一条动态。
+</div>
 
-# 📝 Publications 
+# <span lang="en">📝 Publications</span><span lang="zh">📝 学术论文</span> {#publications}
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2016</div><img src='images/500x300.png' alt="sym" width="100%"></div></div>
+<div lang="en" markdown="1">*Selected publications. <sup>*</sup> denotes equal contribution. <!-- TODO: edit/remove this note --></div>
+<div lang="zh" markdown="1">*精选论文。<sup>*</sup> 表示共同贡献。 <!-- TODO: 按需修改/删除 --></div>
+
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">TODO Venue 2026</div><img src='images/500x300.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-[Deep Residual Learning for Image Recognition](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)
+[TODO: Paper Title](https://example.com) <!-- TODO: link to paper/PDF -->
 
-**Kaiming He**, Xiangyu Zhang, Shaoqing Ren, Jian Sun
+**Laura Niu**, Co-Author A, Co-Author B <!-- TODO: real author list -->
 
-[**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=DhtAFkwAAAAJ&citation_for_view=DhtAFkwAAAAJ:ALROH1vI_8AC) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+<div lang="en" markdown="1">
+[**Project**](https://example.com) <!-- TODO --> <strong><span class='show_paper_citations' data='TODO_SCHOLAR_PAPER_ID'></span></strong>
+- TODO: one or two sentences describing the contribution.
+</div>
+<div lang="zh" markdown="1">
+[**项目主页**](https://example.com) <!-- TODO --> <strong><span class='show_paper_citations' data='TODO_SCHOLAR_PAPER_ID'></span></strong>
+- TODO：一两句话描述这项工作的贡献。
 </div>
 </div>
+</div>
 
-- [Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet](https://github.com), A, B, C, **CVPR 2020**
+<div lang="en" markdown="1">
+- [TODO: Paper Title](https://example.com), **Laura Niu**, A, B, **TODO Venue 2025**
+</div>
+<div lang="zh" markdown="1">
+- [TODO：论文标题](https://example.com)，**Laura Niu**，A，B，**TODO 会议/期刊 2025**
+</div>
 
-# 🎖 Honors and Awards
-- *2021.10* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2021.09* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+# <span lang="en">🧑‍💼 Experience</span><span lang="zh">🧑‍💼 工作经历</span> {#experience}
+<div lang="en" markdown="1">
+- *2024.xx - now*, TODO: Role, Organization, Location.
+- *2022.xx - 2024.xx*, TODO: Role, Organization, Location.
+</div>
+<div lang="zh" markdown="1">
+- *2024.xx - 至今*，TODO：职位，单位，地点。
+- *2022.xx - 2024.xx*，TODO：职位，单位，地点。
+</div>
 
-# 📖 Educations
-- *2019.06 - 2022.04 (now)*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2015.09 - 2019.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+# <span lang="en">🎖 Honors and Awards</span><span lang="zh">🎖 荣誉奖项</span> {#honors}
+<div lang="en" markdown="1">
+- *2025.xx* TODO: Award name.
+- *2024.xx* TODO: Award name.
+</div>
+<div lang="zh" markdown="1">
+- *2025.xx* TODO：奖项名称。
+- *2024.xx* TODO：奖项名称。
+</div>
 
-# 💬 Invited Talks
-- *2021.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2021.03*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  \| [\[video\]](https://github.com/)
+# <span lang="en">📖 Education</span><span lang="zh">📖 教育经历</span> {#education}
+<div lang="en" markdown="1">
+- *20xx.xx - now*, TODO: Degree, University.
+- *20xx.xx - 20xx.xx*, TODO: Degree, University.
+</div>
+<div lang="zh" markdown="1">
+- *20xx.xx - 至今*，TODO：学位，学校。
+- *20xx.xx - 20xx.xx*，TODO：学位，学校。
+</div>
 
-# 💻 Internships
-- *2019.05 - 2020.02*, [Lorem](https://github.com/), China.
+# <span lang="en">🛠 Academic Services</span><span lang="zh">🛠 学术服务</span> {#services}
+<div lang="en" markdown="1">
+- **Reviewer**: TODO (e.g., NeurIPS, CVPR, ACL…).
+- **Teaching Assistant**: TODO course, University.
+</div>
+<div lang="zh" markdown="1">
+- **审稿人**：TODO（如 NeurIPS、CVPR、ACL……）。
+- **助教**：TODO 课程，学校。
+</div>
+
+# <span lang="en">💬 Invited Talks</span><span lang="zh">💬 受邀报告</span> {#talks}
+<div lang="en" markdown="1">
+- *2025.xx*, TODO: Talk title / venue. \| [\[video\]](https://example.com)
+- *2025.xx*, TODO: Talk title / venue.
+</div>
+<div lang="zh" markdown="1">
+- *2025.xx*，TODO：报告题目 / 场合。 \| [\[视频\]](https://example.com)
+- *2025.xx*，TODO：报告题目 / 场合。
+</div>
+
+# <span lang="en">💻 Internships</span><span lang="zh">💻 实习经历</span> {#internships}
+<div lang="en" markdown="1">
+- *20xx.xx - 20xx.xx*, [TODO Company](https://example.com), Location.
+</div>
+<div lang="zh" markdown="1">
+- *20xx.xx - 20xx.xx*，[TODO 公司](https://example.com)，地点。
+</div>

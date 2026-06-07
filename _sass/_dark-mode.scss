@@ -1,0 +1,79 @@
+/* ==========================================================================
+   Language toggle + Dark mode
+   ========================================================================== */
+
+/* --- Language toggle ---
+   Both languages live inline in the markup; we show only the active one.
+   Default (no data-lang or data-lang="en") => English. */
+html[lang] { }                       /* no-op guard */
+[lang="zh"] { display: none; }       /* hidden by default (English first) */
+html[data-lang="zh"] [lang="en"] { display: none; }
+html[data-lang="zh"] [lang="zh"] { display: inline; }
+/* block-level zh containers should restore block flow when active */
+html[data-lang="zh"] div[lang="zh"] { display: block; }
+
+/* --- Floating toggle controls --- */
+.site-controls {
+  position: fixed;
+  top: 0.6em;
+  right: 0.8em;
+  z-index: 1000;
+  display: flex;
+  gap: 0.4em;
+}
+.site-controls button {
+  cursor: pointer;
+  border: 1px solid rgba(0,0,0,0.15);
+  background: rgba(255,255,255,0.85);
+  color: #333;
+  border-radius: 6px;
+  padding: 0.3em 0.6em;
+  font-size: 0.85em;
+  line-height: 1;
+  backdrop-filter: blur(4px);
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.site-controls button:hover { background: rgba(255,255,255,1); }
+
+/* --- Dark mode --- */
+html[data-theme="dark"] {
+  background-color: #1a1c20;
+
+  body { background-color: #1a1c20; color: #d6d8dc; }
+
+  a { color: #7fb6ff; }
+  a:visited { color: #b69be8; }
+  a:hover { color: #a9d0ff; }
+
+  h1, h2, h3, h4, h5, h6 { color: #f0f1f3; }
+
+  /* masthead / nav */
+  .masthead { background-color: #15171a; border-bottom-color: #2a2d33; }
+  .masthead__menu-item a, .greedy-nav a { color: #d6d8dc; }
+  .greedy-nav { background: #15171a; }
+  .greedy-nav .visible-links a:before { background: #7fb6ff; }
+
+  /* sidebar / author profile */
+  .author__bio, .author__urls li, .sidebar { color: #c2c5ca; }
+  .author__urls.social-icons li a { color: #d6d8dc; }
+
+  /* publication cards */
+  .paper-box { border-bottom-color: #2a2d33; }
+  .paper-box-image img { box-shadow: 3px 3px 6px #000; }
+  .badge { background-color: #2e6bd6; }
+
+  /* misc surfaces */
+  .page__footer { background-color: #15171a; color: #9aa0a6; }
+  .page__footer a { color: #9aa0a6; }
+  code, pre { background-color: #25282e; color: #e6e6e6; }
+  blockquote { border-left-color: #3a3d44; }
+  hr { border-color: #2a2d33; }
+
+  /* control buttons in dark mode */
+  .site-controls button {
+    background: rgba(40,43,49,0.85);
+    color: #e6e8ea;
+    border-color: rgba(255,255,255,0.18);
+  }
+  .site-controls button:hover { background: rgba(50,53,60,1); }
+}
