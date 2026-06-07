@@ -1,3 +1,7 @@
 _site/
 push.sh
 .DS_Store
+.preview.Gemfile
+.preview.Gemfile.lock
+vendor/
+.jekyll-cache/

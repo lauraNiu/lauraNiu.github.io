@@ -22,31 +22,31 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 # Site Author
 author:
   name             : "Luyao Niu"
-  avatar           : "images/android-chrome-512x512.png"   # TODO: replace with your photo (e.g. images/avatar.jpg)
-  bio              : "University of Southern California | Peking University | Beijing Jiaotong University"   # shown in sidebar
-  location         : "Shanghai, China"
-  cv               : "files/CV.pdf"   # TODO: drop your CV PDF here to show the "Download CV" button
+  avatar           : "images/android-chrome-512x512.png"   # TODO: 换成你的照片，例如 images/avatar.jpg
+  bio              : "Incoming PhD @ USC · M.Sc. @ Peking University"   # shown in sidebar
+  location         : "Beijing, China"
+  cv               : "files/CV.pdf"
   employer         :
   pubmed           :
-  googlescholar    : # TODO: "https://scholar.google.com/citations?user=YOUR_GOOGLE_SCHOLAR_ID"
-  email            : "luyao0160@pku.edu.cn"
+  googlescholar    : "https://scholar.google.com/citations?user=Luyao_Niu"   # TODO: 换成你的真实 Scholar 主页链接
+  email            : "luyao0160@stu.pku.edu.cn"
   researchgate     : "https://www.researchgate.net/profile/Luyao-Niu-3"
-  uri              :
+  uri              : "https://luyao0160.owlstown.net/"
   bitbucket        :
   codepen          :
   dribbble         :
   flickr           :
   facebook         :
   foursquare       :
-  github           : LauraNiu
+  github           : lauraNiu
   google_plus      :
   keybase          :
   instagram        :
-  impactstory      : # e.g., "https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
+  impactstory      :
   lastfm           :
-  linkedin         : "Luyao Niu"
-  dblp             : # e.g., "https://dblp.org/pid/xx/xxxx.html"
-  orcid            : "https://orcid.org/my-orcid?orcid=0009-0004-4410-1134"
+  linkedin         :
+  dblp             :
+  orcid            : "https://orcid.org/0009-0004-4410-1134"
   pinterest        :
   soundcloud       :
   stackoverflow    : # http://stackoverflow.com/users/123456/username
